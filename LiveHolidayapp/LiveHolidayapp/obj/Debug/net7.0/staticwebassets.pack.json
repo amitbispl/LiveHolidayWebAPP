@@ -1,0 +1,909 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\LiveHolidayapp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\LiveHolidayapp.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\change.css",
+      "PackagePath": "staticwebassets\\css\\change.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfont3e6e.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfont3e6e.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.svg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfont3e6e.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.ttf"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfont3e6e.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.woff"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfont3e6e.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.woff2"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\fontawesome-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfontd41d.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\glyphicons-halflings-regulard41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regulard41d.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\fonts\\theme-font\\Arial.ttf.html",
+      "PackagePath": "staticwebassets\\fonts\\theme-font\\Arial.ttf.html"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-1.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-2.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-3.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-4.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-5.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\activities\\activities-6.jpg",
+      "PackagePath": "staticwebassets\\img\\activities\\activities-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\banner\\blog-banner-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\banner\\blog-banner-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\blog-listing\\blog-listing-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-listing\\blog-listing-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\blog-listing\\blog-listing-2.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-listing\\blog-listing-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\blog-listing\\blog-listing-3.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-listing\\blog-listing-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\blog-listing\\blog-listing-4.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\blog-listing\\blog-listing-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\latest-news\\l-news-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\latest-news\\l-news-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\latest-news\\l-news-2.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\latest-news\\l-news-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-2.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-3.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-4.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-5.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-6.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-7.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-7.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\blog\\main-blog\\blog-8.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\main-blog\\blog-8.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\choose-resort-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\choose-resort-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\clients\\client-1.png",
+      "PackagePath": "staticwebassets\\img\\clients\\client-1.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comment\\comment-1.jpg",
+      "PackagePath": "staticwebassets\\img\\comment\\comment-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comment\\comment-2.jpg",
+      "PackagePath": "staticwebassets\\img\\comment\\comment-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comment\\comment-3.jpg",
+      "PackagePath": "staticwebassets\\img\\comment\\comment-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comment\\comment-4.jpg",
+      "PackagePath": "staticwebassets\\img\\comment\\comment-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comming-soon-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\comming-soon-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\discount-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\discount-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\discount-person.png",
+      "PackagePath": "staticwebassets\\img\\discount-person.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\error-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\error-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-1.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-2.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-3.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-4.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-5.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-details-1.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-details-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-1.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-2.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-3.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-4.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-5.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\event\\event-two\\event-two-6.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\event-two\\event-two-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\fav-icon.png",
+      "PackagePath": "staticwebassets\\img\\fav-icon.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\footer-logo.png",
+      "PackagePath": "staticwebassets\\img\\footer-logo.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-1.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-10.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-10.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-2.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-3.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-4.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-5.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-6.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-7.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-7.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-8.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-8.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\cobage-gallery\\c-gallery-9.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\cobage-gallery\\c-gallery-9.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-big\\img-1.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-big\\img-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-big\\img-2.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-big\\img-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-big\\img-3.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-big\\img-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-big\\img-4.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-big\\img-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-1.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-2.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-3.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-4.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-5.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-6.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-7.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-7.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-8.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-8.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-three-column\\gallery-three-9.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-three-column\\gallery-three-9.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-1.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-2.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-3.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-4.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-5.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\gallery-two-column\\galley-two-6.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\gallery-two-column\\galley-two-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-1.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-2.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-3.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-4.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-5.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-6.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-7.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-7.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\gallery\\resort-g-8.jpg",
+      "PackagePath": "staticwebassets\\img\\gallery\\resort-g-8.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-1.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-10.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-10.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-2.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-3.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-5 - Copy.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-5 - Copy.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-5.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-6.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-7.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-7.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-8.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-8.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider-9.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider-9.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-1.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-1.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-2.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-2.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-3.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-3.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-4.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-4.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-5.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-5.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-6.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-6.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-7.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-7.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-8.png",
+      "PackagePath": "staticwebassets\\img\\icon\\aminities-8.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\event-icon-1.png",
+      "PackagePath": "staticwebassets\\img\\icon\\event-icon-1.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\event-icon-2.png",
+      "PackagePath": "staticwebassets\\img\\icon\\event-icon-2.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\inbox-bg-icon-white.png",
+      "PackagePath": "staticwebassets\\img\\icon\\inbox-bg-icon-white.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\inbox-bg-icon.png",
+      "PackagePath": "staticwebassets\\img\\icon\\inbox-bg-icon.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\phone-icon.png",
+      "PackagePath": "staticwebassets\\img\\icon\\phone-icon.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\introduction-img.jpg",
+      "PackagePath": "staticwebassets\\img\\introduction-img.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\introduction-img2.jpg",
+      "PackagePath": "staticwebassets\\img\\introduction-img2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\introduction-img3.jpg",
+      "PackagePath": "staticwebassets\\img\\introduction-img3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\login_img.png",
+      "PackagePath": "staticwebassets\\img\\login_img.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\logo-black.png",
+      "PackagePath": "staticwebassets\\img\\logo-black.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\logo-sticky.png",
+      "PackagePath": "staticwebassets\\img\\logo-sticky.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\logo-sticky0.png",
+      "PackagePath": "staticwebassets\\img\\logo-sticky0.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\map-marker.png",
+      "PackagePath": "staticwebassets\\img\\map-marker.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\resort-story-img.jpg",
+      "PackagePath": "staticwebassets\\img\\resort-story-img.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\resot\\resot-1.jpg",
+      "PackagePath": "staticwebassets\\img\\resot\\resot-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\resot\\resot-2.jpg",
+      "PackagePath": "staticwebassets\\img\\resot\\resot-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\resot\\resot-3.jpg",
+      "PackagePath": "staticwebassets\\img\\resot\\resot-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\resot\\resot-4.jpg",
+      "PackagePath": "staticwebassets\\img\\resot\\resot-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\restaurant\\dish-1.jpg",
+      "PackagePath": "staticwebassets\\img\\restaurant\\dish-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\restaurant\\dish-2.jpg",
+      "PackagePath": "staticwebassets\\img\\restaurant\\dish-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\restaurant\\dish-3.jpg",
+      "PackagePath": "staticwebassets\\img\\restaurant\\dish-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\restaurant\\dish-4.jpg",
+      "PackagePath": "staticwebassets\\img\\restaurant\\dish-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\restaurant\\price-list.jpg",
+      "PackagePath": "staticwebassets\\img\\restaurant\\price-list.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-1.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-2.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-3.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-details.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-details.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-1.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-2.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-3.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-4.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-5.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-5.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\room\\room-list\\room-l-6.jpg",
+      "PackagePath": "staticwebassets\\img\\room\\room-list\\room-l-6.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\service\\service-bg.jpg",
+      "PackagePath": "staticwebassets\\img\\service\\service-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-1.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-2.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-3.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-ms\\spa-ms-1.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-ms\\spa-ms-1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-ms\\spa-ms-2.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-ms\\spa-ms-2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-ms\\spa-ms-3.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-ms\\spa-ms-3.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\spa\\spa-ms\\spa-ms-4.jpg",
+      "PackagePath": "staticwebassets\\img\\spa\\spa-ms\\spa-ms-4.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\thnkx.jpg",
+      "PackagePath": "staticwebassets\\img\\thnkx.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\video-bg.png",
+      "PackagePath": "staticwebassets\\img\\video-bg.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\webp-extension-logo-240x240.webp",
+      "PackagePath": "staticwebassets\\img\\webp-extension-logo-240x240.webp"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\contact.js",
+      "PackagePath": "staticwebassets\\js\\contact.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\gmaps.min.js",
+      "PackagePath": "staticwebassets\\js\\gmaps.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\jquery-2.2.4.js",
+      "PackagePath": "staticwebassets\\js\\jquery-2.2.4.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\jquery.form.js",
+      "PackagePath": "staticwebassets\\js\\jquery.form.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\theme.js",
+      "PackagePath": "staticwebassets\\js\\theme.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\animate-css\\animate.css",
+      "PackagePath": "staticwebassets\\vendors\\animate-css\\animate.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-datepicker\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\bootstrap-selector\\bootstrap-select.css",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-selector\\bootstrap-select.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\bootstrap-selector\\bootstrap-select.js",
+      "PackagePath": "staticwebassets\\vendors\\bootstrap-selector\\bootstrap-select.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\countdown\\countdown.css",
+      "PackagePath": "staticwebassets\\vendors\\countdown\\countdown.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\countdown\\countdown.js",
+      "PackagePath": "staticwebassets\\vendors\\countdown\\countdown.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\counterup\\jquery.counterup.min.js",
+      "PackagePath": "staticwebassets\\vendors\\counterup\\jquery.counterup.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\counterup\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\vendors\\counterup\\waypoints.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\Flaticon.eot",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\Flaticon.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\Flaticon.svg",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\Flaticon.svg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\Flaticon.ttf",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\Flaticon.ttf"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\Flaticon.woff",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\Flaticon.woff"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\Flaticond41d.eot",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\Flaticond41d.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\flat-icon\\flaticon.css",
+      "PackagePath": "staticwebassets\\vendors\\flat-icon\\flaticon.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\instafeed\\instafeed.min.js",
+      "PackagePath": "staticwebassets\\vendors\\instafeed\\instafeed.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\instafeed\\script.js",
+      "PackagePath": "staticwebassets\\vendors\\instafeed\\script.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\isotope\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\vendors\\isotope\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\isotope\\isotope.pkgd.min.js",
+      "PackagePath": "staticwebassets\\vendors\\isotope\\isotope.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\lightbox\\simpleLightbox.css",
+      "PackagePath": "staticwebassets\\vendors\\lightbox\\simpleLightbox.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\lightbox\\simpleLightbox.min.js",
+      "PackagePath": "staticwebassets\\vendors\\lightbox\\simpleLightbox.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\magnify-popup\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\vendors\\magnify-popup\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\magnify-popup\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\vendors\\magnify-popup\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\owl-carousel\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\owl-carousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\owl-carousel\\owl.video.play.html",
+      "PackagePath": "staticwebassets\\vendors\\owl-carousel\\owl.video.play.html"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\coloredbg.png",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\coloredbg.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\gridtile.png",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\gridtile.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\gridtile_3x3.png",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\gridtile_3x3.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\gridtile_3x3_white.png",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\gridtile_3x3_white.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\gridtile_white.png",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\gridtile_white.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\assets\\loader.gif",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\assets\\loader.gif"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\css\\closedhand.html",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\css\\closedhand.html"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\css\\layers.css",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\css\\layers.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\css\\navigation.css",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\css\\navigation.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\css\\openhand.html",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\css\\openhand.html"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\css\\settings.css",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\css\\settings.css"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\fonts\\revicons\\revicons90c6.eot",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\fonts\\revicons\\revicons90c6.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\fonts\\revicons\\revicons90c6.svg",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\fonts\\revicons\\revicons90c6.svg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\fonts\\revicons\\revicons90c6.ttf",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\fonts\\revicons\\revicons90c6.ttf"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\fonts\\revicons\\revicons90c6.woff",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\fonts\\revicons\\revicons90c6.woff"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\extensions\\revolution.extension.actions.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\extensions\\revolution.extension.actions.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\extensions\\revolution.extension.navigation.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\extensions\\revolution.extension.navigation.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\extensions\\revolution.extension.video.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\extensions\\revolution.extension.video.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\jquery.themepunch.revolution.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\jquery.themepunch.revolution.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\revolution\\js\\jquery.themepunch.tools.min.js",
+      "PackagePath": "staticwebassets\\vendors\\revolution\\js\\jquery.themepunch.tools.min.js"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\stroke-icon\\fonts\\Stroke-Gap-Icons.eot",
+      "PackagePath": "staticwebassets\\vendors\\stroke-icon\\fonts\\Stroke-Gap-Icons.eot"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\vendors\\stroke-icon\\style.css",
+      "PackagePath": "staticwebassets\\vendors\\stroke-icon\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.LiveHolidayapp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.LiveHolidayapp.props",
+      "PackagePath": "build\\LiveHolidayapp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.LiveHolidayapp.props",
+      "PackagePath": "buildMultiTargeting\\LiveHolidayapp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.LiveHolidayapp.props",
+      "PackagePath": "buildTransitive\\LiveHolidayapp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,15 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  @*   <title>@ViewData["Title"] - Holiday</title> *@
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
     <link rel="stylesheet" href="~/LiveHolidayapp.styles.css" asp-append-version="true" />
 
     <link rel="icon" href="img/fav-icon.png" type="image/x-icon" asp-append-version="true">
-    <title> Welcome to Biztadka Hotel Booking </title>
+    <title> @Convert.ToString(Context.Session.GetString("Title")) </title>
 
     <!-- Icon css link -->
     <link href="~/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true">
@@ -28,14 +27,22 @@
     <!-- Extra plugin css -->
     <link href="~/vendors/magnify-popup/magnific-popup.css" rel="stylesheet" asp-append-version="true">
     <link href="~/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet" asp-append-version="true">
-    <link href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" asp-append-version="true">
+ @*    <link href="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" asp-append-version="true"> *@
     <link href="~/vendors/bootstrap-selector/bootstrap-select.css" rel="stylesheet" asp-append-version="true">
     <link href="~/vendors/lightbox/simpleLightbox.css" rel="stylesheet" asp-append-version="true">
 
     <link href="~/css/style.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/responsive.css" rel="stylesheet" asp-append-version="true">
     <link rel="stylesheet" href="~/css/change.css" asp-append-version="true">
-
+    
+    <script src="~/js/jquery-2.2.4.js"></script>
+    @* <script src="https://code.jquery.com/jquery-3.6.0.js"></script> *@
+    <script src="~/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    @* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" /> *@
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker3.css" asp-append-version="true" />
+    
 </head>
 <body>
     <!-- Header Include Start -->
@@ -44,7 +51,7 @@
             <div class="header_top_inner">
                 <div class="container">
                     <div class="pull-right p-2">
-                        <p><i class="fa fa-user" aria-hidden="true"></i> Welcome To Hotel Biztadka</p>
+                        <p><i class="fa fa-user" aria-hidden="true"></i> Welcome To @Convert.ToString(Context.Session.GetString("CompanyName"))</p>
                     </div>
                 </div>
             </div>
@@ -61,38 +68,47 @@
                             <span class="icon-bar"></span>
                         </button>
                         <button type="button" class="navbar-toggle collapsed user-button">
-                            <a asp-area="" asp-controller="Home" asp-action="Index" ><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-user" aria-hidden="true"></i></a>
                         </button>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="img/logo-sticky.png" alt="">
-                            <img src="img/logo-sticky.png" alt="">
+                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
+                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
                         </a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index"> Home</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
-                            <li><a>Book Hotel</a></li>
-                            <li><a href="~/Home/Index">Get In Touch</a></li>
-                            <!-- <li><a href="login-account.asp">Logout</a></li>     -->
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("Authnekot")))
+                        {
+                            <ul class="nav navbar-nav">
+                                <li><a asp-area="" asp-controller="Home" asp-action="Index"> Home</a></li>
+                                <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                                <li><a>Book Hotel</a></li>
+                                <li><a href="~/Home/Index">Get In Touch</a></li>
+                                <!-- <li><a href="login-account.asp">Logout</a></li>     -->
 
-                            <li class="dropdown hover-block">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-user" aria-hidden="true"></i> My Account <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu bootstrap-dropdown">
-                                    <li class="dropdown-header mb-1">Biz Tadka</li>
-                                    <li class="user-name mb-2"><h5>User Name Here User Name Here User Name Here</h5></li>
-                                    <li class="user-name"><h6>Membership ID: NAME987654</h6></li>
-                                    <hr class="mt-2 mb-2">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Setting</a></li>
-                                    <li><a href="#">My Orders</a></li>
-                                    <li><a href="login-account.asp">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                                <li class="dropdown hover-block">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-user" aria-hidden="true"></i> My Account <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu bootstrap-dropdown">
+                                        <li class="dropdown-header mb-1">@Convert.ToString(Context.Session.GetString("CompanyName"))</li>
+                                        <li class="user-name mb-2"><h5>@Convert.ToString(Context.Session.GetString("Name"))</h5></li>
+                                        <li class="user-name"><h6>Membership ID: @Convert.ToString(Context.Session.GetString("UserName"))</h6></li>
+                                        <hr class="mt-2 mb-2"/>
+                                        @* <li><a href="#">My Account</a></li>
+                                        <li><a href="#">Setting</a></li>
+                                        <li><a href="#">My Orders</a></li> *@
+                                        <li><a href="~/Account/Logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="nav navbar-nav">
+                                <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                            </ul>
+                        }
                     </div>
                 </div>
             </nav>
@@ -107,14 +123,14 @@
                 <div class="row">
                     <div class="col-md-5 col-xs-6">
                         <aside class="f_widget about_widget">
-                            <img src="img/footer-logo.png" alt="">
+                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
                             <div class="ab_wd_list">
                                 <div class="media">
                                     <div class="media-left">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4>A-31, Engineers Colony,BSL City Office Road, Ram Nagar<br> Bhilwara(Rajasthan) 311001 - INDIA </h4>
+                                        <h4>@Convert.ToString(Context.Session.GetString("Address"))</h4>
                                     </div>
                                 </div>
                                 <div class="media">
@@ -122,7 +138,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4>+(91)-9829045903, +(91)-9829420080 </h4>
+                                        <h4>@Convert.ToString(Context.Session.GetString("CMMobileNo"))</h4>
                                     </div>
                                 </div>
                             </div>
@@ -165,12 +181,11 @@
         </div>
     </footer>
     <!-- Footer Include End -->
-
-   @*  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*  <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script> *@
-    <script src="~/js/jquery-2.2.4.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
+  
+    
     <script src="~/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
     <script src="~/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
@@ -194,5 +209,7 @@
 
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    
 </body>
 </html>

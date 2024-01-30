@@ -6,27 +6,39 @@ namespace LiveHolidayapp.Controllers
 {
     public class HomeController : Controller
     {
+        CompanyDetail _companyDetail;
         private readonly ILogger<HomeController> _logger;
-        CompanyDetail cmd = new CompanyDetail();
+        private IHttpContextAccessor _httpContextAccessor;
         private readonly string Theme = "Theme";
-        public HomeController(ILogger<HomeController> logger)
+        M_Company obj = new M_Company();
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
 
             _logger = logger;
-            //M_Company obj = cmd.GetCompany();
+            _httpContextAccessor = httpContextAccessor;
+            this._companyDetail = new CompanyDetail(_httpContextAccessor);
+            obj = this._companyDetail.GetCompany();
             //Theme = obj.Theme;
         }
 
         public IActionResult Index()
         {
-            if (Theme != null && Theme != "")
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
-                return View("~/Views/"+Theme+ "/Home/index.cshtml");
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/Home/index.cshtml");
+                }
+                else
+                {
+                    return View("~/Views/Theme/Home/index.cshtml");
+                }
             }
             else
             {
-                return View("~/Views/Theme/Home/index.cshtml");
+                return RedirectToAction("Login", "Account");
             }
+
         }
 
         public IActionResult Privacy()

@@ -1,6 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@{
     ViewData["Title"] = "Home Page";
 }
+
 
 <!-- Slider With Form Start -->
 <section class="main_slider_area">
@@ -27,7 +29,7 @@
                 </div>
                 <div class="book_table_item">
                     <div class="input-append">
-                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Enter Country">
+                        <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter Country">
                     </div>
                 </div>
 
@@ -39,40 +41,72 @@
 
                 <div class="book_table_item">
                     <div class="input-append">
-                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="CheckIn Date">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckIn" aria-describedby="helpId" placeholder="CheckIn Date">
                     </div>
                 </div>
 
                 <div class="book_table_item">
                     <div class="input-append">
-                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="CheckOut Date">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckOut" aria-describedby="helpId" placeholder="CheckOut Date">
                     </div>
                 </div>
-
                 <div class="book_table_item">
                     <select class="selectpicker">
-                        <option>Adults</option>
-                        <option>Adults-1</option>
-                        <option>Adults-2</option>
-                        <option>Adults-3</option>
-                        <option>Adults-4</option>
-
+                        <option value="0">Select Room</option>
+                        <option value="1">1 Room</option>
                     </select>
                 </div>
                 <div class="book_table_item">
                     <select class="selectpicker">
-                        <option>Select Children</option>
-                        <option>Children-1</option>
-                        <option>Children-2</option>
-                        <option>Children-3</option>
-                        <option>Children-4</option>
+                        <option value="0">Adults</option>
+                        <option value="1">Adults-1</option>
+                        <option value="2">Adults-2</option>
+                    </select>
+                </div>
+                <div class="book_table_item" id="dvchild">
+                    <select class="selectpicker">
+                        <option value="0">Select Children</option>
+                        <option value="1">Children-1</option>
+                        <option value="2">Children-2</option>
                     </select>
                 </div>
                 <div class="book_table_item">
                     <a class="book_now_btn_black" href="room-list.asp">Check Availability</a>
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("ISchild"))" id="ISchild" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Slider With Form End -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        var ISchild = $("#ISchild").val();
+        var days = $("#StartAfterday").val();
+        var IsCustomizeDuration = $("#IsCustomizeDuration").val();
+        var DayAfter = $("#DayAfter").val();
+        if (ISchild == 'N') {
+            $("#dvchild").hide();
+        }
+        else {
+            $("#dvchild").show();
+        }
+        var dt = new Date();
+        var da = parseInt(days);
+        dt.setDate(dt.getDate() + da);
+        var d = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        today = monthNames[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear();
+        $("#txtHotelCheckOut").attr('disabled', 'disabled');
+
+        $('#txtHotelCheckIn').datepicker({
+            defaultDate: "+3d",
+           
+        });
+    });
+</script>

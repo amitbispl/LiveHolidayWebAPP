@@ -4,21 +4,30 @@ namespace LiveHolidayapp.Models
 {
     public class M_Company
     {
-        public string CompanyId { get; set; }
-        public string Name { get; set; }
-        public string Logo { get; set; }
+        public string Title { get; set; }
         public string CompanyName { get; set; }
-        public string EmailID { get; set; }
-        public string MobileNo { get; set; }
-        public string StartAfterday { get; set; }
-        public string DayAfter { get; set; }
+        public string Address { get; set; }
+        public string CMEmailID { get; set; }
+        public string CMMobileNo { get; set; }
+        public string AppDomain { get; set; }
+        public string APIDomain { get; set; }
+        public string Logo { get; set; }
+        public string CompanyId { get; set; }
+        public string APIURL { get; set; }
+        public string Token { get; set; }
+        public string TWLink { get; set; }
+        public string WALink { get; set; }
+        public string INLink { get; set; }
+        public string FBLink { get; set; }
+        public string URL { get; set; }
+        public string ValidatyTODate { get; set; }
+        public string ValidatyFormDate { get; set; }
+        public string RedirectDomain { get; set; }
+        public int StartAfterday { get; set; }
+        public string ISchild { get; set; }
+        public int DayAfter { get; set; }
         public string PriceRangeStart { get; set; }
         public string PriceRangeEnd { get; set; }
-        public string ISChild { get; set; }
-        public string IsOfflineBook { get; set; }
-        public string IsAdditionalService { get; set; }
-        public string IsInternational { get; set; }
-        public string IsCustomizeDuration { get; set; }
         public string Theme { get; set; }
 
     }

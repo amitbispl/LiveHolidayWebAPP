@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LiveHolidayapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5efedf8df152942856d3b85b6cc8e079bdb48632")]
 [assembly: System.Reflection.AssemblyProductAttribute("LiveHolidayapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LiveHolidayapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

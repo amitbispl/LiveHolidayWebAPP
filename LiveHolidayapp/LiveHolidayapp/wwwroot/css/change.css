@@ -672,6 +672,22 @@ input.input-text[type=text][disabled] {
     margin-bottom: 30px !important;
 }
 
+.login-area {
+    background-image: url(../img/banner/background.jpg);
+    background-size: cover;
+    background-position: bottom;
+}
+
+    .login-area .bg-transparent {
+        background: #ffffffcc;
+        padding: 30px;
+        border-radius: 5px;
+    }
+
+        .login-area .bg-transparent .form-control {
+            border: 1px solid #d1d1d1 !important;
+        }
+
 @media only screen and (max-width : 767px) {
     .thank-you-table .p-3 {
         padding: 15px !important;
@@ -694,4 +710,164 @@ input.input-text[type=text][disabled] {
         font-size: 12px;
         padding: 6px;
     }
+
+    .left_ex_title h2 {
+        font-size: 13px !important;
+    }
+
+    .filter-mobile-button {
+        padding: 5px !important;
+        font-size: 11px !important;
+        letter-spacing: normal !important;
+        font-family: unset !important;
+        line-height: 15px !important;
+    }
+
+    .mmb-2 {
+        margin-bottom: 0 !important;
+    }
+
+    .mmt-2 {
+        margin-top: 10px !important;
+    }
+
+    .destination-name {
+        padding-bottom: 0px !important;
+        font-size: 9px !important;
+    }
+
+    .m-none {
+        display: none;
+    }
+
+    .footer_widget_area .col-xs-6 {
+        width: 50% !important;
+    }
+
+    .mobile-pull-right {
+        float: unset !important;
+    }
+
+    .tab-pane h4 {
+        font-size: 14px;
+        margin-top: 1px;
+    }
+
+    .tab-pane .title {
+        padding-top: 0 !important;
+    }
+
+    .mmt-4 {
+        margin-top: 40px;
+    }
+
+    .fs-6 {
+        font-size: 15px;
+    }
 }
+
+
+@media only screen and (device-width : 1024px) and (device-height : 768px) and (orientation : landscape) {
+    .main_header_area.white_menu + section, .main_header_area.white_menu + div, .main_header_area.white_menu + .row {
+        margin-top: 118px !important;
+    }
+}
+
+@media only screen and (device-width : 768px) and (device-height : 1024px) and (orientation : portrait) {
+    .main_header_area.white_menu + section, .main_header_area.white_menu + div, .main_header_area.white_menu + .row {
+        margin-top: 118px !important;
+    }
+
+    .room_list_l_text .name {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+
+        .room_list_l_text .name a h4 {
+            font-size: 15px !important;
+        }
+
+    .book_now_btn {
+        line-height: 25px;
+        padding: 0px 10px;
+        font-size: 9px;
+    }
+
+    .p-3 {
+        padding: 15px !important;
+    }
+}
+
+
+.text-black {
+    color: #000 !important;
+}
+
+.pt-2 {
+    padding-top: 15px !important;
+}
+
+.destination-name {
+    font-size: 14px;
+}
+
+.mt-1 {
+    margin-top: 1.3em;
+}
+
+.ellips-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.slider-section .carousel-control.left,
+.slider-section .carousel-control.right {
+    background-image: none !important;
+}
+
+.destination-name {
+    padding-bottom: 10px;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.text-theme {
+    color: #fdb62b !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.gapping {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-bottom: 8px;
+}
+
+.tab-buttons {
+    border-bottom: 0;
+}
+
+    .tab-buttons li.active a {
+        color: #fff !important;
+        background: #ffb606 !important;
+        border-color: #fdb62b !important;
+    }
+
+    .tab-buttons li a {
+        color: #fdb62b !important;
+        background: white !important;
+        border-color: #fdb62b !important;
+    }
+
+    .tab-buttons li {
+        margin-right: 3px !important;
+        float: right !important;
+    }

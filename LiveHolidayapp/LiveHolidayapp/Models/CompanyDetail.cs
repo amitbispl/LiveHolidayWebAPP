@@ -85,6 +85,8 @@ namespace LiveHolidayapp.Models
             _httpContextAccessor.HttpContext.Session.SetString("PriceRangeEnd", Convert.ToString(ds.Tables[0].Rows[0]["PriceRangeEnd"]));
             _httpContextAccessor.HttpContext.Session.SetString("IsOffLineBook", Convert.ToString(ds.Tables[0].Rows[0]["IsOffLineBook"]));
             _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(ds.Tables[0].Rows[0]["StartAfterday"]));
+            _httpContextAccessor.HttpContext.Session.SetString("GMapURL", Convert.ToString(ds.Tables[0].Rows[0]["GMapURL"]));
+            _httpContextAccessor.HttpContext.Session.SetString("GMapIframeURL", Convert.ToString(ds.Tables[0].Rows[0]["GMapIframeURL"]));
             return obj;
         }
     }

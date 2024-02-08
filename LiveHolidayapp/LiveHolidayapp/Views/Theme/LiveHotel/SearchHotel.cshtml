@@ -1,0 +1,159 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Search Hotel"; 
+}
+
+<!-- Slider With Form Start -->
+<section class="main_slider_area">
+    <div id="main_slider3" class="rev_slider" data-version="5.3.1.6">
+        <ul>
+            <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="img/home-slider/slider-5.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="img/home-slider/slider-5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+
+            <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="img/home-slider/slider-6.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="img/home-slider/slider-6.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+
+            <li data-index="rs-1589" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="img/home-slider/slider-7.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="img/home-slider/slider-7.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+        </ul>
+    </div>
+    <div class="book_room_area">
+        <div class="container">
+            <div class="book_room_box theme-color">
+                <div class="book_table_item">
+                    <h3>BOOK HOTELS </h3>
+                </div>
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtNationality" value="India" aria-describedby="helpId" placeholder="Enter Country">
+                    </div>
+                </div>
+
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter City">
+                    </div>
+                </div>
+
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckIn" aria-describedby="helpId" placeholder="CheckIn Date">
+                    </div>
+                </div>
+
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckOut" aria-describedby="helpId" placeholder="CheckOut Date">
+                    </div>
+                </div>
+                <div class="book_table_item">
+                    <select class="selectpicker">
+                        <option value="0">Select Room</option>
+                        <option value="1">1 Room</option>
+                    </select>
+                </div>
+                <div class="book_table_item">
+                    <select class="selectpicker">
+                        <option value="0">Adults</option>
+                        <option value="1">Adults-1</option>
+                        <option value="2">Adults-2</option>
+                    </select>
+                </div>
+                <div class="book_table_item" id="dvchild">
+                    <select class="selectpicker">
+                        <option value="0">Select Children</option>
+                        <option value="1">Children-1</option>
+                        <option value="2">Children-2</option>
+                    </select>
+                </div>
+                <div class="book_table_item">
+                    <a class="book_now_btn_black" href="room-list.asp">Check Availability</a>
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("ISchild"))" id="ISchild" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    <input type="hidden" id="hdnCompanyId" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
+                    <input type="hidden" id="hdnKitId" runat="server" value="@Convert.ToString(Context.Session.GetString("KitID"))" />
+                    <input type="hidden" id="hdnDays" runat="server" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider With Form End -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        var ISchild = $("#ISchild").val();
+        var days = $("#StartAfterday").val();
+        var IsCustomizeDuration = $("#IsCustomizeDuration").val();
+        var DayAfter = $("#DayAfter").val();
+        if (ISchild == "N") {
+            $("#dvchild").hide();
+        } else {
+            $("#dvchild").show();
+        }
+        var dt = new Date();
+        var da = parseInt(days);
+        dt.setDate(dt.getDate() + da);
+        var d = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        today = monthNames[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+        $("#txtHotelCheckOut").attr("disabled", "disabled");
+
+        $("#txtHotelCheckIn").datepicker({
+            defaultDate: "+3d",
+            minDate: dt,
+            dateFormat: "dd/mm/yy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: dt,
+        });
+
+        $("#txtHotelCheckIn").change(function () {
+            debugger;
+            var from = $("#txtHotelCheckIn").datepicker("getDate");
+            var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
+            var hdnKitId = $("#hdnKitId").val();
+            var hdnCompanyId = $("#hdnCompanyId").val();
+            //var diff = 2;
+            var diff = DayAfter;
+            var IsCustomizeDuration = IsCustomizeDuration;
+            if ((IsCustomizeDuration = 0)) {
+                if (hdnCompanyId == "300") {
+                    if (hdnKitId == "3" || hdnKitId == "6") {
+                        diff = 2;
+                    } else if (hdnKitId == "5") {
+                        diff = 4;
+                    } else if (hdnKitId == "6") {
+                        diff = 2;
+                    }
+                } else if (hdnCompanyId == "1613") {
+                    diff = 3;
+                } else if (hdnCompanyId == "2830") {
+                    diff = 3;
+                }
+            } else {
+                diff = DayAfter;
+            }
+            var maxDate_d = date_diff + diff + "d";
+            date_diff = date_diff + "d";
+            $("#txtHotelCheckOut").val("").removeAttr("disabled").datepicker({
+                dateFormat: "dd/mm/yy",
+                startDate: date_diff,
+                endDate: maxDate_d,
+            });
+            $("#txtHotelCheckIn").datepicker("hide");
+            $("#txtHotelCheckOut").datepicker("setDate", maxDate_d);
+        });
+    });
+
+</script>

@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Contactus";
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>Get In Touch</h3>
+            <ul>
+                <li class="active"><a href="~/home/index">Home</a></li>
+                <li><a href="javascript:void(0)">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Room List Start -->
+<section class="room_list_area pt-10 ppt-20">
+    <div class="container bg-white p-3">
+        <div class="room_list_inner">
+            <div class="row mr-0">
+                <div class="col-lg-6 col-sm-6 col-12">
+                    <div class="details h-100">
+                        <div class="contact">
+                            <h4 class="mb-2 fs-6"><b class="text-theme">Contact No</b></h4>
+                            <p class="mb-0 mt-1">
+                                <i class="fa fa-phone text-theme" aria-hidden="true"></i> &nbsp;
+                                <a href="tel:@Convert.ToString(Context.Session.GetString("CMMobileNo"))" class="text-black">  @Convert.ToString(Context.Session.GetString("CMMobileNo"))</a>
+                                @* <a href="tel:+(91) 982-942-0080" class="text-black">+(91) 982-942-0080</a> *@
+                            </p>
+                        </div>
+
+                        <hr>
+
+                        <div class="address">
+                            <h4 class="mb-2 fs-6"><b class="text-theme">Office Address</b></h4>
+                            <p class="mb-0 mt-1">
+                                <i class="fa fa-map text-theme" aria-hidden="true"></i> &nbsp;
+                                <a href="@Convert.ToString(Context.Session.GetString("GMapURL"))" target="_blank" class="text-black">@Convert.ToString(Context.Session.GetString("Address"))</a>
+                            </p>
+                        </div>
+
+                        <hr>
+                        <div class="address">
+                            <h4 class="mb-2 fs-6"><b class="text-theme">Email Address</b></h4>
+                            <p class="mb-0 mt-1">
+                                <i class="fa fa-envelope text-theme" aria-hidden="true"></i>&nbsp;
+                                <a href="mailto:@Convert.ToString(Context.Session.GetString("CMEmailID"))" class="text-black">@Convert.ToString(Context.Session.GetString("CMEmailID"))</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @if (Context.Session.GetString("GMapIframeURL") != "" || Context.Session.GetString("GMapIframeURL") != null)
+                {
+                    <div class="col-lg-6 col-sm-6 col-12">
+                        <div class="details h-100 mmt-4">
+                            <iframe height="300" src="@Convert.ToString(Context.Session.GetString("GMapIframeURL"))" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Room List End -->

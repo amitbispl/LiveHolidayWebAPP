@@ -10,11 +10,15 @@ namespace LiveHolidayapp.Controllers
         private readonly string Theme = "Theme";
         M_Company obj = new M_Company();
         private IHttpContextAccessor _httpContextAccessor;
-        public AccountController(IHttpContextAccessor httpContextAccessor)
+        private readonly IConfiguration _config;
+        private string companyId = "";
+        public AccountController(IHttpContextAccessor httpContextAccessor, IConfiguration config)
         {
             _httpContextAccessor = httpContextAccessor;
             this._companyDetail = new CompanyDetail(_httpContextAccessor);
             obj = this._companyDetail.GetCompany();
+            _config = config;
+            companyId = _config.GetValue<string>("CompanyId")!;
         }
         public IActionResult Login()
         {
@@ -35,7 +39,7 @@ namespace LiveHolidayapp.Controllers
             if (ModelState.IsValid)
             {
                 Loginreq req = new Loginreq();
-                req.companyId = 1;
+                req.companyId =Convert.ToInt32(companyId);
                 req.password = obj.Password;
                 req.userName = obj.Username;
                 R_Login rr = new R_Login();

@@ -9,10 +9,17 @@
     padding: 4px;
     border-radius: 4px;
     direction: ltr;
-    width: 298px;
+    width: 300px;
     font-family: 'Roboto', sans-serif;
-    font-weight:700;
+    font-weight: 700;
 }
+    .datepicker table thead tr th.disabled, .datepicker table thead tr th.disabled:hover {
+        color: white !important;
+        /*cursor: default !important;*/
+        cursor: not-allowed !important;
+        background-color: #fdb62b !important;
+        border-radius:0 !important;
+    }
 
 .datepicker-inline {
     width: 220px;
@@ -31,16 +38,16 @@
     left: 0;
 }
 
-.datepicker-dropdown:before {
-    content: '';
-    display: inline-block;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-top: 0;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-}
+    .datepicker-dropdown:before {
+        content: '';
+        display: inline-block;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-top: 0;
+        border-bottom-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+    }
 
     .datepicker-dropdown:after {
         content: '';
@@ -97,17 +104,20 @@
 .datepicker.years .datepicker-years {
     display: block;
 }
-.datepicker-days thead{
-    color:white;
+
+.datepicker-days thead {
+    color: white;
 }
+
     .datepicker-days thead tr:first-child {
         color: white;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid white;
     }
-.datepicker table tr td
-{
-    color:black !important;
+
+.datepicker table tr td {
+    color: black !important;
 }
+
 .datepicker table {
     margin: 0;
     -webkit-touch-callout: none;
@@ -116,7 +126,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 289px;
+    width: 290px;
 }
 
     .datepicker table tr td,
@@ -130,9 +140,7 @@
 
         .datepicker table tr td:hover,
         .datepicker table tr th:hover {
-            
             border-radius: 18px;
-           
         }
 
 .table-striped .datepicker table tr td,
@@ -154,7 +162,7 @@
 .datepicker table tr td.disabled,
 .datepicker table tr td.disabled:hover {
     background: none;
-    color: #999999;
+    color: #999999 !important;
     cursor: default;
 }
 
@@ -773,20 +781,38 @@
 .datepicker .datepicker-switch {
     width: 145px;
 }
+
 .datepicker thead {
     /*background-color: #8BC34A;*/
     background-color: #fdb62b;
 }
-.datepicker thead tr:first-child th,
-.datepicker tfoot tr th {
-    cursor: pointer;
-}
-    
-    .datepicker thead tr:first-child th:hover,
-    .datepicker tfoot tr th:hover {
-        /*background: #eeeeee;*/
-        background: #1a1919;
+
+    .datepicker thead tr:first-child th,
+    .datepicker tfoot tr th {
+        cursor: pointer;
+        color: white;
     }
+
+.datepicker table tr td.active.active {
+    border-radius: 18px;
+    /*color: white !important;*/
+    background-color: #fdb62b;
+}
+
+
+/*.datepicker thead tr:first-child th:first-child {
+        background: #1a1919;
+        border-radius:18px;
+    }*/
+/*.datepicker thead tr:first-child th:nth-child(3) {
+        background: #1a1919;
+        border-radius: 18px;
+    }*/
+.datepicker thead tr:first-child th:hover,
+.datepicker tfoot tr th:hover {
+    /*background: #eeeeee;*/
+    background: #1a1919;
+}
 
 .datepicker .cw {
     font-size: 10px;

@@ -4,34 +4,32 @@
 }
 
 <!-- Login Area Start -->
-<section class="get_contact_area">
+<!-- Login Area Start -->
+<section class="get_contact_area login-area" style="background-image:url(/img/banner/background.jpg)">
     <div class="container">
-        <div class="row get_contact_inner align-items-center">
+        <div class="row">
             <div class="col-md-6">
-                <div class="left_ex_title">
-                    <h2> Login <span> account </span></h2>
-                </div>
-                <form class="contact_us_form row m0" asp-controller="Account" asp-action="Login" method="post" id="contactForm" novalidate>
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group col-md-12">
-                        <input asp-for="Username" class="form-control" id="name" placeholder="Enter User Name ">
-                        <span asp-validation-for="Username" class="text-danger"></span>
+                <div class="bg-transparent">
+                    <div class="left_ex_title mb-2">
+                        <h2> Login <span> account </span></h2>
                     </div>
-                    <div class="form-group col-md-12">
-                        <input asp-for="Password" class="form-control" id="password"  placeholder="Entere Password">
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <a href="javascript:void(0)"><button type="submit" value="submit" class="btn submit_btn form-control"> login account </button></a>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="right_contact_info">
-                    <img src="~/img/login_img.png" class="img-responsive" alt="" />
+                    <form class="contact_us_form row mt-2" asp-controller="Account" asp-action="Login" method="post" id="contactForm" novalidate>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group col-md-12">
+                            <input type="text" asp-for="Username" class="form-control" id="name" name="Username" placeholder="Enter User Name ">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input asp-for="Password" type="password" class="form-control" id="password" name="password" placeholder="Entere Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <a href="javascript:void(0);"><button type="submit" value="submit" class="btn submit_btn form-control"> login account </button></a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Login Area End -->
+

@@ -23,20 +23,13 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Index()
         {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            if (Theme != null && Theme != "")
             {
-                if (Theme != null && Theme != "")
-                {
-                    return View("~/Views/" + Theme + "/Home/index.cshtml");
-                }
-                else
-                {
-                    return View("~/Views/Theme/Home/index.cshtml");
-                }
+                return View("~/Views/" + Theme + "/Home/index.cshtml");
             }
             else
             {
-                return RedirectToAction("Login", "Account");
+                return View("~/Views/Theme/Home/index.cshtml");
             }
 
         }
@@ -77,6 +70,33 @@ namespace LiveHolidayapp.Controllers
             }
         }
 
+        public IActionResult Contactus()
+        {
+            if (Theme != null && Theme != "")
+            {
+                return View("~/Views/" + Theme + "/Home/Contactus.cshtml");
+            }
+            else
+            {
+                return View("~/Views/Theme/Home/Contactus.cshtml");
+            }
+        }
+
+        public IActionResult BookHotel()
+        {
+            return View();
+        }
+        public IActionResult Destinations()
+        {
+            if (Theme != null && Theme != "")
+            {
+                return View("~/Views/" + Theme + "/Home/Destinations.cshtml");
+            }
+            else
+            {
+                return View("~/Views/Theme/Home/Destinations.cshtml");
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\LiveHolidayapp.bundle.scp.css"
     },
     {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\bootstrap-datepicker3.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-datepicker3.css"
+    },
+    {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
@@ -105,6 +109,10 @@
       "PackagePath": "staticwebassets\\img\\activities\\activities-6.jpg"
     },
     {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\banner\\background.jpg",
+      "PackagePath": "staticwebassets\\img\\banner\\background.jpg"
+    },
+    {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\banner\\blog-banner-bg.jpg",
       "PackagePath": "staticwebassets\\img\\banner\\blog-banner-bg.jpg"
     },
@@ -191,6 +199,358 @@
     {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\comming-soon-bg.jpg",
       "PackagePath": "staticwebassets\\img\\comming-soon-bg.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\agra.png",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\agra.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\alibag.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\alibag.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\almora.png",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\almora.png"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\amritsar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\amritsar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\bhimtal.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\bhimtal.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\bikaner.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\bikaner.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\binsar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\binsar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\bodhgaya.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\bodhgaya.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\bundi.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\bundi.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\chail.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\chail.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\chamba.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\chamba.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\corbett_nationalpark.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\corbett_nationalpark.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\dalhousie.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\dalhousie.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\darjeeling.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\darjeeling.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\dharamsala.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\dharamsala.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\digha.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\digha.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\gangtok.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\gangtok.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\goa.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\goa.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\haridwar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\haridwar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\jaipur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\jaipur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\jaisalmer.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\jaisalmer.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\jodhpur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\jodhpur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\kanyakumari.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\kanyakumari.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\katra.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\katra.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\khajjiar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\khajjiar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\khajuraho.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\khajuraho.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\kodaikanal.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\kodaikanal.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\kovalam.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\kovalam.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\leh.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\leh.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\lonavala.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\lonavala.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\madurai.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\madurai.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mahabaleshwar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mahabaleshwar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mahabalipuram.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mahabalipuram.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\manali.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\manali.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mandarmoni.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mandarmoni.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\matheran.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\matheran.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mount_abu.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mount_abu.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mukteshwar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mukteshwar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\munnar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\munnar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mussoorie.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mussoorie.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\mysore.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\mysore.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\nainital.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\nainital.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\ooty.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\ooty.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\palampur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\palampur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\panikhet.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\panikhet.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\patnitop.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\patnitop.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\pondicherry.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\pondicherry.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\puri.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\puri.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\pushkar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\pushkar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\ranikhet.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\ranikhet.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\ranthambore_national_park.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\ranthambore_national_park.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\rishikesh.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\rishikesh.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\shillong.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\shillong.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\shimla.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\shimla.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\shirdi.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\shirdi.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\srinagar.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\srinagar.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\sunderban.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\sunderban.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\tirupati.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\tirupati.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\udaipur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\udaipur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\ujjain.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\ujjain.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\domestics\\visakhapatnam.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\domestics\\visakhapatnam.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\Thumbs.db",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\Thumbs.db"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\abu-dhabi.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\abu-dhabi.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\bali.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\bali.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\bangkok.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\bangkok.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\batu-caves.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\batu-caves.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\bhaktapur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\bhaktapur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\chiang-mai.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\chiang-mai.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\colombo.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\colombo.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\dubai.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\dubai.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\galle.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\galle.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\george-town.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\george-town.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\jakarta.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\jakarta.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\kandy.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\kandy.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\kathmandu.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\kathmandu.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\krabi.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\krabi.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\kuala-lumpur.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\kuala-lumpur.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\kuta.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\kuta.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\lombok-lsland.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\lombok-lsland.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\nagarkot.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\nagarkot.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\namche.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\namche.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\pattaya.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\pattaya.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\phuket.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\phuket.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\pokhara.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\pokhara.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\putrajaya.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\putrajaya.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\sharjah.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\sharjah.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\singapore.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\singapore.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\destinations\\international\\ubud.jpg",
+      "PackagePath": "staticwebassets\\img\\destinations\\international\\ubud.jpg"
     },
     {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\discount-bg.jpg",
@@ -449,6 +809,18 @@
       "PackagePath": "staticwebassets\\img\\home-slider\\slider-9.jpg"
     },
     {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider_1.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider_1.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider_2.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider_2.jpg"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\home-slider\\slider_3.jpg",
+      "PackagePath": "staticwebassets\\img\\home-slider\\slider_3.jpg"
+    },
+    {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\icon\\aminities-1.png",
       "PackagePath": "staticwebassets\\img\\icon\\aminities-1.png"
     },
@@ -659,6 +1031,10 @@
     {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\img\\webp-extension-logo-240x240.webp",
       "PackagePath": "staticwebassets\\img\\webp-extension-logo-240x240.webp"
+    },
+    {
+      "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap-datepicker.min.js"
     },
     {
       "Id": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\js\\bootstrap.min.js",

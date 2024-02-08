@@ -221,3 +221,10 @@ D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\r
 D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\obj\Debug\net7.0\LiveHolidayapp.csproj.AssemblyReference.cache
 D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\obj\Debug\net7.0\LiveHolidayapp.csproj.CopyComplete
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\obj\Debug\net7.0\LiveHolidayapp.sourcelink.json
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\System.Data.SqlClient.dll
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\GithubWork\LiveHolidayWebAPP\LiveHolidayapp\LiveHolidayapp\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

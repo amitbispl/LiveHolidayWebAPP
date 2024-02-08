@@ -288,9 +288,9 @@
 //    our_project();
     
     
-    $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - hh:ii"
-    });
+    //$(".form_datetime").datetimepicker({
+    //    format: "dd MM yyyy - hh:ii"
+    //});
     
     /*----------------------------------------------------*/
     /*  Gallery Slider

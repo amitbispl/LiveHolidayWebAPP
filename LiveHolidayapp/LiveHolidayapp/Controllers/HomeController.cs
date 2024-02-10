@@ -9,7 +9,7 @@ namespace LiveHolidayapp.Controllers
         CompanyDetail _companyDetail;
         private readonly ILogger<HomeController> _logger;
         private IHttpContextAccessor _httpContextAccessor;
-        private readonly string Theme = "Theme";
+        private readonly string Theme = "";
         M_Company obj = new M_Company();
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
@@ -18,7 +18,7 @@ namespace LiveHolidayapp.Controllers
             _httpContextAccessor = httpContextAccessor;
             this._companyDetail = new CompanyDetail(_httpContextAccessor);
             obj = this._companyDetail.GetCompany();
-            //Theme = obj.Theme;
+            Theme = obj.Theme;
         }
 
         public IActionResult Index()
@@ -84,7 +84,16 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult BookHotel()
         {
-            return View();
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                return RedirectToAction("SearchHotel", "LiveHotel");
+            }
+            else
+            {
+                string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
+                return RedirectToAction("Login", "Account",new { returnUrl});
+            }
+                
         }
         public IActionResult Destinations()
         {

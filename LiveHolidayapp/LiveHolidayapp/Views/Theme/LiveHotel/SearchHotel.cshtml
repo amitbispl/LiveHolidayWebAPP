@@ -82,7 +82,7 @@
                     <input type="hidden" id="hdnCountry" value="@Model.searchHotel.hdnCountry" />
                     <input type="hidden" id="hdnNatinality" value="@Model.searchHotel.hdnNatinality" />
                     <input type="hidden" id="hdnHotelCity" value="" />
-                    
+
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
 <!-- Slider With Form End -->
 <script type="text/javascript">
     $(document).ready(function () {
-
+        debugger;
         var ISchild = $("#ISchild").val();
         var days = $("#StartAfterday").val();
         var IsCustomizeDuration = $("#IsCustomizeDuration").val();
@@ -112,7 +112,7 @@
         $("#txtHotelCheckIn").datepicker({
             defaultDate: "+3d",
             minDate: dt,
-            dateFormat: "dd/mm/yy",
+            format: "dd/mm/yyyy",
             showOtherMonths: true,
             changeMonth: true,
             selectOtherMonths: true,
@@ -123,13 +123,13 @@
             startDate: dt,
         });
 
+
         $("#txtHotelCheckIn").change(function () {
             debugger;
             var from = $("#txtHotelCheckIn").datepicker("getDate");
             var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
             var hdnKitId = $("#hdnKitId").val();
             var hdnCompanyId = $("#hdnCompanyId").val();
-            //var diff = 2;
             var diff = DayAfter;
             var IsCustomizeDuration = IsCustomizeDuration;
             if ((IsCustomizeDuration = 0)) {
@@ -149,16 +149,36 @@
             } else {
                 diff = DayAfter;
             }
-            var maxDate_d = parseInt(date_diff) +parseInt(diff);
-            date_diff = date_diff + "d";
-            $("#txtHotelCheckOut").val("").removeAttr("disabled").datepicker({
-                dateFormat: "dd/mm/yy",
-                startDate: date_diff + "d",
-                endDate: maxDate_d,
+
+            //--------------------------------------
+            $("#txtHotelCheckOut").removeAttr('disabled');
+            var maxDate_d = parseInt(date_diff) + parseInt(diff);
+            date_diff = date_diff;
+
+          
+            dt = new Date();
+            dt.setDate(dt.getDate() + parseInt(maxDate_d));
+            var dtmin = new Date();
+            dtmin.setDate(dtmin.getDate() + parseInt(date_diff));
+            $("#txtHotelCheckOut").datepicker({
+                minDate: dtmin,
+                endDate: dt,
+                format: "dd/mm/yyyy",
+                showOtherMonths: true,
+                changeMonth: true,
+                selectOtherMonths: true,
+                required: true,
+                showOn: "focus",
+                numberOfMonths: 1,
+                orientation: "top",
+                startDate: dtmin,
+
             });
-            $("#txtHotelCheckIn").datepicker("hide");
-            $("#txtHotelCheckOut").datepicker("setDate", maxDate_d);
+           
         });
+
+
+
 
         //---------------------------
         $("#txtNationality").autocomplete({
@@ -215,11 +235,29 @@
         });
     });
 
-    function HotelSearch()
-    {
+    function setdate(val, val2) {
+        debugger;
+        $("#txtHotelCheckOut").datepicker('setDate', val);
+        $("#txtHotelCheckOut").datepicker({
+            defaultDate: "+3d",
+            minDate: val,
+            dateFormat: "dd/mm/yy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: val2,
+        });
+    }
+
+
+    function HotelSearch() {
         debugger;
         var txtNationality = $("#txtNationality").val();
-        if (txtNationality=="") {
+        if (txtNationality == "") {
             toastr.error('Enter country', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -231,8 +269,7 @@
             return false;
         }
         var txtHotelOrigin = $("#txtHotelOrigin").val();
-        if (txtHotelOrigin=="")
-        {
+        if (txtHotelOrigin == "") {
             toastr.error('Enter city', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -244,8 +281,7 @@
             return false;
         }
         var txtHotelCheckIn = $("#txtHotelCheckIn").val();
-        if (txtHotelCheckIn=="")
-        {
+        if (txtHotelCheckIn == "") {
             toastr.error('Enter checkin date', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -257,8 +293,7 @@
             return false;
         }
         var txtHotelCheckOut = $("#txtHotelCheckOut").val();
-        if (txtHotelCheckOut=="")
-        {
+        if (txtHotelCheckOut == "") {
             toastr.error('Enter checkout date', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -270,8 +305,7 @@
             return false;
         }
         var ddlRoom = $("#ddlRoom").val();
-        if(ddlRoom=="0")
-        {
+        if (ddlRoom == "0") {
             toastr.error('Select room', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -283,8 +317,7 @@
             return false;
         }
         var ddlAdults = $("#ddlAdults").val();
-        if(ddlAdults=="0")
-        {
+        if (ddlAdults == "0") {
             toastr.error('Select adult', 'Error', {
                 closeButton: true,
                 progressBar: true,
@@ -299,13 +332,15 @@
         var hdnNatinality = $("#hdnNatinality").val();
         var hdnHotelCity = $("#hdnHotelCity").val();
         var Hotelreq = {};
-        Hotelreq["hdnCountry"] = txtNationality;
+        Hotelreq["hdnCountry"] = hdnNatinality;
         Hotelreq["hdnNatinality"] = hdnNatinality;
         Hotelreq["hdnHotelCity"] = hdnHotelCity;
         Hotelreq["txtHotelCheckIn"] = txtHotelCheckIn;
         Hotelreq["txtHotelCheckOut"] = txtHotelCheckOut;
         Hotelreq["ddlChild"] = ddlChild;
         Hotelreq["ddlAdult"] = ddlAdults;
+        Hotelreq["Country"] = txtNationality;
+        Hotelreq["City"] = txtHotelOrigin
         $.ajax({
             type: "POST",
             url: "/LiveHotel/SearchHotel",
@@ -318,19 +353,19 @@
             },
             data: { Hotelreq: Hotelreq },
             success: function (data) {
-
-                if (data.msg == "1") {
-                    window.location.href = "/HotelXML/HotelList";
-                    $("#Btnsubmit").prop('disabled', false);
-                    $(".page").hide();
-                }
-                else if (data.msg == "2") {
-                    alert("No hotel found");
-                    $("#Btnsubmit").prop('disabled', false);
+                if (data.msg == "Success") {
+                    window.location.href = "/LiveHotel/Roomlist";
+                    $("#Btnsubmit").prop('disabled', true);
                     $(".page").hide();
                 }
                 else {
-                    alert("Some error occur");
+                    toastr.error(data.msg, 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
                     $("#Btnsubmit").prop('disabled', false);
                     $(".page").hide();
                 }

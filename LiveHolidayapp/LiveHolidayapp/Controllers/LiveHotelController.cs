@@ -1,6 +1,7 @@
 ﻿using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -104,16 +105,64 @@ namespace LiveHolidayapp.Controllers
         public IActionResult SearchHotel(M_SearchHotel Hotelreq) 
         {
             string msg = string.Empty;
+            M_Hotel obj = new M_Hotel();
             try
             {
-                List<HotelsearchResponse> obj = new List<HotelsearchResponse>();
-                obj = _Hotel.HotelsearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                List<HotelsearchResponse> list = new List<HotelsearchResponse>();
+                var response = _Hotel.HotelsearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var output = JsonConvert.DeserializeObject<CommonResponse<List<HotelsearchResponse>>>(response);
+                if (output != null)
+                {
+                    if (output.Message == "Success")
+                    {
+                        obj.m_SearchHotel = new M_SearchHotel();
+                        obj.m_SearchHotel = Hotelreq;
+                        list = output.Data;
+                        obj.hotelsearchResponses = list;
+                        HttpContext.Session.SetComplexData("hotelsearchResponses", obj);
+                        msg = "Success";
+                    }
+                    else
+                    {
+                        msg = output.Message;
+                    }
+                    
+                }
+                else
+                {
+                    msg = "Something went wrong";
+                }
             }
-            catch
+            catch(Exception ex)
             {
-
+                msg = "Something went wrong";
             }
             return Json(new { msg });
+        }
+
+        public IActionResult Roomlist()
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                M_Hotel obj = new M_Hotel();
+
+                var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
+                var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                obj= HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/LiveHotel/Roomlist.cshtml", obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/LiveHotel/Roomlist.cshtml", obj);
+                }
+            }
+            else
+            {
+               
+                return RedirectToAction("Login", "Account");
+            }
         }
     }
 }

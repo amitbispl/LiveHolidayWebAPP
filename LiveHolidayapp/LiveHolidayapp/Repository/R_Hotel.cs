@@ -41,21 +41,19 @@ namespace LiveHolidayapp.Repository
             return obj;
         }
 
-        public List<HotelsearchResponse> HotelsearchResponse(M_SearchHotel req,string Token)
+        public string HotelsearchResponse(M_SearchHotel req,string Token)
         {
-            List<HotelsearchResponse> res = new List<HotelsearchResponse>();
+            string resp = "";
             try
             {
                 var detail = JsonConvert.SerializeObject(req);
-                var resp = general.CallPostFunction(detail, Token, "hotel/SearchHotel");
-                var output = JsonConvert.DeserializeObject<CommonResponse<List<HotelsearchResponse>>>(resp);
-                res = output.Data;
+                 resp = general.CallPostFunction(detail, Token, "hotel/SearchHotel");
             }
-            catch
+            catch(Exception ex)
             {
 
             }
-            return res;
+            return resp;
         }
 
 

@@ -1,0 +1,427 @@
+﻿@{
+    ViewData["Title"] = "Roomlist";
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>Room Details</h3>
+            <ul>
+                <li class="active"><a href="~/Home/index">Home</a></li>
+                <li><a href="javascript:void(0)">Rooms</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Room List Start -->
+<section class="room_list_area pt-10 ppt-20">
+    <div class="container">
+        <div class="room_list_inner">
+            <div class="row mr-0">
+                <div class="col-md-12">
+                    <div class="filter-button" align="right">
+                        <button type="button" value="submit" class="btn submit_btn filter-button-btn" id="OpenSidebar"><i class="fa fa-filter" aria-hidden="true"></i> Filter </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-5 col-12">
+                    <div class="booking-item-dates-change mb30 theme-color p-1 border-gray" id="SideBar">
+                        <div class="booking-deatils mb-1">
+                            <div class="header-flex fixed-top">
+                                <div class="title">
+                                    <h6>Filter</h6>
+                                </div>
+                                <div class="close-button">
+                                    <div id="CloseSidebar"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Booking details</h4>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>City</th>
+                                            <th>Agra</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Check In </td>
+                                            <td>13/01/2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Check Out</td>
+                                            <td>15/01/2024</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No of Room</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. of Adult</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. of Child</td>
+                                            <td>1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="ratings mb-1">
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Star Rating </h4>
+                                <input type="hidden" name="">
+                                <div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="form-check-input" name="" value="">
+                                            <span class="pull-left">
+                                                <div>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="form-check-input" name="" value="">
+                                            <span class="pull-left">
+                                                <div>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="form-check-input" name="" value="">
+                                            <span class="pull-left">
+                                                <div>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="form-check-input" name="" value="">
+                                            <span class="pull-left">
+                                                <div>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="form-check-input" name="" value="">
+                                            <span class="pull-left">
+                                                <div>
+                                                    <span class="fa fa-star checked"></span>
+                                                </div>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hotel-list">
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Name</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control height" id="" placeholder="Hotel Name Here">
+                                </div>
+                                <div class="scrollbar mt-1">
+                                    <div class="hotels-name">
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_1">
+                                            <label class="form-check-label" for="Checkbox_1">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_2">
+                                            <label class="form-check-label" for="Checkbox_2">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_3">
+                                            <label class="form-check-label" for="Checkbox_3">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_11">
+                                            <label class="form-check-label" for="Checkbox_11">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_12">
+                                            <label class="form-check-label" for="Checkbox_12">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_13">
+                                            <label class="form-check-label" for="Checkbox_13">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_14">
+                                            <label class="form-check-label" for="Checkbox_14">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_15">
+                                            <label class="form-check-label" for="Checkbox_15">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 5px;">
+                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_16">
+                                            <label class="form-check-label" for="Checkbox_16">
+                                                Hotel Name Here
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex mt-3">
+                                    <div class="close-button">
+                                        <button type="button" class="btn btn-danger rounded-0" style="width: 100%;">Clear All
+                                    </div>
+                                    <div class="close-button">
+                                        <button type="button" class="btn theme-color text-white rounded-0" style="width: 100%;">Apply Filter
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-7 col-12">
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                <a href="room-details.asp" class="room_img">
+                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
+                                </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                <div class="room_list_l_text">
+                                    <div class="name">
+                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
+                                    </div>
+                                    <div class="rating">
+                                        <span>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <div class="details">
+                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation" class="room_pagination">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<!-- Room List End -->
+
+<script>
+    $(document).ready(function () {
+        $("#CloseSidebar").click(function () {
+            $("#SideBar").hide();
+        });
+        $("#OpenSidebar").click(function () {
+            $("#SideBar").show();
+        });
+    });
+</script>

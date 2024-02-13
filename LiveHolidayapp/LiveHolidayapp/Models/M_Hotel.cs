@@ -6,6 +6,8 @@
         public SearchHotel searchHotel { get; set; }
         public List<HotelsearchResponse> hotelsearchResponses { get; set; }
         public M_SearchHotel m_SearchHotel { get; set; }
+
+        public List<StarRating> starRatings { get; set; }
     }
 
     public class SearchHotel
@@ -45,5 +47,12 @@
         public string starRating { get; set; }
         public string price { get; set; }
     }
+
+    public class StarRating
+    {
+        public string Hotelid { get; set; }
+        public string Rating { get; set; }
+    }
+
 
 }

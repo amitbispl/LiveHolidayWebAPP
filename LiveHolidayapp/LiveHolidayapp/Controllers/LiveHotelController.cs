@@ -102,7 +102,7 @@ namespace LiveHolidayapp.Controllers
         }
 
         [HttpPost]
-        public IActionResult SearchHotel(M_SearchHotel Hotelreq) 
+        public IActionResult SearchHotel(M_SearchHotel Hotelreq)
         {
             string msg = string.Empty;
             M_Hotel obj = new M_Hotel();
@@ -126,14 +126,14 @@ namespace LiveHolidayapp.Controllers
                     {
                         msg = output.Message;
                     }
-                    
+
                 }
                 else
                 {
                     msg = "Something went wrong";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 msg = "Something went wrong";
             }
@@ -148,7 +148,27 @@ namespace LiveHolidayapp.Controllers
 
                 var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
                 var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
-                obj= HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                var hotelfilter = result.hotelsearchResponses.Where(p=>Convert.ToDecimal(p.price)>=PriceRangeStart && Convert.ToDecimal(p.price)<=PriceRangeEnd).ToList();
+                obj.hotelsearchResponses = hotelfilter;
+                obj.m_SearchHotel = result.m_SearchHotel;
+              
+                List<StarRating> slist = new List<StarRating>();
+                var ratingfilter = hotelfilter.GroupBy(p => p.starRating).OrderByDescending(p => p.Key).ToList();
+                foreach (var item in ratingfilter)
+                {
+                    System.String s = Convert.ToString(item.Key);
+                    int decimalPosition = s.IndexOf('.');
+                    if (decimalPosition == -1)
+                    {
+                        StarRating ss = new StarRating()
+                        {
+                            Rating = Convert.ToString(s)
+                        };
+                        slist.Add(ss);
+                    }
+                }
+                obj.starRatings = slist;
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/Roomlist.cshtml", obj);
@@ -160,7 +180,7 @@ namespace LiveHolidayapp.Controllers
             }
             else
             {
-               
+
                 return RedirectToAction("Login", "Account");
             }
         }

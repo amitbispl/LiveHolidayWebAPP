@@ -1,7 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Roomlist";
+﻿@model LiveHolidayapp.Models.M_Hotel
+@{
+    ViewData["Title"] = "Roomlist"; 
 }
-
+  
 <!-- Breadcrumb Banner Start -->
 <section class="banner_area">
     <div class="container">
@@ -42,17 +43,17 @@
                                     <thead>
                                         <tr>
                                             <th>City</th>
-                                            <th>Agra</th>
+                                            <th>@Model.m_SearchHotel.City</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>Check In </td>
-                                            <td>13/01/2024</td>
+                                            <td>@Model.m_SearchHotel.txtHotelCheckIn</td>
                                         </tr>
                                         <tr>
                                             <td>Check Out</td>
-                                            <td>15/01/2024</td>
+                                            <td>@Model.m_SearchHotel.txtHotelCheckOut</td>
                                         </tr>
                                         <tr>
                                             <td>No of Room</td>
@@ -60,11 +61,11 @@
                                         </tr>
                                         <tr>
                                             <td>No. of Adult</td>
-                                            <td>1</td>
+                                            <td>@Model.m_SearchHotel.ddlAdult</td>
                                         </tr>
                                         <tr>
                                             <td>No. of Child</td>
-                                            <td>1</td>
+                                            <td>@Model.m_SearchHotel.ddlChild</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -76,66 +77,22 @@
                                 <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Star Rating </h4>
                                 <input type="hidden" name="">
                                 <div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" class="form-check-input" name="" value="">
-                                            <span class="pull-left">
-                                                <div>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                </div>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" class="form-check-input" name="" value="">
-                                            <span class="pull-left">
-                                                <div>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                </div>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" class="form-check-input" name="" value="">
-                                            <span class="pull-left">
-                                                <div>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                </div>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" class="form-check-input" name="" value="">
-                                            <span class="pull-left">
-                                                <div>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                </div>
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" class="form-check-input" name="" value="">
-                                            <span class="pull-left">
-                                                <div>
-                                                    <span class="fa fa-star checked"></span>
-                                                </div>
-                                            </span>
-                                        </label>
-                                    </div>
+                                    @foreach (var item in Model.starRatings)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="form-check-input" name="" value="">
+                                                <span class="pull-left">
+                                                    <div>
+                                                        @for (int i = 0; i <Convert.ToInt32(item.Rating); i++)
+                                                        {
+                                                            <span class="fa fa-star checked"></span>
+                                                        }
+                                                    </div>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    } 
                                 </div>
                             </div>
                         </div>
@@ -148,60 +105,15 @@
                                 </div>
                                 <div class="scrollbar mt-1">
                                     <div class="hotels-name">
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_1">
-                                            <label class="form-check-label" for="Checkbox_1">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_2">
-                                            <label class="form-check-label" for="Checkbox_2">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_3">
-                                            <label class="form-check-label" for="Checkbox_3">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_11">
-                                            <label class="form-check-label" for="Checkbox_11">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_12">
-                                            <label class="form-check-label" for="Checkbox_12">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_13">
-                                            <label class="form-check-label" for="Checkbox_13">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_14">
-                                            <label class="form-check-label" for="Checkbox_14">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_15">
-                                            <label class="form-check-label" for="Checkbox_15">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 5px;">
-                                            <input class="form-check-input" type="checkbox" value="" id="Checkbox_16">
-                                            <label class="form-check-label" for="Checkbox_16">
-                                                Hotel Name Here
-                                            </label>
-                                        </div>
+                                        @foreach (var item in Model.hotelsearchResponses)
+                                        {
+                                            <div class="form-check" style="margin-bottom: 5px;">
+                                                <input class="form-check-input" type="checkbox" value="" id="Checkbox_1">
+                                                <label class="form-check-label" for="Checkbox_1">
+                                                    @item.hotelName
+                                                </label>
+                                            </div>
+                                        } 
                                     </div>
                                 </div>
 
@@ -218,179 +130,39 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-7 col-12">
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
+                    @foreach (var item in Model.hotelsearchResponses)
+                    {
+                        <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12 col-12 col-sm-5">
+                                    <a href="javascript:void(0)" class="room_img">
+                                        <img src="@item.hotelPicture" alt="" class="img-fluid img-responsive">
+                                    </a>
+                                </div>
+                                <div class="col-md-8 col-xs-12 col-12 col-sm-7">
+                                    <div class="room_list_l_text">
+                                        <div class="name">
+                                            <a href="room-details.asp"><h4>@item.hotelName</h4></a>
+                                        </div>
+                                        <div class="rating">
+                                            <span>
+                                                @for (int i = 0; i < Convert.ToInt32(item.starRating); i++)
+                                                {
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="details">
+                                            <a class="book_now_btn" href="javascript:void(0)">View details</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    } 
+                    
 
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                        <div class="row">
-                            <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                <a href="room-details.asp" class="room_img">
-                                    <img src="img/room/room-1.jpg" alt="" class="img-fluid img-responsive">
-                                </a>
-                            </div>
-                            <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                <div class="room_list_l_text">
-                                    <div class="name">
-                                        <a href="room-details.asp"><h4> Your Hotel Name Here.. </h4></a>
-                                    </div>
-                                    <div class="rating">
-                                        <span>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                        </span>
-                                    </div>
-                                    <div class="details">
-                                        <a class="book_now_btn" href="room-details.asp">View details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -1,8 +1,11 @@
-﻿@model LiveHolidayapp.Models.M_Hotel
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model LiveHolidayapp.Models.M_Hotel
 @{
-    ViewData["Title"] = "Roomlist"; 
+    ViewData["Title"] = "Roomlist";
 }
-  
+
 <!-- Breadcrumb Banner Start -->
 <section class="banner_area">
     <div class="container">
@@ -76,15 +79,15 @@
                             <div class="bg-white p-3">
                                 <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Star Rating </h4>
                                 <input type="hidden" name="">
-                                <div>
+                                <div id="starRating">
                                     @foreach (var item in Model.starRatings)
                                     {
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" class="form-check-input" name="" value="">
+                                                <input type="checkbox" class="form-check-input" name="starcheck" value="@item.Rating">
                                                 <span class="pull-left">
                                                     <div>
-                                                        @for (int i = 0; i <Convert.ToInt32(item.Rating); i++)
+                                                        @for (decimal i = 0; i < Convert.ToDecimal(item.Rating); i++)
                                                         {
                                                             <span class="fa fa-star checked"></span>
                                                         }
@@ -92,7 +95,7 @@
                                                 </span>
                                             </label>
                                         </div>
-                                    } 
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -101,36 +104,36 @@
                             <div class="bg-white p-3">
                                 <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Name</h4>
                                 <div class="form-group">
-                                    <input type="text" class="form-control height" id="" placeholder="Hotel Name Here">
+                                    <input type="text" class="form-control height" onkeyup="Hotelnamesearch()" id="namesearch" placeholder="Hotel Name Here">
                                 </div>
-                                <div class="scrollbar mt-1">
+                                <div class="scrollbar mt-1" id="hotelname">
                                     <div class="hotels-name">
                                         @foreach (var item in Model.hotelsearchResponses)
                                         {
                                             <div class="form-check" style="margin-bottom: 5px;">
-                                                <input class="form-check-input" type="checkbox" value="" id="Checkbox_1">
-                                                <label class="form-check-label" for="Checkbox_1">
+                                                <input class="form-check-input" name="hotelnamechk" type="checkbox" value="@item.hotelName" id="Checkbox_@item.hotelResults_ID">
+                                                <label class="form-check-label" for="Checkbox_@item.hotelResults_ID">
                                                     @item.hotelName
                                                 </label>
                                             </div>
-                                        } 
+                                        }
                                     </div>
                                 </div>
 
                                 <div class="flex mt-3">
                                     <div class="close-button">
-                                        <button type="button" class="btn btn-danger rounded-0" style="width: 100%;">Clear All
+                                        <button type="button" class="btn btn-danger rounded-0" style="width: 100%;" onclick="clearall()">Clear All
                                     </div>
                                     <div class="close-button">
-                                        <button type="button" class="btn theme-color text-white rounded-0" style="width: 100%;">Apply Filter
+                                        <button type="button" class="btn theme-color text-white rounded-0" style="width: 100%;" onclick="ApplyFilter()">Apply Filter
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-sm-7 col-12">
-                    @foreach (var item in Model.hotelsearchResponses)
+                <div class="col-lg-8 col-sm-7 col-12" id="hoteldaat">
+                    @foreach (var item in Model.Hotelpaging)
                     {
                         <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
                             <div class="row">
@@ -142,11 +145,11 @@
                                 <div class="col-md-8 col-xs-12 col-12 col-sm-7">
                                     <div class="room_list_l_text">
                                         <div class="name">
-                                            <a href="room-details.asp"><h4>@item.hotelName</h4></a>
+                                            <a href="javascript:void(0)"><h4>@item.hotelName</h4></a>
                                         </div>
                                         <div class="rating">
                                             <span>
-                                                @for (int i = 0; i < Convert.ToInt32(item.starRating); i++)
+                                                @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
                                                 {
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 }
@@ -159,14 +162,24 @@
                                 </div>
                             </div>
                         </div>
-                    } 
-                    
+                    }
 
-                    
+                    @Html.PagedListPager(
+                             (IPagedList)Model.Hotelpaging,
+                             pageNo => Url.Action("Roomlist", new { pageNo }),
+                             new X.PagedList.Web.Common.PagedListRenderOptions
+                    {
+                        ContainerDivClasses = new string[] { "room_pagination" },
+                        PageClasses = new string[] { "" },
+                        UlElementClasses = new string[] { "pagination" },
+                        LiElementClasses = new string[] { "" },
+                    })
+
                 </div>
             </div>
         </div>
-        <nav aria-label="Page navigation" class="room_pagination">
+
+        <nav aria-label="Page navigation" class="room_pagination" style="display:none;">
             <ul class="pagination">
                 <li>
                     <a href="#" aria-label="Previous">
@@ -186,7 +199,95 @@
     </div>
 </section>
 <!-- Room List End -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".room_pagination .pagination li a").click(function (evt) {
+            debugger;
+            // This stops the form submission.
+            evt.preventDefault();
+            var ss = evt.target.href;
+            const myArray = ss.split("?");
+            const pagval = myArray[1].split("=");
+            var val = pagval[1];
+            ApplyFilter(val);
+        });
+    });
 
+    function clearall() {
+        $("input[name=starcheck]:checkbox:checked").each(function () {
+            $(this).prop("checked", false);
+        });
+
+        $("input[name=hotelnamechk]:checkbox:checked").each(function () {
+            $(this).prop("checked", false);
+        });
+
+        ApplyFilter("");
+    }
+
+    function ApplyFilter(page) {
+        debugger;
+        var starrat = [];
+        hotelnamechk = [];
+        $("input[name=starcheck]:checkbox:checked").each(function () {
+            starrat.push(this.value);
+        });
+        var starratcomma = starrat.join(",");
+        $("input[name=hotelnamechk]:checkbox:checked").each(function () {
+            hotelnamechk.push(this.value);
+        });
+        var hotelnamecomma = hotelnamechk.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/ApplyFilter",
+            async: true,
+            data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
+            success: function (data) {
+                $("#hoteldaat").html(data);
+            },
+            failure: function (response) {
+                alert('failure');
+                console.log(response.responseText);
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert('error');
+                console.log(response.responseText);
+                alert(response.responseText);
+            }
+
+        });
+    }
+
+    function Hotelnamesearch() {
+        var name = $("#namesearch").val();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/FilterHotelName",
+            async: true,
+            data: { name: name },
+            success: function (data) {
+                //alert(data);
+                //debugger;
+                $("#hotelname").html(data);
+            },
+            failure: function (response) {
+                alert('failure');
+                console.log(response.responseText);
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert('error');
+
+                console.log(response.responseText);
+                alert(response.responseText);
+            }
+
+        });
+    }
+
+</script>
 <script>
     $(document).ready(function () {
         $("#CloseSidebar").click(function () {

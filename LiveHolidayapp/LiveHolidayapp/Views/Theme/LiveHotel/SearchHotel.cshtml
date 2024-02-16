@@ -162,7 +162,7 @@
             var dtmin = new Date();
             dtmin.setDate(dtmin.getDate() + parseInt(date_diff));
             $("#txtHotelCheckOut").datepicker({
-                minDate: dtmin,
+                startDate: dtmin,
                 endDate: dt,
                 format: "dd/mm/yyyy",
                 showOtherMonths: true,

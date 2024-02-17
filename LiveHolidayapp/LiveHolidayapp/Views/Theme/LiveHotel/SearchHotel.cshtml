@@ -171,12 +171,21 @@
                 required: true,
                 showOn: "focus",
                 numberOfMonths: 1,
-                orientation: "top",
-                startDate: dtmin,
+                orientation: "top",               
                 autoclose: true
-
             });
-           
+
+            var startDate = $("#txtHotelCheckIn").datepicker('getDate');
+            startDate.setDate(startDate.getDate() + parseInt(diff));
+               var month2 = ('0' + (startDate.getMonth() + 1)).slice(-2); // Adding 1 to the month to get correct month number
+            var day2 = ('0' + startDate.getDate()).slice(-2);
+            var year2 = startDate.getFullYear();
+            if (month2.length < 2) month2 = '0' + month2;
+            if (day2.length < 2) day2 = '0' + day2;
+            var formatedate = day2 + '/' + month2 + '/' + year2;
+            $("#txtHotelCheckOut").datepicker('setDate', formatedate);
+            //$("#txtHotelCheckOut").val(day2 + '/' + month2 + '/' + year2);
+
         });
 
 

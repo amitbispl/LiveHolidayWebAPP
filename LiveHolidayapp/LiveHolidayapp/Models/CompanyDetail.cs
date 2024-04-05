@@ -29,14 +29,15 @@ namespace LiveHolidayapp.Models
             string? URL = "";
             URL = _httpContextAccessor.HttpContext?.Request.Host.Value.ToUpper().Replace("HTTP://", "").Replace("HTTPS://", "").Replace("WWW.", "").Replace("/", "").Replace("Utility.", "").Replace("Care.", "");
             DataSet ds;
+            compid = config.GetValue<string>("CompanyId");
             if (URL == "LOCALHOST:7035")
             {
-                compid = config.GetValue<string>("CompanyId");
+                
                 ds = _AdminHandler.GetCompanySetting(compid, "");
             }
             else
             {
-                ds = _AdminHandler.GetCompanySetting("0", URL);
+                ds = _AdminHandler.GetCompanySetting(compid, "");
             }
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {

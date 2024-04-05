@@ -1,4 +1,9 @@
-﻿namespace LiveHolidayapp.Models
+﻿
+
+using Newtonsoft.Json;
+using X.PagedList;
+
+namespace LiveHolidayapp.Models
 {
     public class M_Hotel
     {
@@ -6,8 +11,11 @@
         public SearchHotel searchHotel { get; set; }
         public List<HotelsearchResponse> hotelsearchResponses { get; set; }
         public M_SearchHotel m_SearchHotel { get; set; }
-
         public List<StarRating> starRatings { get; set; }
+        public IPagedList<HotelsearchResponse> Hotelpaging { get; set; }
+        public List<Image> images { get; set; }
+        public string[] Amenities { get; set; }
+
     }
 
     public class SearchHotel
@@ -52,6 +60,86 @@
     {
         public string Hotelid { get; set; }
         public string Rating { get; set; }
+    }
+
+    public class PropertyDetailRoot 
+    {
+        public bool success { get; set; }
+        public PropertyDetail propertyDetail { get; set; }
+    }
+
+    public class PropertyDetail
+    {
+        public int property_id { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        public string postal_code { get; set; }
+        public string city_code { get; set; }
+        public string city_name { get; set; }
+        public string country_code { get; set; }
+        public string country_name { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+        public string rating { get; set; }
+        public int status { get; set; }
+        public DateTime created { get; set; }
+        public DateTime updated { get; set; }
+        public string phone { get; set; }
+        public string category { get; set; }
+        public string chain_name { get; set; }
+        public CheckinDetails checkin { get; set; }
+        public string checkout_time { get; set; }
+        public List<Image> images { get; set; }
+        [JsonProperty("Amenities")]
+        public string[] Amenities { get; set; }
+        public Description Description { get; set; }
+    }
+
+    public class CheckinDetails
+    {
+        public string begin_time { get; set; }
+        public string instruction { get; set; }
+        public string special_instructions { get; set; }
+        public string min_age { get; set; }
+    }
+
+    public class Image
+    {
+        public string image_tag { get; set; }
+        public ImageUrl image_url { get; set; }
+    }
+
+    public class ImageUrl
+    {
+        [JsonProperty("350px")]
+        public Uri _350Px { get; set; }
+
+        [JsonProperty("70px")]
+        public Uri _70Px { get; set; }
+
+        [JsonProperty("1000px")]
+        public Uri _1000Px { get; set; }
+    }
+
+    public class Description
+    {
+        [JsonProperty("amenities")]
+        public string Amenities { get; set; }
+
+        [JsonProperty("dining")]
+        public string Dining { get; set; }
+
+        [JsonProperty("business_amenities")]
+        public string BusinessAmenities { get; set; }
+
+        [JsonProperty("rooms")]
+        public string Rooms { get; set; }
+
+        [JsonProperty("attractions")]
+        public string Attractions { get; set; }
+
+        [JsonProperty("location")]
+        public string Location { get; set; }
     }
 
 

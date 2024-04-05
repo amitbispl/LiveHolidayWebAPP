@@ -799,9 +799,38 @@ input.input-text[type=text][disabled] {
         width: 100%;
     }
 
+.hotel-room-image {
+    height: 150px;
+    width: 100%;
+    border: 1px solid rgb(235, 235, 235);
+    object-fit: contain;
+    padding: 5px;
+}
+
 @media only screen and (max-width : 767px) {
     .loader-gif {
         top: 45%;
         left: 35%;
     }
+
+    .header_menu .navbar.navbar-default .navbar-header .navbar-brand img,
+    .header_menu .navbar.navbar-default .navbar-header .navbar-brand {
+        width: 150px !important;
+    }
+
+    .header_menu .navbar.navbar-default .navbar-header .navbar-brand {
+        height: 60px !important;
+    }
 }
+
+
+.header_menu .navbar.navbar-default .navbar-header .navbar-brand {
+    height: 70px;
+    width: 100%;
+}
+
+    .header_menu .navbar.navbar-default .navbar-header .navbar-brand img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain !important;
+    }

@@ -88,8 +88,10 @@
                             <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-user" aria-hidden="true"></i></a>
                         </button>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
-                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
+                            <img src="~/companylogo/1/logo.png" alt="">
+                            <img src="~/companylogo/1/logo.png" alt="">
+
+                            @* <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt=""> *@
                         </a>
                     </div>
 
@@ -141,7 +143,8 @@
                 <div class="row">
                     <div class="col-md-5 col-xs-6">
                         <aside class="f_widget about_widget">
-                            <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
+                            <img src="~/companylogo/1/logo.png" alt="">
+                            @* <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt=""> *@
                             <div class="ab_wd_list">
                                 <div class="media">
                                     <div class="media-left">

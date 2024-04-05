@@ -56,6 +56,39 @@ namespace LiveHolidayapp.Models
             return result;
         }
 
+        public string invokeGetRequest(string requestUrl)
+        {
+            string completeUrl = requestUrl;
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                HttpWebRequest request1 = WebRequest.Create(completeUrl) as HttpWebRequest;
+                request1.ContentType = @"application/xml";
+                request1.Method = @"GET";
+                // header = formHeader(completeUrl, "GET");
+                //request1.Headers.Add(HttpRequestHeader.Authorization, header);
+                //request1.Timeout = (4 * 60 * 1000);
+                HttpWebResponse httpWebResponse = (HttpWebResponse)request1.GetResponse();
+                StreamReader reader = new
+                StreamReader(httpWebResponse.GetResponseStream());
+                string responseString = reader.ReadToEnd();
+                return responseString;
+            }
+            catch (WebException ex)
+            {
+                //reading the custom messages sent by the server
+                using (var reader = new StreamReader(ex.Response.GetResponseStream()))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Failed with exception message:" + ex.Message;
+            }
+
+        }
+
         public async Task<string> CallPostFunctionAsync(string detail,string jwtToken,string Action)  
         {
             try

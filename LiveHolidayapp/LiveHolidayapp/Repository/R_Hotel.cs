@@ -1,6 +1,7 @@
 ﻿using LiveHolidayapp.Models;
 using Newtonsoft.Json;
 using NuGet.Common;
+using System.Security.Policy;
 
 namespace LiveHolidayapp.Repository
 {
@@ -55,6 +56,22 @@ namespace LiveHolidayapp.Repository
             }
             return resp;
         }
+
+        public string PropertyDetail(int Hotelid)
+        {
+            string resp = "";
+            try
+            {
+                string URL = "https://content.rezlive.com/api/propertyDetail/F89880940CF07BF1D5DF4A4C5CA0D08B/" + Hotelid + "";
+                resp = general.invokeGetRequest(URL);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
+
 
 
     }

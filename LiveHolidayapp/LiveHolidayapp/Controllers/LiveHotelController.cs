@@ -1,9 +1,11 @@
 ﻿using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using X.PagedList;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LiveHolidayapp.Controllers
@@ -140,19 +142,24 @@ namespace LiveHolidayapp.Controllers
             return Json(new { msg });
         }
 
-        public IActionResult Roomlist()
+        public IActionResult Roomlist(int? pageNo)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                int pageIndex = 1;
+                pageIndex = pageNo.HasValue ? Convert.ToInt32(pageNo) : 1;
                 M_Hotel obj = new M_Hotel();
 
                 var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
                 var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                var hotelfilter = result.hotelsearchResponses.Where(p=>Convert.ToDecimal(p.price)>=PriceRangeStart && Convert.ToDecimal(p.price)<=PriceRangeEnd).ToList();
+                var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
                 obj.hotelsearchResponses = hotelfilter;
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
+                obj.Hotelpaging = pagining;
+
                 obj.m_SearchHotel = result.m_SearchHotel;
-              
+
                 List<StarRating> slist = new List<StarRating>();
                 var ratingfilter = hotelfilter.GroupBy(p => p.starRating).OrderByDescending(p => p.Key).ToList();
                 foreach (var item in ratingfilter)
@@ -184,5 +191,116 @@ namespace LiveHolidayapp.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
+
+        [HttpPost]
+        public IActionResult FilterHotelName(string name)
+        {
+            M_Hotel obj = new M_Hotel();
+            var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
+            var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+            var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
+            if (name == null || name == "")
+            {
+                var hotelname = hotelfilter.ToList();
+                obj.hotelsearchResponses = hotelname;
+            }
+            else
+            {
+                var hotelname = hotelfilter.Where(p => Regex.IsMatch(p.hotelName, name, RegexOptions.IgnoreCase)).ToList();
+                obj.hotelsearchResponses = hotelname;
+            }
+
+            var view = "";
+            if (Theme != null && Theme != "")
+            {
+                view = "~/Views/" + Theme + "/LiveHotel/_FilterHotenamePartial.cshtml";
+            }
+            else
+            {
+                view = "~/Views/Theme/LiveHotel/_FilterHotenamePartial.cshtml";
+            }
+            return PartialView(view, obj);
+        }
+
+        public IActionResult ApplyFilter(string rating, string hotelname, int? page)
+        {
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            M_Hotel obj = new M_Hotel();
+            var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
+            var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+            var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
+            if (!string.IsNullOrEmpty(rating) && string.IsNullOrEmpty(hotelname))
+            {
+                var strStarRating = rating.Split(',').ToList();
+                var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating)).ToList();
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                obj.Hotelpaging = pagining;
+            }
+            else if (string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
+            {
+                var hotnam = hotelname.Split(',').ToList();
+                var cusfilter = hotelfilter.Where(p => hotnam.Contains(p.hotelName)).ToList();
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                obj.Hotelpaging = pagining;
+            }
+            else if (!string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
+            {
+                var strStarRating = rating.Split(',').ToList();
+                var hotnam = hotelname.Split(',').ToList();
+                var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating) && hotnam.Contains(p.hotelName)).ToList();
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                obj.Hotelpaging = pagining;
+            }
+            else
+            {
+                //obj.hotelsearchResponses = hotelfilter;
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
+                obj.Hotelpaging = pagining;
+            }
+            var view = "";
+            if (Theme != null && Theme != "")
+            {
+                view = "~/Views/" + Theme + "/LiveHotel/_FilterHoteDataPartial.cshtml";
+            }
+            else
+            {
+                view = "~/Views/Theme/LiveHotel/_FilterHoteDataPartial.cshtml";
+            }
+            return PartialView(view, obj);
+        }
+
+        public IActionResult RoomDetails(int id)
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                string response = string.Empty;
+                response = _Hotel.PropertyDetail(id);
+                PropertyDetailRoot data = new PropertyDetailRoot();
+                M_Hotel obj = new M_Hotel();
+                if (response != "")
+                {
+                    data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
+                    obj.Amenities = data.propertyDetail.Amenities;
+                    obj.images = data.propertyDetail.images; 
+                }
+
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/LiveHotel/RoomDetails.cshtml",obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/LiveHotel/RoomDetails.cshtml",obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
     }
 }

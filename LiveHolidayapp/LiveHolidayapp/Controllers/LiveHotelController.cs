@@ -276,6 +276,8 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                var sortdata = result.hotelsearchResponses.Where(p=>Convert.ToInt32(p.hotelResults_ID)==id).ToList();
                 string response = string.Empty;
                 response = _Hotel.PropertyDetail(id);
                 PropertyDetailRoot data = new PropertyDetailRoot();
@@ -286,7 +288,8 @@ namespace LiveHolidayapp.Controllers
                     obj.Amenities = data.propertyDetail.Amenities;
                     obj.images = data.propertyDetail.images; 
                 }
-
+                obj.hotelsearchResponses = sortdata;
+                obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/RoomDetails.cshtml",obj);
@@ -302,5 +305,23 @@ namespace LiveHolidayapp.Controllers
             }
         }
 
+        public IActionResult BookHotal()
+        {
+            if(!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/LiveHotel/BookHotal.cshtml", obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/LiveHotel/BookHotal.cshtml", obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
     }
 }

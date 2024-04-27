@@ -276,8 +276,9 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                ViewBag.Hotelid = id;
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                var sortdata = result.hotelsearchResponses.Where(p=>Convert.ToInt32(p.hotelResults_ID)==id).ToList();
+                var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == id).ToList();
                 string response = string.Empty;
                 response = _Hotel.PropertyDetail(id);
                 PropertyDetailRoot data = new PropertyDetailRoot();
@@ -286,17 +287,17 @@ namespace LiveHolidayapp.Controllers
                 {
                     data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
                     obj.Amenities = data.propertyDetail.Amenities;
-                    obj.images = data.propertyDetail.images; 
+                    obj.images = data.propertyDetail.images;
                 }
                 obj.hotelsearchResponses = sortdata;
                 obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")
                 {
-                    return View("~/Views/" + Theme + "/LiveHotel/RoomDetails.cshtml",obj);
+                    return View("~/Views/" + Theme + "/LiveHotel/RoomDetails.cshtml", obj);
                 }
                 else
                 {
-                    return View("~/Views/Theme/LiveHotel/RoomDetails.cshtml",obj);
+                    return View("~/Views/Theme/LiveHotel/RoomDetails.cshtml", obj);
                 }
             }
             else
@@ -305,10 +306,14 @@ namespace LiveHolidayapp.Controllers
             }
         }
 
-        public IActionResult BookHotal()
+        public IActionResult BookHotal(int id)
         {
-            if(!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                ViewBag.Hotelid = id;
+                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                M_Hotel obj = new M_Hotel();
+                obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/BookHotal.cshtml", obj);
@@ -322,6 +327,32 @@ namespace LiveHolidayapp.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+        }
+
+        [HttpPost]
+        public IActionResult HotelBook(M_HotelBook HotelBookreq)
+        {
+            string msg = string.Empty;
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == Convert.ToInt32(HotelBookreq.hotelCode)).ToList();
+                HotelBookreq.userName = Convert.ToString(HttpContext.Session.GetString("Name"));
+                HotelBookreq.formNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
+                HotelBookreq.companyId= Convert.ToString(HttpContext.Session.GetString("CompanyId"));
+                HotelBookreq.adultCount = result.m_SearchHotel.ddlAdult;
+                HotelBookreq.childCount = result.m_SearchHotel.ddlChild;
+                HotelBookreq.cityName = result.m_SearchHotel.City;
+                HotelBookreq.noOfRoom = "1";
+                HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
+                HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
+                HotelBookreq.orderId = "0";
+                HotelBookreq.bookingAmount =Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price),2));
+                HotelBookreq.hotelName = Convert.ToString(sortdata[0].hotelName);
+                HotelBookreq.hotelCode = Convert.ToString(sortdata[0].hotelCode);
+                
+            }
+            return Json(new { msg });
         }
     }
 }

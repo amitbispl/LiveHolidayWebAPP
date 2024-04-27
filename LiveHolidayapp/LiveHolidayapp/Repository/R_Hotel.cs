@@ -72,6 +72,20 @@ namespace LiveHolidayapp.Repository
             return resp;
         }
 
+        public string HotelBook(M_HotelBook req,string Token)
+        {
+            string str = string.Empty;
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                str = general.CallPostFunction(detail, Token, "hotel/BookHotel");
+            }
+            catch
+            {
+
+            }
+            return str;
+        }
 
 
     }

@@ -201,8 +201,14 @@
 <!-- Room List End -->
 <script type="text/javascript">
     $(document).ready(function () {
+        $(".book_now_btn").click(function (evt) {
+            $(".page").show();
+        });
+        $(".room_img").click(function (evt) {
+            $(".page").show();
+        });
         $(".room_pagination .pagination li a").click(function (evt) {
-            debugger;
+           
             // This stops the form submission.
             evt.preventDefault();
             var ss = evt.target.href;
@@ -226,7 +232,7 @@
     }
 
     function ApplyFilter(page) {
-        debugger;
+        $(".page").show();
         var starrat = [];
         hotelnamechk = [];
         $("input[name=starcheck]:checkbox:checked").each(function () {
@@ -245,6 +251,7 @@
             data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
             success: function (data) {
                 $("#hoteldaat").html(data);
+                $(".page").hide();
             },
             failure: function (response) {
                 alert('failure');
@@ -269,7 +276,7 @@
             data: { name: name },
             success: function (data) {
                 //alert(data);
-                //debugger;
+                
                 $("#hotelname").html(data);
             },
             failure: function (response) {

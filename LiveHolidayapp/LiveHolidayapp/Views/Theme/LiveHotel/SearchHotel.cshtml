@@ -91,7 +91,7 @@
 <!-- Slider With Form End -->
 <script type="text/javascript">
     $(document).ready(function () {
-        debugger;
+       
         var ISchild = $("#ISchild").val();
         var days = $("#StartAfterday").val();
         var IsCustomizeDuration = $("#IsCustomizeDuration").val();
@@ -126,7 +126,7 @@
 
 
         $("#txtHotelCheckIn").change(function () {
-            debugger;
+           
             var from = $("#txtHotelCheckIn").datepicker("getDate");
             var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
             var hdnKitId = $("#hdnKitId").val();
@@ -228,7 +228,7 @@
                     data: { Prefix: request.term },
                     success: function (data) {
                         response($.map(data, function (item) {
-                            debugger;
+                            
                             return {
                                 label: item.cityName,
                                 val: item.cityCode,
@@ -247,7 +247,7 @@
     });
 
     function setdate(val, val2) {
-        debugger;
+        
         $("#txtHotelCheckOut").datepicker('setDate', val);
         $("#txtHotelCheckOut").datepicker({
             defaultDate: "+3d",
@@ -266,7 +266,7 @@
 
 
     function HotelSearch() {
-        debugger;
+       
         var txtNationality = $("#txtNationality").val();
         if (txtNationality == "") {
             toastr.error('Enter country', 'Error', {

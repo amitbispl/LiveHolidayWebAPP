@@ -834,3 +834,7 @@ input.input-text[type=text][disabled] {
         width: 100%;
         object-fit: contain !important;
     }
+
+.ui-widget {
+    font-family: "Montserrat", sans-serif !important;
+}

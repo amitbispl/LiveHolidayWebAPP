@@ -383,7 +383,7 @@ namespace LiveHolidayapp.Controllers
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
                 HotelBookresponse obj = new HotelBookresponse();
-                obj = HttpContext.Session.GetComplexData<HotelBookresponse>("hotelsearchResponses");
+                obj = HttpContext.Session.GetComplexData<HotelBookresponse>("BookResponse");
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/BookingThankyou.cshtml", obj);

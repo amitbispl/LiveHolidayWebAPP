@@ -74,7 +74,7 @@ else
 <script type="text/javascript">
     $(document).ready(function () {
         $(".room_pagination .pagination li a").click(function (evt) {
-            debugger;
+            
             // This stops the form submission.
             evt.preventDefault();
             var ss = evt.target.href;
@@ -82,6 +82,13 @@ else
             const pagval = myArray[1].split("=");
             var val = pagval[1];
             ApplyFilter(val);
+        });
+
+        $(".book_now_btn").click(function (evt) {
+            $(".page").show();
+        });
+        $(".room_img").click(function (evt) {
+            $(".page").show();
         });
     });
 </script>

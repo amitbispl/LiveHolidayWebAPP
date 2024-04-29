@@ -10,7 +10,7 @@
             <h3>Customer Detail Hotel</h3>
             <ul>
                 <li class="active"><a href="~/Home/index">Home</a></li>
-                <li><a href="room-list.asp">Rooms</a></li>
+                <li><a href="javascript:void(0);">Rooms</a></li>
             </ul>
         </div>
     </div>
@@ -120,3 +120,11 @@
     </div>
 </section>
 <!-- Room Details End -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".book_now_btn").click(function (evt) {
+            $(".page").show();
+        });
+    });    
+</script>

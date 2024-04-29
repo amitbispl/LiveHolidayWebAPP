@@ -1,4 +1,6 @@
-﻿namespace LiveHolidayapp.Models
+﻿using Newtonsoft.Json;
+
+namespace LiveHolidayapp.Models
 {
     public class M_HotelBook
     {
@@ -33,34 +35,33 @@
         public string paxType { get; set; }
         public string age { get; set; }
     }
-    
-    public class HotelBookresponse 
+
+    public class HotelBookresponse
     {
         public int id { get; set; }
         public string hotelName { get; set; }
         public string city { get; set; }
-        public DateTime checkInDate { get; set; }
-        public DateTime checkOutDate { get; set; }
+        public string checkInDate { get; set; }
+        public string checkOutDate { get; set; }
         public string noOfRooms { get; set; }
-        public DateTime bookingDate { get; set; }
+        public string bookingDate { get; set; }
         public string formNo { get; set; }
-        public string hostIP { get; set; }
         public string adultCount { get; set; }
         public string childCount { get; set; }
-        public float bookingAmount { get; set; }
+        public decimal bookingAmount { get; set; }
         public string hotelBookingRefNo { get; set; }
-        public bool isActive { get; set; }
         public string address { get; set; }
         public string userCity { get; set; }
         public string mobileNo { get; set; }
         public string emailID { get; set; }
-        public object bookFrom { get; set; }
-        public object bookID { get; set; }
-        public DateTime confirmDate { get; set; }
-        public object bookRemark { get; set; }
+        public string bookFrom { get; set; }
+        public string bookID { get; set; }
+        public string confirmDate { get; set; }
+        public string bookRemark { get; set; }
         public string bookStatus { get; set; }
         public string newHotelCode { get; set; }
         public int orderId { get; set; }
+
     }
 
 

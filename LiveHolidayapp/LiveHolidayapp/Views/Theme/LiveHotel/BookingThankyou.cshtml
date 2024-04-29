@@ -59,12 +59,12 @@
                                         <tr>
                                             <td class="text-left"><b>Check-In Date</b></td>
                                             <td class="text-center">:</td>
-                                            <td class="text-right">@Model.checkInDate</td>
+                                            <td class="text-right">@Model.checkInDate.Replace("T00:00:00","")</td>
                                         </tr>
                                         <tr>
                                             <td class="text-left"><b>Check-Out Date</b></td>
                                             <td class="text-center">:</td>
-                                            <td class="text-right">@Model.checkOutDate</td>
+                                            <td class="text-right">@Model.checkOutDate.Replace("T00:00:00", "")</td>
                                         </tr>
 
                                     </tbody>
@@ -79,7 +79,7 @@
                                         <tr>
                                             <td>
                                                 <span><b>Ref no. : </b></span>
-                                                <span>@Model.bookID</span>
+                                                <span>@Model.hotelBookingRefNo</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,7 +88,7 @@
                                                 <span>@Model.hotelName</span>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr style="display:none;">
                                             <td>
                                                 <span><b>Hotel Address : </b></span>
                                                 <span>Archway, 601, 6th Floor, High Street Road, Sopan Baug, Balewadi, Pune, Maharashtra - 411045</span>

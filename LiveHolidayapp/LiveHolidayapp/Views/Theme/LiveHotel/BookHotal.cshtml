@@ -12,7 +12,7 @@
             <h3>Customer Detail Hotel  </h3>
             <ul>
                 <li class="active"><a href="~/Home/index">Home</a></li>
-                <li><a href="javascript:void(0);">Book Hotal</a></li>
+                <li><a href="javascript:void(0);">Book Hotel</a></li>
             </ul>
         </div>
     </div>
@@ -141,13 +141,14 @@
                                     <input type="text" name="" id="Mobile" class="form-control" onkeypress="return isNumberKey(event);" value="" required="required" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%;" onclick="Sendotp()">Send OTP</button>
+                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%;display:none;" onclick="Sendotp()">Send OTP</button>
+                                    <button type="button" id="Submitbtn" onclick="Savehotel()" class="btn submit_btn form-control" style="width: 100%;">Submit</button>
                                 </div>
-                                <div class="form-group col-md-6" id="divotp">
+                                <div class="form-group col-md-6" id="divotp" style="display:none;">
                                     <input type="text" name="" id="inotp" class="form-control" value="" required="required" placeholder="Enter OTP">
                                 </div>
                                 <div class="form-group col-md-6" id="divsubbtn">
-                                    <button type="button" id="Submitbtn" onclick="Savehotel()" class="btn submit_btn form-control" style="width: 100%;">Sumbit</button>
+                                    @* <button type="button" id="Submitbtn" onclick="Savehotel()" class="btn submit_btn form-control" style="width: 100%;">Sumbit</button> *@
                                 </div>
                             </form>
 
@@ -368,18 +369,7 @@
     //save hotel
     function Savehotel() {
         var hotelBookPassengers = [];
-        var Email = $("#Email").val();
-        if (Email == "") {
-            toastr.error('Enter Email', 'Error', {
-                closeButton: true,
-                progressBar: true,
-                positionClass: 'toast-top-right',
-                timeOut: 5000, // 5 seconds
-                extendedTimeOut: 1000 // 1 second longer than timeOut
-            });
-            $("#Email").focus();
-            return false;
-        }
+
 
         for (var i = 0; i < parseInt(HidAdult); i++) {
             var title = $("#adultTitle_" + i).val();
@@ -420,7 +410,7 @@
             }
 
             hotelBookPassengers.push({
-                email: Email,
+                email: "",
                 title: title,
                 firstName: fistname,
                 middleName: lastname,
@@ -481,7 +471,7 @@
                     return false;
                 }
                 hotelBookPassengers.push({
-                    email: Email,
+                    email: "",
                     title: title,
                     firstName: fistname,
                     middleName: lastname,
@@ -505,6 +495,19 @@
             return false;
         }
 
+        var Email = $("#Email").val();
+        if (Email == "") {
+            toastr.error('Enter Email', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Email").focus();
+            return false;
+        }
+
         if (Email != "" && validateEmail(Email) == false) {
             toastr.error('Enter Valid Email', 'Error', {
                 closeButton: true,
@@ -516,7 +519,10 @@
             $("#Email").focus();
             return false;
         }
-
+        
+        for (var i = 0; i < hotelBookPassengers.length; i++) {
+            hotelBookPassengers[i].email = Email;
+        }
         var City = $("#City").val();
         if (City == "") {
             toastr.error('Enter City', 'Error', {
@@ -565,7 +571,7 @@
             data: { HotelBookreq: HotelBookreq },
             success: function (data) {
                 if (data.err == "0") {
-                    toastr.error(data.msg, 'Success', {
+                    toastr.success(data.msg, 'Success', {
                         closeButton: true,
                         progressBar: true,
                         positionClass: 'toast-top-right',
@@ -575,7 +581,7 @@
 
                     setTimeout(function () {
                         window.location.href = "/LiveHotel/BookingThankyou";
-                    }, 3000);
+                    }, 1000);
                     // $("#Submitbtn").prop('disabled', true);
                     $(".page").hide();
                 }
@@ -591,7 +597,7 @@
                     setTimeout(function () {
                         window.location.href = "/Home/Index";
                     }, 3000);
-                   
+
                     //$("#Submitbtn").prop('disabled', false);
                     $(".page").hide();
                 }

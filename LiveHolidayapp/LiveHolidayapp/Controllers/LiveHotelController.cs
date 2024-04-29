@@ -333,13 +333,14 @@ namespace LiveHolidayapp.Controllers
         public IActionResult HotelBook(M_HotelBook HotelBookreq)
         {
             string msg = string.Empty;
+            string err = string.Empty;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == Convert.ToInt32(HotelBookreq.hotelCode)).ToList();
                 HotelBookreq.userName = Convert.ToString(HttpContext.Session.GetString("Name"));
                 HotelBookreq.formNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
-                HotelBookreq.companyId= Convert.ToString(HttpContext.Session.GetString("CompanyId"));
+                HotelBookreq.companyId = Convert.ToString(HttpContext.Session.GetString("CompanyId"));
                 HotelBookreq.adultCount = result.m_SearchHotel.ddlAdult;
                 HotelBookreq.childCount = result.m_SearchHotel.ddlChild;
                 HotelBookreq.cityName = result.m_SearchHotel.City;
@@ -347,12 +348,56 @@ namespace LiveHolidayapp.Controllers
                 HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
                 HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
                 HotelBookreq.orderId = "0";
-                HotelBookreq.bookingAmount =Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price),2));
+                HotelBookreq.bookingAmount = Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price), 2));
                 HotelBookreq.hotelName = Convert.ToString(sortdata[0].hotelName);
                 HotelBookreq.hotelCode = Convert.ToString(sortdata[0].hotelCode);
-                
+                HotelBookreq.dob = "22/04/2019";
+                var Response = _Hotel.HotelBook(HotelBookreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var output = JsonConvert.DeserializeObject<CommonResponse<HotelBookresponse>>(Response);
+                if (output != null)
+                {
+                    if (output.Code == 200 && output.Message == "Hotel Book Successfully" && output.Data.bookStatus == "P")
+                    {
+                        msg = "Hotel Book Successfully";
+                        err = "0";
+                        HttpContext.Session.SetComplexData("BookResponse", output.Data);
+                    }
+                    else
+                    {
+                        msg = "Your Booking failed.";
+                        err = "1";
+                    }
+                }
+                else
+                {
+                    msg = "Your Booking failed.";
+                    err = "1";
+                }
+
             }
-            return Json(new { msg });
+            return Json(new { msg, err });
+        }
+
+        public IActionResult BookingThankyou()
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                HotelBookresponse obj = new HotelBookresponse();
+                obj = HttpContext.Session.GetComplexData<HotelBookresponse>("hotelsearchResponses");
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/LiveHotel/BookingThankyou.cshtml", obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/LiveHotel/BookingThankyou.cshtml", obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+           
         }
     }
 }

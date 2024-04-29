@@ -1,0 +1,113 @@
+﻿@model LiveHolidayapp.Models.HotelBookresponse
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Thank you";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>  Thank you  </h3>
+            <ul>
+                <li class="active"><a href="~/Home/Index">Home</a></li>
+                <li><a href="javascript:void(0);">Hotel Confirmation</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Thank You Start -->
+<section class="room_details_area thank-you-table pt-10 ppt-20">
+    <div class="container">
+        <center>
+            <div class="p-3 bg-white w-100">
+                <table width="70%">
+                    <tbody>
+                        <tr>
+                            <td class="text-center text-success">
+                                <h1>Thank You For Booking...!</h1>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h2 class="table-heading">User Information</h2>
+                                <table class="w-100 border-light detail-table mb-3">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-left"><b>Booking ID</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right">@Convert.ToString(Context.Session.GetString("UserName"))</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"> <b>User Name</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right">@Convert.ToString(Context.Session.GetString("Name"))</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><b>Email Address</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right"><a href="javascript:void(0);" class="__cf_email__">@Model.emailID</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><b>Mobile No.</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right">@Model.mobileNo</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><b>Check-In Date</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right">@Model.checkInDate</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left"><b>Check-Out Date</b></td>
+                                            <td class="text-center">:</td>
+                                            <td class="text-right">@Model.checkOutDate</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <table class="bg-light w-100 detail-table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span><b>Ref no. : </b></span>
+                                                <span>@Model.bookID</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span><b>Hotel Name : </b></span>
+                                                <span>@Model.hotelName</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span><b>Hotel Address : </b></span>
+                                                <span>Archway, 601, 6th Floor, High Street Road, Sopan Baug, Balewadi, Pune, Maharashtra - 411045</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" style="padding: 1em;">
+                                <b style=" color: #3f3f3f;">You will received hotel confirmation voucher on your mail with in 24 to 48 working hrs.</b>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</section>
+<!-- Thank You End -->

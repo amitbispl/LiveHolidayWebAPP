@@ -424,7 +424,9 @@
                 title: title,
                 firstName: fistname,
                 middleName: lastname,
-                paxType: "1"
+                paxType: "1",
+                dob: "22/04/2019",
+                age: "30"
             });
         }
 
@@ -484,7 +486,8 @@
                     firstName: fistname,
                     middleName: lastname,
                     paxType: "2",
-                    age: CAge
+                    age: CAge,
+                    dob: "22/04/2019"
                 });
             }
         }
@@ -561,9 +564,19 @@
             },
             data: { HotelBookreq: HotelBookreq },
             success: function (data) {
-                if (data.msg == "Success") {
-                    window.location.href = "/LiveHotel/Roomlist";
-                    $("#Submitbtn").prop('disabled', true);
+                if (data.err == "0") {
+                    toastr.error(data.msg, 'Success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+
+                    setTimeout(function () {
+                        window.location.href = "/LiveHotel/BookingThankyou";
+                    }, 3000);
+                    // $("#Submitbtn").prop('disabled', true);
                     $(".page").hide();
                 }
                 else {
@@ -574,7 +587,12 @@
                         timeOut: 5000, // 5 seconds
                         extendedTimeOut: 1000 // 1 second longer than timeOut
                     });
-                    $("#Submitbtn").prop('disabled', false);
+
+                    setTimeout(function () {
+                        window.location.href = "/Home/Index";
+                    }, 3000);
+                   
+                    //$("#Submitbtn").prop('disabled', false);
                     $(".page").hide();
                 }
             },

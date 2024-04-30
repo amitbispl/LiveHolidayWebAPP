@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Web;
 using X.PagedList;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -286,8 +287,11 @@ namespace LiveHolidayapp.Controllers
                 if (response != "")
                 {
                     data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
-                    obj.Amenities = data.propertyDetail.Amenities;
-                    obj.images = data.propertyDetail.images;
+                    if (data.success != false)
+                    {
+                        obj.Amenities = data.propertyDetail.Amenities;
+                        obj.images = data.propertyDetail.images;
+                    }
                 }
                 obj.hotelsearchResponses = sortdata;
                 obj.m_SearchHotel = result.m_SearchHotel;
@@ -397,7 +401,7 @@ namespace LiveHolidayapp.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-           
+
         }
     }
 }

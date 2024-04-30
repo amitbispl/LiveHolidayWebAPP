@@ -24,12 +24,20 @@
                 <div class="room_details_content bg-white p-3 rounded-1 border-gray">
                     <div class="room_d_main_text pb-0">
                         <div class="room_details_img owl-carousel">
-                            @foreach (var item in Model.images)
+                            @if (Model.images != null)
                             {
-                                <div class="item">
-                                    <img src="@item.image_url._1000Px" style="width:900px;height:400px" alt="">
-                                </div>
+                                foreach (var item in Model.images)
+                                {
+                                    if (item.image_url._1000Px != null)
+                                    {
+                                        <div class="item">
+                                            <img src="@item.image_url._1000Px" style="width:900px;height:400px" alt="">
+                                        </div>
+                                    }
+                                   
+                                }
                             }
+
                         </div>
                         <a href="javascript:void(0);">
                             @foreach (var item in Model.hotelsearchResponses)
@@ -45,10 +53,14 @@
                                 <div class="col-sm-12 col-md-offset-right-1">
                                     <div class="resot_list list-details">
                                         <ul>
-                                            @foreach (var item in Model.Amenities)
+                                            @if (Model.Amenities != null)
                                             {
-                                                <li>@item</li>
+                                                foreach (var item in Model.Amenities)
+                                                {
+                                                    <li>@item</li>
+                                                }
                                             }
+
 
                                         </ul>
                                     </div>
@@ -85,14 +97,14 @@
                             <div class="book_table_item">
                                 <div class="input-append">
                                     <input class="input-text" size="16" type="text" value="@Model.m_SearchHotel.ddlAdult" placeholder="CheckOut Date" disabled>
-                                    </div>
-                               
+                                </div>
+
                                 @* <select class="selectpicker" disabled>
-                                    <option>Adults</option>
-                                    <option>Adults-1</option>
-                                    <option>Adults-2</option>
-                                    <option>Adults-3</option>
-                                    <option>Adults-4</option>
+                                <option>Adults</option>
+                                <option>Adults-1</option>
+                                <option>Adults-2</option>
+                                <option>Adults-3</option>
+                                <option>Adults-4</option>
 
                                 </select> *@
                             </div>
@@ -100,13 +112,13 @@
                                 <div class="input-append">
                                     <input class="input-text" size="16" type="text" value="@Model.m_SearchHotel.ddlChild" placeholder="CheckOut Date" disabled>
                                 </div>
-                                
+
                                 @* <select class="selectpicker" disabled>
-                                    <option>Select Children</option>
-                                    <option>Children-1</option>
-                                    <option>Children-2</option>
-                                    <option>Children-3</option>
-                                    <option>Children-4</option>
+                                <option>Select Children</option>
+                                <option>Children-1</option>
+                                <option>Children-2</option>
+                                <option>Children-3</option>
+                                <option>Children-4</option>
                                 </select> *@
                             </div>
                             <div class="book_table_item">
@@ -126,5 +138,5 @@
         $(".book_now_btn").click(function (evt) {
             $(".page").show();
         });
-    });    
+    });
 </script>

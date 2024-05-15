@@ -32,12 +32,20 @@ namespace LiveHolidayapp.Models
             compid = config.GetValue<string>("CompanyId");
             if (URL == "LOCALHOST:7035")
             {
-                
+
                 ds = _AdminHandler.GetCompanySetting(compid, "");
             }
             else
             {
-                ds = _AdminHandler.GetCompanySetting(compid, "");
+                if (URL == "basichotelv2.bisplindia.in")
+                {
+                    ds = _AdminHandler.GetCompanySetting("1", "");
+                }
+                else
+                {
+                    ds = _AdminHandler.GetCompanySetting("0", URL);
+                }
+                
             }
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {

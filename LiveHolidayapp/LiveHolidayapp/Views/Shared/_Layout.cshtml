@@ -38,15 +38,15 @@
     <link href="~/css/color.css" asp-append-version="true" rel="stylesheet" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link href="~/toastr/toastr.css" asp-append-version="true" rel="stylesheet" />
-    
+
     <script src="~/js/jquery-2.2.4.js"></script>
-    
+
 
     <script src="~/js/bootstrap.min.js"></script>
-    
+
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-  
+
 
 
 </head>
@@ -88,10 +88,17 @@
                             <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-user" aria-hidden="true"></i></a>
                         </button>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="~/companylogo/1/logo.png" alt="">
-                            <img src="~/companylogo/1/logo.png" alt="">
+                            @if (Context.Session.GetString("CompanyId") == "1")
+                            {
+                                <img src="~/companylogo/1/logo.png" alt="">
+                                <img src="~/companylogo/1/logo.png" alt="">
+                            }
+                            else
+                            {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
+                            }
 
-                            @* <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt=""> *@
+                            
                         </a>
                     </div>
 
@@ -103,7 +110,7 @@
                             <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
                             <li><a href="~/Home/BookHotel">Book Hotel</a></li>
                             <li><a href="~/Home/Contactus">Get In Touch</a></li>
-                            
+
                             @if (!string.IsNullOrEmpty(Context.Session.GetString("Authnekot")))
                             {
                                 <li class="dropdown hover-block">
@@ -143,8 +150,15 @@
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
                         <aside class="f_widget about_widget">
-                            <img src="~/companylogo/1/footer-logo.png" alt="">
-                            @* <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt=""> *@
+                            @if (Context.Session.GetString("CompanyId") == "1")
+                            {
+                                <img src="~/companylogo/1/logo.png" alt="">
+                            }
+                            else
+                            {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
+                            }
+                            
                             <div class="ab_wd_list">
                                 <div class="media">
                                     <div class="media-left">
@@ -233,7 +247,7 @@
     <script type="text/javascript" src="~/js/bootstrap-datepicker.min.js" asp-append-version="true"></script>
     <script src="~/vendors/bootstrap-selector/bootstrap-select.js"></script>
     <script src="~/vendors/lightbox/simpleLightbox.min.js"></script>
-   @*  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> *@
+    @*  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> *@
     @* <script src="~/js/gmaps.min.js"></script> *@
     <script type="text/javascript" src="~/vendors/instafeed/instafeed.min.js"></script>
     <script type="text/javascript" src="~/vendors/instafeed/script.js"></script>

@@ -18,7 +18,7 @@ namespace LiveHolidayapp.Controllers
             this._companyDetail = new CompanyDetail(_httpContextAccessor);
             obj = this._companyDetail.GetCompany();
             _config = config;
-            companyId = _config.GetValue<string>("CompanyId")!;
+            companyId =Convert.ToString(obj.CompanyId);
             Theme = obj.Theme;
         }
         public IActionResult Login(string returnUrl = null)

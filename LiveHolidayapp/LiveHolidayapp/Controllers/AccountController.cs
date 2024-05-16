@@ -8,7 +8,7 @@ namespace LiveHolidayapp.Controllers
     {
         CompanyDetail _companyDetail;
         private readonly string Theme = "";
-        M_Company obj = new M_Company();
+        M_Company Cobj = new M_Company();
         private IHttpContextAccessor _httpContextAccessor;
         private readonly IConfiguration _config;
         private string companyId = "";
@@ -16,10 +16,10 @@ namespace LiveHolidayapp.Controllers
         {
             _httpContextAccessor = httpContextAccessor;
             this._companyDetail = new CompanyDetail(_httpContextAccessor);
-            obj = this._companyDetail.GetCompany();
+            Cobj = this._companyDetail.GetCompany();
             _config = config;
-            companyId =Convert.ToString(obj.CompanyId);
-            Theme = obj.Theme;
+            companyId =Convert.ToString(Cobj.CompanyId);
+            Theme = Cobj.Theme;
         }
         public IActionResult Login(string returnUrl = null)
         {

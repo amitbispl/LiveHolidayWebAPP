@@ -32,12 +32,11 @@ namespace LiveHolidayapp.Models
             compid = config.GetValue<string>("CompanyId");
             if (URL == "LOCALHOST:7035")
             {
-
                 ds = _AdminHandler.GetCompanySetting(compid, "");
             }
             else
             {
-                if (URL == "basichotelv2.bisplindia.in")
+                if (URL == "BASICHOTELV2.BISPLINDIA.IN")
                 {
                     ds = _AdminHandler.GetCompanySetting("1", "");
                 }
@@ -45,11 +44,9 @@ namespace LiveHolidayapp.Models
                 {
                     ds = _AdminHandler.GetCompanySetting("0", URL);
                 }
-                
             }
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-
                 obj.Title = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"])!;
                 obj.CompanyName = Convert.ToString(ds.Tables[0].Rows[0]["CompanyName"])!;
                 obj.Address = Convert.ToString(ds.Tables[0].Rows[0]["Address"])!;
@@ -103,9 +100,7 @@ namespace LiveHolidayapp.Models
                     _httpContextAccessor.HttpContext.Session.SetString("GMapIframeURL", Convert.ToString(ds.Tables[0].Rows[0]["GMapIframeURL"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("Theme", Convert.ToString(ds.Tables[0].Rows[0]["Theme"])!);
                 }
-
             }
-
             return obj;
         }
     }

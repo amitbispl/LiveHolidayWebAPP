@@ -11,6 +11,7 @@
                 <div class="bg-transparent">
                     <div class="left_ex_title mb-2">
                         <h2> Login <span> account </span></h2>
+                        <p style="color:red">@ViewBag.message</p>
                     </div>
                     <form class="contact_us_form row mt-2" asp-controller="Account" asp-action="Login"
                           asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="contactForm" novalidate>

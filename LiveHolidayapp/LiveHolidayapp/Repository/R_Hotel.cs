@@ -86,6 +86,20 @@ namespace LiveHolidayapp.Repository
             }
             return str;
         }
+        public string CheckPackage(string Username,string Password)  
+        {
+            string resp = "";
+            try
+            {
+                string URL = "https://cpanel.megamart.ai/CheckLogin?token=abUnMar5489pidlAewUF4875brlE8a4i5n61089&UserName="+Username+"&Password="+General.UrlEncode(Password)+"";
+                resp = general.invokeGetRequest(URL);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
 
 
     }

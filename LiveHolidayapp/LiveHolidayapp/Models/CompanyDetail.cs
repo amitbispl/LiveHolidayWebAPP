@@ -100,6 +100,7 @@ namespace LiveHolidayapp.Models
                     _httpContextAccessor.HttpContext.Session.SetString("GMapIframeURL", Convert.ToString(ds.Tables[0].Rows[0]["GMapIframeURL"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("Theme", Convert.ToString(ds.Tables[0].Rows[0]["Theme"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("CmpToken", Convert.ToString(ds.Tables[0].Rows[0]["Token"])!);
+                    _httpContextAccessor.HttpContext.Session.SetString("IsFrontLogin", Convert.ToString(ds.Tables[0].Rows[0]["IsFrontLogin"])!);
                 }
             }
             return obj;

@@ -1,6 +1,9 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json;
+using System.Data;
+using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Xml;
 
 namespace LiveHolidayapp.Models
 {
@@ -126,6 +129,32 @@ namespace LiveHolidayapp.Models
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        private readonly static string reservedCharacters = "!*'();:@&=+$,/?%#[]";
+        public static string UrlEncode(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+                return String.Empty;
+
+            var sb = new StringBuilder();
+
+            foreach (char @char in value)
+            {
+                if (reservedCharacters.IndexOf(@char) == -1)
+                    sb.Append(@char);
+                else
+                    sb.AppendFormat("%{0:X2}", (int)@char);
+            }
+            return sb.ToString();
+        }
+        public DataSet convertJsonStringToDataSet(string jsonString)
+        {
+            XmlDocument xd = new XmlDocument();
+            jsonString = "{ \"rootNode\": {" + jsonString.Trim().TrimStart('{').TrimEnd('}') + "} }";
+            xd = (XmlDocument)JsonConvert.DeserializeXmlNode(jsonString);
+            DataSet ds = new DataSet();
+            ds.ReadXml(new XmlNodeReader(xd));
+            return ds;
         }
     }
 }

@@ -90,10 +90,18 @@ namespace LiveHolidayapp.Controllers
             }
             else
             {
-                string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
-                return RedirectToAction("Login", "Account",new { returnUrl});
-            }
+                if (HttpContext.Session.GetString("IsFrontLogin") == "N")
+                {
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                }
+                else
+                {
+                    string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
+                    return RedirectToAction("Login", "Account", new { returnUrl });
+                }
                 
+            }
+
         }
         public IActionResult Destinations()
         {

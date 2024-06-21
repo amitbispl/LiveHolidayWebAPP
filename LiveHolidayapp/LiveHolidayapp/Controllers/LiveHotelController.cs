@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Web;
 using X.PagedList;
@@ -20,6 +21,7 @@ namespace LiveHolidayapp.Controllers
         M_Company obj = new M_Company();
         R_Hotel _Hotel = new R_Hotel();
         private static string LastCountryname = "";
+        General gen = new General();
         public LiveHotelController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
@@ -318,6 +320,17 @@ namespace LiveHolidayapp.Controllers
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 M_Hotel obj = new M_Hotel();
                 obj.m_SearchHotel = result.m_SearchHotel;
+                if (HttpContext.Session.GetString("CompanyId") == "4844")
+                {
+                    //check isholiday
+                    var res = _Hotel.CheckPackage(HttpContext.Session.GetString("UserName"), HttpContext.Session.GetString("password"));
+                    DataSet ds = new DataSet();
+                    ds = gen.convertJsonStringToDataSet(res);
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        HttpContext.Session.SetString("isholiday", Convert.ToString(ds.Tables[0].Rows[0]["isholiday"]));
+                    }
+                }
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/BookHotal.cshtml", obj);
@@ -340,6 +353,15 @@ namespace LiveHolidayapp.Controllers
             string err = string.Empty;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                if (HttpContext.Session.GetString("CompanyId") == "4844")
+                {
+                    if (HttpContext.Session.GetString("isholiday") == "N")
+                    {
+                        msg = "Please purchase package.";
+                        err = "1";
+                        return Json(new { msg, err });
+                    }
+                }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == Convert.ToInt32(HotelBookreq.hotelCode)).ToList();
                 HotelBookreq.userName = Convert.ToString(HttpContext.Session.GetString("Name"));

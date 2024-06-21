@@ -162,6 +162,8 @@
     </div>
     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("Name"))" id="leadpaxName" />
     <input type="hidden" value="@ViewBag.Hotelid" id="hotelCode" />
+    <input type="hidden" id="companyid" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
+    <input type="hidden" id="isholiday" value="@Convert.ToString(Context.Session.GetString("isholiday"))" />
 </section>
 <!-- Booking Deatils End -->
 
@@ -369,8 +371,20 @@
     //save hotel
     function Savehotel() {
         var hotelBookPassengers = [];
-
-
+        var companyid = $("#companyid").val();
+        if (companyid == "4844") {
+            var isholiday = $("#isholiday").val();
+            if (isholiday == "N") {
+                toastr.error('Please purchase package', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                return false;
+            }
+        }
         for (var i = 0; i < parseInt(HidAdult); i++) {
             var title = $("#adultTitle_" + i).val();
             if (title == "0") {
@@ -519,7 +533,7 @@
             $("#Email").focus();
             return false;
         }
-        
+
         for (var i = 0; i < hotelBookPassengers.length; i++) {
             hotelBookPassengers[i].email = Email;
         }

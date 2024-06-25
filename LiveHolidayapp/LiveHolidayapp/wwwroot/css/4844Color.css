@@ -1,0 +1,87 @@
+﻿.main_header_area.white_menu .header_top {
+    background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+}
+
+.book_now_btn {
+    border: none;
+    background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+}
+
+.user-button a {
+    color: #a538ed;
+}
+
+.main_header_area.white_menu .header_menu {
+    border-bottom: 3px solid #8923b7;
+}
+
+.left_ex_title h2,
+.conditons-title h1,
+.text-theme,
+.room_d_main_text h4 span,
+.booking-title h3 {
+    color: #a92adb !important;
+}
+
+.about_widget .ab_wd_list .media .media-left i,
+.main_header_area.white_menu .header_menu .navbar.navbar-default .nav.navbar-nav > li:hover > a, .main_header_area.white_menu .header_menu .navbar.navbar-default .nav.navbar-nav > li.active > a {
+    color: #a92adb !important;
+}
+
+.f_title h3::before {
+    background: #a92adb;
+}
+
+.tab-buttons li.active a {
+    border-color: #fff !important;
+    background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+    color: var(--white-color) !important;
+}
+
+.tab-buttons li a {
+    color: #a92adb !important;
+    background: white !important;
+    border-color: #a92adb !important;
+}
+
+.banner_area:before {
+    background: #8923b773;
+}
+
+.banner_inner_content ul li:hover a, .banner_inner_content ul li.active a {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+
+.book_room_box {
+    background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+}
+
+.book_now_btn,
+.submit_btn {
+    background: #a92adb;
+    color: var(--white-color) !important;
+    border: 2px solid #a92adb;
+}
+
+.theme-color {
+    background-color: #a92adb !important;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #a92adb;
+}
+
+.book_now_btn:hover {
+    color: #a92adb !important;
+    background: transparent !important;
+    border-color: #a92adb !important;
+}

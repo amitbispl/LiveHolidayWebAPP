@@ -1,4 +1,16 @@
-﻿.main_header_area.white_menu .header_top {
+﻿
+:root {
+    --white-color: #fff;
+    --secondary-color: #1a1a1a;
+    --black-secondary: #242424;
+    --button-continue: #1a1a1a;
+}
+
+.pull-right {
+    color: #fff;
+}
+
+.main_header_area.white_menu .header_top {
     background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
     background-size: cover !important;
     background-position: bottom !important;

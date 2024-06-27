@@ -114,6 +114,17 @@ namespace LiveHolidayapp.Controllers
                 return View("~/Views/Theme/Home/Destinations.cshtml");
             }
         }
+        public IActionResult Refund()
+        {
+            if (Theme != null && Theme != "")
+            {
+                return View("~/Views/" + Theme + "/Home/Refund.cshtml");
+            }
+            else
+            {
+                return View("~/Views/Theme/Home/Refund.cshtml");
+            }
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Refund";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>Privacy Policy</h3>
+            <ul>
+                <li class="active"><a href="~/Home/index">Home</a></li>
+                <li><a href="~/Home/Refund">REFUND AND CANCELLATION POLICY</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<section class="room_list_area pt-10 ppt-20">
+    <div class="container bg-white p-3">
+        <div class="room_list_inner">
+            <div class="row mr-0">
+                <div class="col-md-12">
+                    <div class="conditons-title">
+                        <h1>REFUND AND CANCELLATION POLICY</h1>
+                    </div>
+                </div>
+                <div class="conditons">
+                    <ul>
+                        <li>
+                            Our focus is complete customer satisfaction. In the event, if you are displeased with the services provided, we will refund back the money, provided the reasons are genuine and proved after investigation. Please read the fine prints of each deal before buying it, it provides all the details about the services or the product you purchase.
+                            In case of dissatisfaction from our services, clients have the liberty to cancel their projects and request a refund from us. Our Policy for the cancellation and refund will be as follows:
+                        </li>
+                        <li>
+                            <b>CANCELLATION POLICY</b>
+                            <br />
+                            For Cancellations please contact the us via contact us on mail : @Convert.ToString(Context.Session.GetString("CMEmailID"))
+                            Requests received later than 15 business days prior to the end of the current service period will be treated as cancellation of services for the next service period
+                        </li>
+                        <li>
+                            <b>REFUND POLICY</b>
+                            <br />
+                            We will try our best to create the suitable design concepts for our clients.
+                            In case any client is not completely satisfied with our products we can provide a refund.
+                            If paid by credit card, refunds will be issued to the original credit card provided at the time of purchase and in case of payment gateway name payments refund will be made to the same account.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

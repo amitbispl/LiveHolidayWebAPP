@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@{
     ViewData["Title"] = "Terms and Conditions";
 }
 <!-- Breadcrumb Banner Start -->
@@ -25,9 +26,9 @@
                     </div>
                     <div class="conditons">
                         <ul>
-                            <li>biztadka entitles the customer for Two night’s hotel accommodation for two adults and two children under the age of 5 years sharing the same room without extra bed.</li>
+                            <li>@Convert.ToString(Context.Session.GetString("CompanyName")) entitles the customer for Two night’s hotel accommodation for two adults and two children under the age of 5 years sharing the same room without extra bed.</li>
 
-                            <li>This scheme is valid only for the customers of “biztadka."</li>
+                            <li>This scheme is valid only for the customers of “@Convert.ToString(Context.Session.GetString("CompanyName"))."</li>
 
                             <li>This offer does not include the following: Courier cost, Travel, Transportation, Incidentals, Applicable Taxes (On other charges excluding of package), Additional Accommodation and other facilities offered by the hotels that may be availed by customers during their stay.</li>
 
@@ -46,7 +47,7 @@
                                 </ul>
                                 </ii>
 
-                            <li>In the booking request form the eligible customer must state 1 destination and 1 date. "DTIL" will use reasonable endeavors to book you in any available combination and/or sequence (L1-D1) from your chosen dates and/or destinations. Booking Request forms not meeting these criteria are liable to be rejected and cannot be re-processed. In the unlikely event of none of the combination/sequence being available biztadka. shall offer alternate destination or date at their absolute discretion which may be before or after the preferred dates opted by the customer. Such an alternative offer shall fulfill all promotional obligations to the customer.</li>
+                            <li>In the booking request form the eligible customer must state 1 destination and 1 date. "DTIL" will use reasonable endeavors to book you in any available combination and/or sequence (L1-D1) from your chosen dates and/or destinations. Booking Request forms not meeting these criteria are liable to be rejected and cannot be re-processed. In the unlikely event of none of the combination/sequence being available @Convert.ToString(Context.Session.GetString("CompanyName")). shall offer alternate destination or date at their absolute discretion which may be before or after the preferred dates opted by the customer. Such an alternative offer shall fulfill all promotional obligations to the customer.</li>
 
                             <li>If your booking is within the period of 20 to 30 days then your booking will be confirmed within 7 days of receipt of your voucher & you will be intimated about the destination booked & if the booking is for later period then you will receive the confirmation 7 days prior to the check inn date via sms& e-mail both and you will be provided the hotel name 3 days prior to the check inn date.</li>
 
@@ -54,19 +55,19 @@
 
                             <li>An incomplete 'Reservation Form' received without required supporting documents or Reservation Form received by e-mail, fax or phone shall be liable to rejection and cannot be re-processed.</li>
 
-                            <li>"DTIL" reserves the right to refuse to redeem the Booking Request Form if submitted by persons other than the customer of biztadka. All Booking Request Forms shall be treated and processed as individual requests. Booking Request Form cannot be used/ clubbed together in any manner.</li>
+                            <li>"DTIL" reserves the right to refuse to redeem the Booking Request Form if submitted by persons other than the customer of @Convert.ToString(Context.Session.GetString("CompanyName")). All Booking Request Forms shall be treated and processed as individual requests. Booking Request Form cannot be used/ clubbed together in any manner.</li>
 
                             <li>No cancellation or amendment is possible after confirmation of booking. In the event of customer not availing the accommodation against the confirmed booking no replacement or alternate reservation shall be offered.</li>
 
                             <li>The use of the confirmation letter is subject to the rules and regulations of the hotel(s) to maintain decorum. The use of the confirmation letter by the customer shall be deemed as an acceptance to the rules and regulations of the hotel(s).</li>
 
-                            <li>“biztadka.” reserves the right to extend, cancel, discontinue, prematurely withdraw, change, alter or modify this offer or any part there of including but not limited to the eligibility criteria or Hotel list and destinations at its sole discretion anytime during its validity as may be required and the same shall be binding on the customer.</li>
+                            <li>“@Convert.ToString(Context.Session.GetString("CompanyName")).” reserves the right to extend, cancel, discontinue, prematurely withdraw, change, alter or modify this offer or any part there of including but not limited to the eligibility criteria or Hotel list and destinations at its sole discretion anytime during its validity as may be required and the same shall be binding on the customer.</li>
 
-                            <li>Any disputes, controversies and conflicts (“Disputes”) arising out of this offer shall be referred to a sole arbitrator to be appointed by “biztadka.” and “DTIL.” The Courts at Bhilwara shall have the exclusive jurisdiction in respect to all the subject matter with relation to this offer.</li>
+                            <li>Any disputes, controversies and conflicts (“Disputes”) arising out of this offer shall be referred to a sole arbitrator to be appointed by “@Convert.ToString(Context.Session.GetString("CompanyName")).” and “DTIL.” The Courts at Bhilwara shall have the exclusive jurisdiction in respect to all the subject matter with relation to this offer.</li>
 
                             <li>The provision of the holiday package is subject to Force Majeure conditions.</li>
 
-                            <li>DTIL is solely responsible for scheme coordination according to the terms and conditions mentioned above. For all other transactions, dealing with biztadka., please contact</li>
+                            <li>DTIL is solely responsible for scheme coordination according to the terms and conditions mentioned above. For all other transactions, dealing with @Convert.ToString(Context.Session.GetString("CompanyName"))., please contact</li>
 
                             <p>For most recent updates and full set of terms and conditions, please contact “Customer Services” by calling on customer care no., between 10.30 am- 5.30 pm, Monday to Friday.</p>
 

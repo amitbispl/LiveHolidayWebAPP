@@ -1,4 +1,3 @@
-using LiveHolidayapp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

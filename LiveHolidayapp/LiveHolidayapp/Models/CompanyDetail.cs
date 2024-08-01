@@ -102,6 +102,7 @@ namespace LiveHolidayapp.Models
                     _httpContextAccessor.HttpContext.Session.SetString("CmpToken", Convert.ToString(ds.Tables[0].Rows[0]["Token"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("IsFrontLogin", Convert.ToString(ds.Tables[0].Rows[0]["IsFrontLogin"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("colorcss", Convert.ToString(ds.Tables[0].Rows[0]["colorcss"])!);
+                    _httpContextAccessor.HttpContext.Session.SetString("ChildAllowed", Convert.ToString(ds.Tables[0].Rows[0]["ChildAllowed"])!);
                 }
             }
             return obj;

@@ -1,6 +1,4 @@
-﻿
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using X.PagedList;
 
 namespace LiveHolidayapp.Models

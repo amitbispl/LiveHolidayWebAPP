@@ -66,8 +66,10 @@
                 <div class="book_table_item" id="dvchild">
                     <select class="selectpicker" id="ddlChild">
                         <option value="0">Select Children</option>
-                        <option value="1">Children-1</option>
-                        <option value="2">Children-2</option>
+                        @for (int i = 1; i <= Convert.ToInt32(Context.Session.GetString("ChildAllowed")); i++)
+                        {
+                            <option value="@i">Children-@i</option>
+                        }
                     </select>
                 </div>
                 <div class="book_table_item">

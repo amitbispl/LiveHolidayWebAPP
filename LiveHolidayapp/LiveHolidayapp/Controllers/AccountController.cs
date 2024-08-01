@@ -45,7 +45,7 @@ namespace LiveHolidayapp.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                Loginreq req = new Loginreq();
+                Loginreq req = new Loginreq();  
                 req.companyId = Convert.ToInt32(companyId);
                 req.password = obj.Password;
                 req.userName = obj.Username;

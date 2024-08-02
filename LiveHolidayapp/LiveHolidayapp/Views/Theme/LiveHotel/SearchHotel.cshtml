@@ -77,7 +77,14 @@
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("ISchild"))" id="ISchild" />
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
-                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    @if (Convert.ToString(Context.Session.GetString("OrderId")) == "0")
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    }
+                    else
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IDWiseDayAfter"))" id="DayAfter" />
+                    }
                     <input type="hidden" id="hdnCompanyId" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
                     <input type="hidden" id="hdnKitId" value="@Convert.ToString(Context.Session.GetString("KitID"))" />
                     <input type="hidden" id="hdnDays" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" />
@@ -93,7 +100,7 @@
 <!-- Slider With Form End -->
 <script type="text/javascript">
     $(document).ready(function () {
-       
+
         var ISchild = $("#ISchild").val();
         var days = $("#StartAfterday").val();
         var IsCustomizeDuration = $("#IsCustomizeDuration").val();
@@ -128,7 +135,7 @@
 
 
         $("#txtHotelCheckIn").change(function () {
-           
+
             var from = $("#txtHotelCheckIn").datepicker("getDate");
             var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
             var hdnKitId = $("#hdnKitId").val();
@@ -158,7 +165,7 @@
             var maxDate_d = parseInt(date_diff) + parseInt(diff);
             date_diff = date_diff;
 
-          
+
             dt = new Date();
             dt.setDate(dt.getDate() + parseInt(maxDate_d));
             var dtmin = new Date();
@@ -173,13 +180,13 @@
                 required: true,
                 showOn: "focus",
                 numberOfMonths: 1,
-                orientation: "top",               
+                orientation: "top",
                 autoclose: true
             });
 
             var startDate = $("#txtHotelCheckIn").datepicker('getDate');
             startDate.setDate(startDate.getDate() + parseInt(diff));
-               var month2 = ('0' + (startDate.getMonth() + 1)).slice(-2); // Adding 1 to the month to get correct month number
+            var month2 = ('0' + (startDate.getMonth() + 1)).slice(-2); // Adding 1 to the month to get correct month number
             var day2 = ('0' + startDate.getDate()).slice(-2);
             var year2 = startDate.getFullYear();
             if (month2.length < 2) month2 = '0' + month2;
@@ -230,7 +237,7 @@
                     data: { Prefix: request.term },
                     success: function (data) {
                         response($.map(data, function (item) {
-                            
+
                             return {
                                 label: item.cityName,
                                 val: item.cityCode,
@@ -249,7 +256,7 @@
     });
 
     function setdate(val, val2) {
-        
+
         $("#txtHotelCheckOut").datepicker('setDate', val);
         $("#txtHotelCheckOut").datepicker({
             defaultDate: "+3d",
@@ -268,7 +275,7 @@
 
 
     function HotelSearch() {
-       
+
         var txtNationality = $("#txtNationality").val();
         if (txtNationality == "") {
             toastr.error('Enter country', 'Error', {

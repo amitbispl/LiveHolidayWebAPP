@@ -91,7 +91,7 @@ namespace LiveHolidayapp.Repository
             string resp = "";
             try
             {
-                string URL = "https://cpanel.megamart.ai/CheckLogin?token=abUnMar5489pidlAewUF4875brlE8a4i5n61089&UserName="+Username+"&Password="+General.UrlEncode(Password)+"";
+                string URL = "https://cpanel.megamart.ai/CheckLogin?token=abUnMar5489pidlAewUF4875brlE8a4i5n61089&UserName="+Username+"&Password="+General.UrlEncode(Password)+"&action=login";
                 resp = general.invokeGetRequest(URL);
             }
             catch (Exception ex)

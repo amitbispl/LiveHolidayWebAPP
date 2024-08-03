@@ -43,53 +43,61 @@ namespace LiveHolidayapp.Controllers
         {
 
             ViewData["ReturnUrl"] = returnUrl;
-            if (ModelState.IsValid)
+            try
             {
-                Loginreq req = new Loginreq();  
-                req.companyId = Convert.ToInt32(companyId);
-                req.password = obj.Password;
-                req.userName = obj.Username;
-                R_Login rr = new R_Login();
-                var response = await rr.UserLogin(req);
-                if (response != null)
+                if (ModelState.IsValid)
                 {
-                    if (response.isRedeem == true)
+                    Loginreq req = new Loginreq();
+                    req.companyId = Convert.ToInt32(companyId);
+                    req.password = obj.Password;
+                    req.userName = obj.Username;
+                    R_Login rr = new R_Login();
+                    var response = await rr.UserLogin(req);
+                    if (response != null)
                     {
-                        ViewBag.message = "Already redeemed this service";
-                    }
-                    else
-                    {
-                        HttpContext.Session.SetString("Authnekot", response.tokenString);
-                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                        HttpContext.Session.SetString("Name", response.name);
-                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
-                        HttpContext.Session.SetString("Status", "OK");
-                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                        HttpContext.Session.SetString("UserName", response.userName);
-                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("password", Convert.ToString(obj.Password));
-                        HttpContext.Session.SetString("OrderId",Convert.ToString(response.orderId));
-                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                        if (Url.IsLocalUrl(returnUrl))
+                        if (response.isRedeem == true)
                         {
-                            return Redirect(returnUrl);
+                            ViewBag.message = "Already redeemed this service";
                         }
                         else
                         {
-                            return RedirectToAction(nameof(HomeController.Index), "Home");
+                            HttpContext.Session.SetString("Authnekot", response.tokenString);
+                            HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
+                            HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
+                            HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
+                            HttpContext.Session.SetString("Name", response.name);
+                            HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
+                            HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
+                            HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                            HttpContext.Session.SetString("Status", "OK");
+                            HttpContext.Session.SetString("MobileNo", response.mobileNo);
+                            HttpContext.Session.SetString("UserName", response.userName);
+                            HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                            HttpContext.Session.SetString("password", Convert.ToString(obj.Password));
+                            HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
+                            HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
+                            if (Url.IsLocalUrl(returnUrl))
+                            {
+                                return Redirect(returnUrl);
+                            }
+                            else
+                            {
+                                return RedirectToAction(nameof(HomeController.Index), "Home");
+                            }
                         }
-                    }
 
-                }
-                else
-                {
-                    ViewBag.message = "Please enter valid username and password";
+                    }
+                    else
+                    {
+                        ViewBag.message = "Please enter valid username and password";
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                ViewBag.message = "Please enter valid username and password";
+            }
+            
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Account/Login.cshtml", obj);

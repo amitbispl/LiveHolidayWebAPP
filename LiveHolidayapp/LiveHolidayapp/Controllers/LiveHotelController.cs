@@ -325,13 +325,22 @@ namespace LiveHolidayapp.Controllers
                 if (HttpContext.Session.GetString("CompanyId") == "4844")
                 {
                     //check isholiday
-                    var res = _Hotel.CheckPackage(HttpContext.Session.GetString("UserName"), HttpContext.Session.GetString("password"));
-                    DataSet ds = new DataSet();
-                    ds = gen.convertJsonStringToDataSet(res);
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    try
                     {
-                        HttpContext.Session.SetString("isholiday", Convert.ToString(ds.Tables[0].Rows[0]["isholiday"]));
+                        if(HttpContext.Session.GetString("OrderId") !="0")
+                        {
+                            HttpContext.Session.SetString("isholiday", "Y");
+                        }
+                        else
+                        {
+                            HttpContext.Session.SetString("isholiday", "N");
+                        }
                     }
+                    catch
+                    {
+
+                    }
+                   
                 }
                 if (Theme != null && Theme != "")
                 {

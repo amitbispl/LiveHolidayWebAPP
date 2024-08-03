@@ -86,6 +86,7 @@ namespace LiveHolidayapp.Repository
             }
             return str;
         }
+
         public string CheckPackage(string Username,string Password)  
         {
             string resp = "";
@@ -101,6 +102,33 @@ namespace LiveHolidayapp.Repository
             return resp;
         }
 
+        public string SendOTP(OTPRequest req, string Token)
+        {
+            string str = string.Empty;
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                str = general.CallPostFunction(detail, Token, "Admin/GetOtp");
+            }
+            catch
+            {
 
+            }
+            return str;
+        }
+        public string ValidateOTP(ValidOTPReq req ,string Token)
+        {
+            string str = string.Empty;
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                str = general.CallPostFunction(detail, Token, "Admin/OTPValidate");
+            }
+            catch
+            {
+
+            }
+            return str;
+        }
     }
 }

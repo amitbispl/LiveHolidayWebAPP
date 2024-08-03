@@ -36,6 +36,7 @@ namespace LiveHolidayapp.Models
         public int id { get; set; }
         public int orderId { get; set; }
         public string tokenString { get; set; }
+        public int IDWiseDayAfter { get; set; }
 
     }
     public class Rootobject

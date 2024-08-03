@@ -132,23 +132,23 @@
                                     <input type="text" name="" id="Address" class="form-control" value="" required="required" placeholder="Address">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" name="" id="Email" class="form-control" value="" required="required" placeholder="Email ID">
+                                    <input type="email" name="" id="Email" class="form-control" value="@Convert.ToString(Context.Session.GetString("EmailID"))" required="required" placeholder="Email ID">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text" name="" id="City" class="form-control" value="" required="required" placeholder="City">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" name="" id="Mobile" class="form-control" onkeypress="return isNumberKey(event);" value="" required="required" placeholder="Mobile Number">
+                                    <input type="text" name="" id="Mobile" class="form-control" onkeypress="return isNumberKey(event);" value="@Convert.ToString(Context.Session.GetString("MobileNo"))" required="required" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%;display:none;" onclick="Sendotp()">Send OTP</button>
-                                    <button type="button" id="Submitbtn" onclick="Savehotel()" class="btn submit_btn form-control" style="width: 100%;">Submit</button>
+                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%" onclick="Sendotp()">Send OTP</button>
+
                                 </div>
                                 <div class="form-group col-md-6" id="divotp" style="display:none;">
                                     <input type="text" name="" id="inotp" class="form-control" value="" required="required" placeholder="Enter OTP">
                                 </div>
-                                <div class="form-group col-md-6" id="divsubbtn">
-                                    @* <button type="button" id="Submitbtn" onclick="Savehotel()" class="btn submit_btn form-control" style="width: 100%;">Sumbit</button> *@
+                                <div class="form-group col-md-6" id="divsubbtn" style="display:none;">
+                                    <button type="button" id="Submitbtn" onclick="ValidOTP()" class="btn submit_btn form-control" style="width: 100%;">Submit</button>
                                 </div>
                             </form>
 
@@ -164,6 +164,7 @@
     <input type="hidden" value="@ViewBag.Hotelid" id="hotelCode" />
     <input type="hidden" id="companyid" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
     <input type="hidden" id="isholiday" value="@Convert.ToString(Context.Session.GetString("isholiday"))" />
+    <input type="hidden" id="Otpid" value="0" />
 </section>
 <!-- Booking Deatils End -->
 
@@ -367,7 +368,116 @@
 
         $("#btnotp").prop('disabled', true);
         $(".page").show();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/SendOtp",
+            async: true,
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#btnotp").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { MobileNo: Mobile },
+            success: function (data) {
+                debugger;
+                if (data.code == 200) {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Otpid").val(data.otpid);
+                    $("#divotp").show();
+                    $("#divsubbtn").show();
+                }
+                else {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                }
+                $(".page").hide();
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            }
+        });
     }
+
+    function ValidOTP() {
+        debugger;
+        var otp= $("#inotp").val();
+        var otpid = $("#Otpid").val();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/ValidateOTP",
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#btnotp").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { Otpid: otpid, Otpval: otp },
+            success: function (data) {
+                debugger;
+                if (data.code == 200) {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    Savehotel();
+                }
+                else {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $(".page").hide();
+                }
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            }
+        });
+    }
+
     //save hotel
     function Savehotel() {
         var hotelBookPassengers = [];

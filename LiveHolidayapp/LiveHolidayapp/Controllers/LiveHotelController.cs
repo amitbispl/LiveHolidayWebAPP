@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Web;
 using X.PagedList;
+using static System.Net.WebRequestMethods;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LiveHolidayapp.Controllers
@@ -311,7 +313,7 @@ namespace LiveHolidayapp.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
-
+        
         public IActionResult BookHotal(int id)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
@@ -345,7 +347,71 @@ namespace LiveHolidayapp.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
+        [HttpPost]
+        public IActionResult SendOtp(string MobileNo)
+        {
+            try
+            {
+                OTPRequest req = new OTPRequest();
+                req.MobileNo = MobileNo;
+                req.FormNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
+                req.CompanyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
+                req.UserName = Convert.ToString(HttpContext.Session.GetString("UserName"));
+                var Response = _Hotel.SendOTP(req, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var output = JsonConvert.DeserializeObject<CommonResponse<OTPREsponse>>(Response);
+                if (output != null)
+                {
+                    if (output.Code == 200)
+                    {
+                        return Json(new { Code = 200, msg = output.Message, otpid = output.Data.ID });
+                    }
+                    else
+                    {
+                        return Json(new { Code = 300, msg = output.Message, otpid = 0 });
+                    }
+                }
+                else
+                {
+                    return Json(new { Code = 300, msg = "OTP not send", otpid = 0 });
+                }
+            }
+            catch
+            {
+                return Json(new { Code = 300, msg = "Something went wrong", otpid = 0 });
+            }
+        }
 
+        [HttpPost]
+        public IActionResult ValidateOTP(string Otpid, string Otpval)
+        {
+            try
+            {
+                ValidOTPReq req = new ValidOTPReq();
+                req.ID = Convert.ToInt32(Otpid);
+                req.OTP = Otpval;
+                var Response = _Hotel.ValidateOTP(req, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var output = JsonConvert.DeserializeObject<CommonResponse<string>>(Response);
+                if (output != null)
+                {
+                    if (output.Code == 200)
+                    {
+                        return Json(new { Code = 200, msg = output.Message });
+                    }
+                    else
+                    {
+                        return Json(new { Code = 100, msg = output.Message });
+                    }
+                }
+                else
+                {
+                    return Json(new { Code = 100, msg = "OTP not matched" });
+                }
+            }
+            catch
+            {
+                return Json(new { Code = 100, msg = "OTP not matched" });
+            }
+        }
         [HttpPost]
         public IActionResult HotelBook(M_HotelBook HotelBookreq)
         {

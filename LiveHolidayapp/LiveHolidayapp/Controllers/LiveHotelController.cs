@@ -361,7 +361,7 @@ namespace LiveHolidayapp.Controllers
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 M_Hotel obj = new M_Hotel();
                 obj.m_SearchHotel = result.m_SearchHotel;
-                if (HttpContext.Session.GetString("CompanyId") == "4844")
+                if (HttpContext.Session.GetString("Retopup") == "True")
                 {
                     //check isholiday
                     try
@@ -487,7 +487,7 @@ namespace LiveHolidayapp.Controllers
                 HotelBookreq.noOfRoom = "1";
                 HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
                 HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
-                HotelBookreq.orderId = "0";
+                HotelBookreq.orderId = Convert.ToString(HttpContext.Session.GetString("OrderId"));
                 HotelBookreq.bookingAmount = Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price), 2));
                 HotelBookreq.hotelName = Convert.ToString(sortdata[0].hotelName);
                 HotelBookreq.hotelCode = Convert.ToString(sortdata[0].hotelCode);
@@ -518,12 +518,46 @@ namespace LiveHolidayapp.Controllers
             return Json(new { msg, err });
         }
 
-        public IActionResult BookingThankyou()
+        public async Task<IActionResult> BookingThankyou()
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
                 HotelBookresponse obj = new HotelBookresponse();
                 obj = HttpContext.Session.GetComplexData<HotelBookresponse>("BookResponse");
+                try
+                {
+                    Loginreq req = new Loginreq();
+                    req.companyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
+                    req.password = HttpContext.Session.GetString("password");
+                    req.userName = HttpContext.Session.GetString("UserName");
+                    R_Login rr = new R_Login();
+                    var response = await rr.UserLogin(req);
+                    if (response != null)
+                    {
+                        HttpContext.Session.SetString("Authnekot", response.tokenString);
+                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
+                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
+                        HttpContext.Session.SetString("Name", response.name);
+                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
+                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
+                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                        HttpContext.Session.SetString("Status", "OK");
+                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
+                        HttpContext.Session.SetString("UserName", response.userName);
+                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
+                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
+                    }
+                    else
+                    {
+                        ViewBag.message = "Please enter valid username and password";
+                    }
+                }
+                catch
+                {
+
+                }
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/BookingThankyou.cshtml", obj);

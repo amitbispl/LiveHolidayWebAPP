@@ -165,6 +165,7 @@
     <input type="hidden" id="companyid" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
     <input type="hidden" id="isholiday" value="@Convert.ToString(Context.Session.GetString("isholiday"))" />
     <input type="hidden" id="Otpid" value="0" />
+    <input type="hidden" id="Retopup" value="@Convert.ToString(Context.Session.GetString("Retopup"))" />
 </section>
 <!-- Booking Deatils End -->
 
@@ -207,8 +208,8 @@
     var HidAdult = $("#HidAdult").val();
     var hidddlChild = $("#hidddlChild").val();
     function Sendotp() {
-        var companyid = $("#companyid").val();
-        if (companyid == "4844") {
+        var Retopup = $("#Retopup").val();
+        if (Retopup == "True") {
             var isholiday = $("#isholiday").val();
             if (isholiday == "N") {
                 toastr.error('Please purchase package', 'Error', {
@@ -438,7 +439,7 @@
 
     function ValidOTP() {
         debugger;
-        var otp= $("#inotp").val();
+        var otp = $("#inotp").val();
         var otpid = $("#Otpid").val();
         $.ajax({
             type: "POST",
@@ -494,8 +495,8 @@
     //save hotel
     function Savehotel() {
         var hotelBookPassengers = [];
-        var companyid = $("#companyid").val();
-        if (companyid == "4844") {
+        var Retopup = $("#Retopup").val();
+        if (Retopup == "True") {
             var isholiday = $("#isholiday").val();
             if (isholiday == "N") {
                 toastr.error('Please purchase package', 'Error', {

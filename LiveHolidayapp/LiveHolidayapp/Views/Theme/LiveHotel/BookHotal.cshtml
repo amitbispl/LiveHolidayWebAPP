@@ -207,7 +207,20 @@
     var HidAdult = $("#HidAdult").val();
     var hidddlChild = $("#hidddlChild").val();
     function Sendotp() {
-
+        var companyid = $("#companyid").val();
+        if (companyid == "4844") {
+            var isholiday = $("#isholiday").val();
+            if (isholiday == "N") {
+                toastr.error('Please purchase package', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                return false;
+            }
+        }
         for (var i = 0; i < parseInt(HidAdult); i++) {
             var title = $("#adultTitle_" + i).val();
             if (title == "0") {

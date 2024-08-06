@@ -39,6 +39,7 @@ namespace LiveHolidayapp.Models
         {   
             string result = string.Empty;
             string apiUrl = "http://holidayapi1.bisplindia.in/api/" + Action + "";
+            //string apiUrl = "https://localhost:7164/api/" + Action + "";
             try
             {
                 HttpWebRequest request = WebRequest.Create(apiUrl) as HttpWebRequest;

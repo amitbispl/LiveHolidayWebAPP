@@ -130,5 +130,19 @@ namespace LiveHolidayapp.Repository
             }
             return str;
         }
+        public string GetHotelreport(HotelReq req, string Token)
+        { 
+            string str = string.Empty;
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                str = general.CallPostFunction(detail, Token, "hotel/HotelBookingCheckout");
+            }
+            catch
+            {
+
+            }
+            return str;
+        }
     }
 }

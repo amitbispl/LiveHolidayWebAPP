@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -60,6 +61,44 @@ namespace LiveHolidayapp.Controllers
                 citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
                 HttpContext.Session.SetComplexData("citylist", citylist);
                 LastCountryname = countryList[0].Code;
+                if (HttpContext.Session.GetString("Retopup") == "True")
+                {
+                    try
+                    {
+                        HotelReq hotelReq = new HotelReq();
+                        hotelReq.Formno = Convert.ToInt32(HttpContext.Session.GetString("FormNo"));
+                        var reportoutput = _Hotel.GetHotelreport(hotelReq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                        var output = JsonConvert.DeserializeObject<CommonResponse<List<M_Hotelreport>>>(reportoutput);
+                        if (output != null && output.Code == 200)
+                        {
+                            if (output.Data.Count() > 0)
+                            {
+                                List<M_Hotelreport> hrs = output.Data;
+                                if (hrs != null && hrs.Count > 0)
+                                {
+                                    var checkoutdate = Convert.ToString(hrs[0].CheckOutDate);
+                                    // Define two dates
+                                    DateTime today = DateTime.Today;
+                                    DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd-MM-yyyy HH:mm:ss", null);
+                                    //DateTime futureDate = Convert.ToDateTime(checkoutdate).ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+                                    //DateTime futureDate = new DateTime(2024, 8, 18);
+                                    // Calculate the difference between the two dates
+                                    TimeSpan difference = futureDate - today;
+                                    // Get the difference in days
+                                    int daysDifference = difference.Days;
+                                    daysDifference = daysDifference + 2;
+                                    _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
+                                }
+                            }
+
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                    
+                }
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/SearchHotel.cshtml", obj);

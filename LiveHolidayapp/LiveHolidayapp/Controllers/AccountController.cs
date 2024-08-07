@@ -186,6 +186,8 @@ namespace LiveHolidayapp.Controllers
                             HttpContext.Session.SetString("UserName", response.userName);
                             HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
                             //HttpContext.Session.SetString("OrderId", response.OrderId);
+                            HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
+                            HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
                             return RedirectToAction(nameof(HomeController.Index), "Home");
                         }
                     }

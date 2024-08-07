@@ -97,3 +97,60 @@
     background: transparent !important;
     border-color: #a92adb !important;
 }
+
+.datepicker table thead tr th.disabled, .datepicker table thead tr th.disabled:hover,
+.datepicker thead {
+    background-color: #5c55e5 !important
+}
+
+.header_menu .navbar.navbar-default .nav.navbar-nav li:hover a, .header_menu .navbar.navbar-default .nav.navbar-nav li.active a {
+    color: #902ef3 !important;
+}
+
+body {
+    background: #f7f7f7 !important;
+}
+
+.hotel-lising {
+    background: #fff !important;
+}
+
+#SideBar .booking-deatils,
+#SideBar .ratings,
+#SideBar .hotel-list {
+    background: #fff !important;
+}
+
+.booking-item-dates-change .btn {
+    color: #fff !important;
+}
+
+.room_details_content {
+    background: #fff !important;
+}
+
+.search_right_sidebar .book_room_box {
+    background: #fff !important;
+    border: 0 !important;
+}
+
+.submit_btn {
+    background-image: url(https://thebrandtadka.com/websiteurl/megamart/img/background.jpg) !important;
+    background-size: cover !important;
+    background-position: bottom !important;
+    /* background : transparent !important; */
+}
+
+    .submit_btn:hover, .submit_btn:focus {
+        color: #ffffff !important;
+        border-color: #bb26e1;
+        background: #c524e8 !important;
+    }
+
+.login-area .bg-transparent {
+    background: #fff !important;
+}
+
+.room_details_inner .bg-white {
+    background: #fff !important;
+}

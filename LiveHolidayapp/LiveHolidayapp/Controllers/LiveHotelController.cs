@@ -3,6 +3,7 @@ using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -97,7 +98,7 @@ namespace LiveHolidayapp.Controllers
                     {
 
                     }
-                    
+
                 }
                 if (Theme != null && Theme != "")
                 {
@@ -195,7 +196,25 @@ namespace LiveHolidayapp.Controllers
                 M_Hotel obj = new M_Hotel();
 
                 var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
-                var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                decimal PriceRangeEnd = 0;
+                if (HttpContext.Session.GetString("Retopup") == "True")
+                {
+                    var tempPriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                    int dayafter = 0;
+                    if (Convert.ToString(HttpContext.Session.GetString("OrderId")) == "0")
+                    {
+                        dayafter = Convert.ToInt32(HttpContext.Session.GetString("DayAfter"));
+                    }
+                    else
+                    {
+                        dayafter = Convert.ToInt32(HttpContext.Session.GetString("IDWiseDayAfter"));
+                    }
+                    PriceRangeEnd = tempPriceRangeEnd * dayafter;
+                }
+                else
+                {
+                    PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
                 obj.hotelsearchResponses = hotelfilter;
@@ -241,7 +260,25 @@ namespace LiveHolidayapp.Controllers
         {
             M_Hotel obj = new M_Hotel();
             var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
-            var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            decimal PriceRangeEnd = 0;
+            if (HttpContext.Session.GetString("Retopup") == "True")
+            {
+                var tempPriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                int dayafter = 0;
+                if (Convert.ToString(HttpContext.Session.GetString("OrderId")) == "0")
+                {
+                    dayafter = Convert.ToInt32(HttpContext.Session.GetString("DayAfter"));
+                }
+                else
+                {
+                    dayafter = Convert.ToInt32(HttpContext.Session.GetString("IDWiseDayAfter"));
+                }
+                PriceRangeEnd = tempPriceRangeEnd * dayafter;
+            }
+            else
+            {
+                PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            }
             var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
             var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
             if (name == null || name == "")
@@ -273,7 +310,25 @@ namespace LiveHolidayapp.Controllers
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
             M_Hotel obj = new M_Hotel();
             var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
-            var PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            decimal PriceRangeEnd = 0;
+            if (HttpContext.Session.GetString("Retopup") == "True")
+            {
+                var tempPriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+                int dayafter = 0;
+                if (Convert.ToString(HttpContext.Session.GetString("OrderId")) == "0")
+                {
+                    dayafter = Convert.ToInt32(HttpContext.Session.GetString("DayAfter"));
+                }
+                else
+                {
+                    dayafter = Convert.ToInt32(HttpContext.Session.GetString("IDWiseDayAfter"));
+                }
+                PriceRangeEnd = tempPriceRangeEnd * dayafter;
+            }
+            else
+            {
+                PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
+            }
             var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
             var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
             if (!string.IsNullOrEmpty(rating) && string.IsNullOrEmpty(hotelname))
@@ -352,7 +407,7 @@ namespace LiveHolidayapp.Controllers
                 return RedirectToAction("Login", "Account");
             }
         }
-        
+
         public IActionResult BookHotal(int id)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
@@ -366,7 +421,7 @@ namespace LiveHolidayapp.Controllers
                     //check isholiday
                     try
                     {
-                        if(HttpContext.Session.GetString("OrderId") !="0")
+                        if (HttpContext.Session.GetString("OrderId") != "0")
                         {
                             HttpContext.Session.SetString("isholiday", "Y");
                         }
@@ -379,7 +434,7 @@ namespace LiveHolidayapp.Controllers
                     {
 
                     }
-                   
+
                 }
                 if (Theme != null && Theme != "")
                 {

@@ -144,5 +144,23 @@ namespace LiveHolidayapp.Repository
             }
             return str;
         }
+        public string GetpackageList(string Formno , string Token)
+        {
+            string str = string.Empty;
+            try
+            {
+                var req = new
+                {
+                    Formno=Formno
+                };
+                var detail = JsonConvert.SerializeObject(req);
+                str = general.CallPostFunction(detail, Token, "admin/GetPackagetypes");
+            }
+            catch
+            {
+
+            }
+            return str;
+        }
     }
 }

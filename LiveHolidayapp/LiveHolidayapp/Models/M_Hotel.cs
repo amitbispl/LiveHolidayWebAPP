@@ -13,6 +13,7 @@ namespace LiveHolidayapp.Models
         public IPagedList<HotelsearchResponse> Hotelpaging { get; set; }
         public List<Image> images { get; set; }
         public string[] Amenities { get; set; }
+        public List<M_PackageTypes> PackageTypesList { get; set; }
 
     }
 
@@ -39,9 +40,11 @@ namespace LiveHolidayapp.Models
         public string ddlAdult { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
+        public string Orderid { get; set; } 
+        public int IDWiseDayAfter { get; set; }
     }
 
-    
+
 
     public class HotelsearchResponse
     {
@@ -60,7 +63,7 @@ namespace LiveHolidayapp.Models
         public string Rating { get; set; }
     }
 
-    public class PropertyDetailRoot 
+    public class PropertyDetailRoot
     {
         public bool success { get; set; }
         public PropertyDetail propertyDetail { get; set; }
@@ -140,5 +143,10 @@ namespace LiveHolidayapp.Models
         public string Location { get; set; }
     }
 
-
+    public class M_PackageTypes
+    {
+        public string OrderId { get; set; }
+        public int dayafter { get; set; }
+        public string package { get; set; }
+    }
 }

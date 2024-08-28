@@ -91,14 +91,28 @@ namespace LiveHolidayapp.Controllers
                                     _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
                                 }
                             }
-
                         }
                     }
                     catch
                     {
 
                     }
+                    try
+                    {
+                        if (Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
+                        {
+                            var reportoutput = _Hotel.GetpackageList(Convert.ToString(HttpContext.Session.GetString("FormNo")), Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                            var output = JsonConvert.DeserializeObject<CommonResponse<List<M_PackageTypes>>>(reportoutput);
+                            if(output!=null && output.Code==200)
+                            {
+                                obj.PackageTypesList = output.Data;
+                            }
+                        }
+                    }
+                    catch
+                    {
 
+                    }
                 }
                 if (Theme != null && Theme != "")
                 {
@@ -155,6 +169,11 @@ namespace LiveHolidayapp.Controllers
             M_Hotel obj = new M_Hotel();
             try
             {
+                if(Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
+                {
+                    HttpContext.Session.SetString("OrderId", Convert.ToString(Hotelreq.Orderid));
+                    HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(Hotelreq.IDWiseDayAfter));
+                }
                 List<HotelsearchResponse> list = new List<HotelsearchResponse>();
                 var response = _Hotel.HotelsearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
                 var output = JsonConvert.DeserializeObject<CommonResponse<List<HotelsearchResponse>>>(response);

@@ -38,7 +38,21 @@
                         <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter City">
                     </div>
                 </div>
-
+                @if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(Context.Session.GetString("IsManualSelectPackage")) == true)
+                {
+                    <div class="book_table_item">
+                        <select class="selectpicker" id="ddlpackage" onchange="PackageChange()">
+                            <option value="0">Select Package</option>
+                            @if (Model.PackageTypesList != null && Model.PackageTypesList.Count > 0)
+                            {
+                                foreach (var item in Model.PackageTypesList)
+                                {
+                                    <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                }
                 <div class="book_table_item">
                     <div class="input-append">
                         <input type="text" class="form-control" name="" id="txtHotelCheckIn" aria-describedby="helpId" placeholder="CheckIn Date">
@@ -77,6 +91,7 @@
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("ISchild"))" id="ISchild" />
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
+                    <input type="hidden" id="hdnorderid" value="@Convert.ToString(Context.Session.GetString("OrderId"))" />
                     @if (Convert.ToString(Context.Session.GetString("OrderId")) == "0")
                     {
                         <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
@@ -99,12 +114,14 @@
 </section>
 <!-- Slider With Form End -->
 <script type="text/javascript">
+    var IsCustomizeDuration = $("#IsCustomizeDuration").val();
+    var hdnorderid = $("#hdnorderid").val();
+    var ISchild = $("#ISchild").val();
+    var days = $("#StartAfterday").val();
     $(document).ready(function () {
-
-        var ISchild = $("#ISchild").val();
-        var days = $("#StartAfterday").val();
-        var IsCustomizeDuration = $("#IsCustomizeDuration").val();
-        var DayAfter = $("#DayAfter").val();
+        if (hdnorderid != "0") {
+            $("#ddlpackage").val(hdnorderid);
+        }
         if (ISchild == "N") {
             $("#dvchild").hide();
         } else {
@@ -117,7 +134,6 @@
         var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         today = monthNames[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
         $("#txtHotelCheckOut").attr("disabled", "disabled");
-
         $("#txtHotelCheckIn").datepicker({
             defaultDate: "+3d",
             minDate: dt,
@@ -132,10 +148,9 @@
             startDate: dt,
             autoclose: true
         });
-
-
         $("#txtHotelCheckIn").change(function () {
-
+            debugger;
+            var DayAfter = $("#DayAfter").val();
             var from = $("#txtHotelCheckIn").datepicker("getDate");
             var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
             var hdnKitId = $("#hdnKitId").val();
@@ -159,17 +174,16 @@
             } else {
                 diff = DayAfter;
             }
-
             //--------------------------------------
             $("#txtHotelCheckOut").removeAttr('disabled');
             var maxDate_d = parseInt(date_diff) + parseInt(diff);
             date_diff = date_diff;
-
-
             dt = new Date();
             dt.setDate(dt.getDate() + parseInt(maxDate_d));
             var dtmin = new Date();
             dtmin.setDate(dtmin.getDate() + parseInt(date_diff));
+
+            $('#txtHotelCheckOut').datepicker('remove');
             $("#txtHotelCheckOut").datepicker({
                 startDate: dtmin,
                 endDate: dt,
@@ -183,7 +197,6 @@
                 orientation: "top",
                 autoclose: true
             });
-
             var startDate = $("#txtHotelCheckIn").datepicker('getDate');
             startDate.setDate(startDate.getDate() + parseInt(diff));
             var month2 = ('0' + (startDate.getMonth() + 1)).slice(-2); // Adding 1 to the month to get correct month number
@@ -193,13 +206,9 @@
             if (day2.length < 2) day2 = '0' + day2;
             var formatedate = day2 + '/' + month2 + '/' + year2;
             $("#txtHotelCheckOut").datepicker('setDate', formatedate);
+            $('#txtHotelCheckOut').datepicker('update');
             //$("#txtHotelCheckOut").val(day2 + '/' + month2 + '/' + year2);
-
         });
-
-
-
-
         //---------------------------
         $("#txtNationality").autocomplete({
             source: function (request, response) {
@@ -254,7 +263,43 @@
             }
         });
     });
+    //when user change package
+    function PackageChange() {
+        debugger;
+        // Get the selected option
+        var selectedOption = $("#ddlpackage").find('option:selected');
+        var orderid = selectedOption.val();
+        $("#hdnorderid").val(orderid);
+        // Get the data-dayafter attribute value
+        var dayAfter = selectedOption.data('dayafter');
+        $("#DayAfter").val(dayAfter);
+        var dt = new Date();
+        var da = parseInt(days);
+        dt.setDate(dt.getDate() + da);
+        var d = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        today = monthNames[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+        $('#txtHotelCheckIn').val('');
 
+        $('#txtHotelCheckIn').datepicker('remove');
+        $("#txtHotelCheckIn").datepicker({
+            defaultDate: "+3d",
+            minDate: dt,
+            format: "dd/mm/yyyy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: dt,
+            autoclose: true
+        });
+        $("#txtHotelCheckOut").datepicker('setDate', dt);
+        $('#txtHotelCheckIn').datepicker('update');
+        $('#txtHotelCheckOut').val('');
+    }
     function setdate(val, val2) {
 
         $("#txtHotelCheckOut").datepicker('setDate', val);
@@ -275,7 +320,9 @@
 
 
     function HotelSearch() {
-
+        debugger;
+        var orderid = $("#hdnorderid").val();
+        var IDWiseDayAfter = $("#IDWiseDayAfter").val();
         var txtNationality = $("#txtNationality").val();
         if (txtNationality == "") {
             toastr.error('Enter country', 'Error', {
@@ -360,7 +407,10 @@
         Hotelreq["ddlChild"] = ddlChild;
         Hotelreq["ddlAdult"] = ddlAdults;
         Hotelreq["Country"] = txtNationality;
-        Hotelreq["City"] = txtHotelOrigin
+        Hotelreq["City"] = txtHotelOrigin;
+        Hotelreq["Orderid"] = orderid;
+        Hotelreq["IDWiseDayAfter"] = DayAfter;
+        console.log(Hotelreq);
         $.ajax({
             type: "POST",
             url: "/LiveHotel/SearchHotel",

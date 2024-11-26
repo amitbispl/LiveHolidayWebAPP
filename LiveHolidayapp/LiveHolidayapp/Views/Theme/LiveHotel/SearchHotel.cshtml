@@ -409,8 +409,8 @@
         Hotelreq["Country"] = txtNationality;
         Hotelreq["City"] = txtHotelOrigin;
         Hotelreq["Orderid"] = orderid;
-        Hotelreq["IDWiseDayAfter"] = DayAfter;
-        console.log(Hotelreq);
+        Hotelreq["IDWiseDayAfter"] = IDWiseDayAfter;
+        
         $.ajax({
             type: "POST",
             url: "/LiveHotel/SearchHotel",

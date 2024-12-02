@@ -54,7 +54,7 @@ namespace LiveHolidayapp.Models
         public string hotelCode { get; set; }
         public string hotelPicture { get; set; }
         public string starRating { get; set; }
-        public string price { get; set; }
+        public decimal price { get; set; }
     }
 
     public class StarRating

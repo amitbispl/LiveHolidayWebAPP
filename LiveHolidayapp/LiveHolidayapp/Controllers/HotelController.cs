@@ -1,22 +1,13 @@
 ﻿using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
-using System.Security.Cryptography;
 using System.Text.RegularExpressions;
-using System.Web;
 using X.PagedList;
-using static System.Net.WebRequestMethods;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LiveHolidayapp.Controllers
 {
-    public class LiveHotelController : Controller
+    public class HotelController : Controller
     {
         CompanyDetail _companyDetail;
         private readonly ILogger<HomeController> _logger;
@@ -26,7 +17,7 @@ namespace LiveHolidayapp.Controllers
         R_Hotel _Hotel = new R_Hotel();
         private static string LastCountryname = "";
         General gen = new General();
-        public LiveHotelController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
+        public HotelController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
@@ -34,34 +25,31 @@ namespace LiveHolidayapp.Controllers
             obj = this._companyDetail.GetCompany();
             Theme = obj.Theme;
         }
-
-        public IActionResult SearchHotel()
+        public IActionResult HotelSearch()
         {
-
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
-
                 M_Hotel obj = new M_Hotel();
                 //get country list-----------------
-                CountrylistREQ creq = new CountrylistREQ();
-                creq.countryName = "";
-                creq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
-                List<M_countrylist> countryList = new List<M_countrylist>();
-                countryList = _Hotel.CountryList(creq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
-                HttpContext.Session.SetComplexData("countryList", countryList);
-                obj.countryList = countryList;
-                obj.searchHotel = new SearchHotel();
-                obj.searchHotel.hdnCountry = countryList[0].CountryName;
-                obj.searchHotel.hdnNatinality = countryList[0].Code;
+                //CountrylistREQ creq = new CountrylistREQ();
+                //creq.countryName = "";
+                //creq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
+                //List<M_countrylist> countryList = new List<M_countrylist>();
+                //countryList = _Hotel.CountryList(creq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                //HttpContext.Session.SetComplexData("countryList", countryList);
+                //obj.countryList = countryList;
+                //obj.searchHotel = new SearchHotel();
+                //obj.searchHotel.hdnCountry = countryList[0].CountryName;
+                //obj.searchHotel.hdnNatinality = countryList[0].Code;
                 //--get citylist for first country
                 Citylistreq cityreq = new Citylistreq();
                 cityreq.cityName = "";
-                cityreq.countryCode = countryList[0].Code;
+                cityreq.countryCode = "IN";
                 cityreq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
                 List<Citylist> citylist = new List<Citylist>();
-                citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                citylist = _Hotel.GetTboCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
                 HttpContext.Session.SetComplexData("citylist", citylist);
-                LastCountryname = countryList[0].Code;
+                LastCountryname = "IN";
                 if (HttpContext.Session.GetString("Retopup") == "True")
                 {
                     try
@@ -103,7 +91,7 @@ namespace LiveHolidayapp.Controllers
                         {
                             var reportoutput = _Hotel.GetpackageList(Convert.ToString(HttpContext.Session.GetString("FormNo")), Convert.ToString(HttpContext.Session.GetString("Authnekot")));
                             var output = JsonConvert.DeserializeObject<CommonResponse<List<M_PackageTypes>>>(reportoutput);
-                            if(output!=null && output.Code==200)
+                            if (output != null && output.Code == 200)
                             {
                                 obj.PackageTypesList = output.Data;
                             }
@@ -116,49 +104,51 @@ namespace LiveHolidayapp.Controllers
                 }
                 if (Theme != null && Theme != "")
                 {
-                    return View("~/Views/" + Theme + "/LiveHotel/SearchHotel.cshtml", obj);
+                    return View("~/Views/" + Theme + "/Hotel/HotelSearch.cshtml", obj);
                 }
                 else
                 {
-                    return View("~/Views/Theme/LiveHotel/SearchHotel.cshtml", obj);
+                    return View("~/Views/Theme/Hotel/HotelSearch.cshtml", obj);
                 }
             }
             else
             {
-                string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
+                string returnUrl = Url.Action("HotelSearch", "LiveHotel")!;
                 return RedirectToAction("Login", "Account", new { returnUrl });
             }
-        }
 
-        [HttpPost]
-        public IActionResult GetCountry(string CountryName)
-        {
-            List<M_countrylist> data = HttpContext.Session.GetComplexData<List<M_countrylist>>("countryList");
-            var result = data.Where(p => Regex.IsMatch(p.CountryName, CountryName, RegexOptions.IgnoreCase)).ToList();
-            return Json(result);
         }
 
         [HttpPost]
         public IActionResult GetCitylist(string Cityname, string countrycode)
         {
             List<Citylist> filterdata = new List<Citylist>();
-            if (LastCountryname == countrycode)
+            //if (LastCountryname == countrycode)
+            //{
+            List<Citylist> data = HttpContext.Session.GetComplexData<List<Citylist>>("citylist");
+            
+            if (!string.IsNullOrEmpty(Cityname))
             {
-                List<Citylist> data = HttpContext.Session.GetComplexData<List<Citylist>>("citylist");
                 filterdata = data.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
             }
             else
             {
-                Citylistreq cityreq = new Citylistreq();
-                cityreq.cityName = Cityname;
-                cityreq.countryCode = countrycode;
-                cityreq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
-                List<Citylist> citylist = new List<Citylist>();
-                citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
-                HttpContext.Session.SetComplexData("citylist", citylist);
-                LastCountryname = countrycode;
-                filterdata = citylist.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                filterdata = data;
             }
+            
+            //}
+            //else
+            //{
+            //    Citylistreq cityreq = new Citylistreq();
+            //    cityreq.cityName = Cityname;
+            //    cityreq.countryCode = countrycode;
+            //    cityreq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
+            //    List<Citylist> citylist = new List<Citylist>();
+            //    citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+            //    HttpContext.Session.SetComplexData("citylist", citylist);
+            //    LastCountryname = countrycode;
+            //    filterdata = citylist.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+            //}
             return Json(filterdata);
         }
 
@@ -169,13 +159,13 @@ namespace LiveHolidayapp.Controllers
             M_Hotel obj = new M_Hotel();
             try
             {
-                if(Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
+                if (Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
                 {
                     HttpContext.Session.SetString("OrderId", Convert.ToString(Hotelreq.Orderid));
                     HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(Hotelreq.IDWiseDayAfter));
                 }
                 List<HotelsearchResponse> list = new List<HotelsearchResponse>();
-                var response = _Hotel.HotelsearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var response = _Hotel.TboHotelsearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
                 var output = JsonConvert.DeserializeObject<CommonResponse<List<HotelsearchResponse>>>(response);
                 if (output != null)
                 {
@@ -236,10 +226,10 @@ namespace LiveHolidayapp.Controllers
                     PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
                 }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                
+
 
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
-                
+
                 obj.hotelsearchResponses = hotelfilter;
                 var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
                 obj.Hotelpaging = pagining;
@@ -264,11 +254,11 @@ namespace LiveHolidayapp.Controllers
                 obj.starRatings = slist;
                 if (Theme != null && Theme != "")
                 {
-                    return View("~/Views/" + Theme + "/LiveHotel/Roomlist.cshtml", obj);
+                    return View("~/Views/" + Theme + "/Hotel/Roomlist.cshtml", obj);
                 }
                 else
                 {
-                    return View("~/Views/Theme/LiveHotel/Roomlist.cshtml", obj);
+                    return View("~/Views/Theme/Hotel/Roomlist.cshtml", obj);
                 }
             }
             else
@@ -318,11 +308,11 @@ namespace LiveHolidayapp.Controllers
             var view = "";
             if (Theme != null && Theme != "")
             {
-                view = "~/Views/" + Theme + "/LiveHotel/_FilterHotenamePartial.cshtml";
+                view = "~/Views/" + Theme + "/Hotel/_FilterHotenamePartial.cshtml";
             }
             else
             {
-                view = "~/Views/Theme/LiveHotel/_FilterHotenamePartial.cshtml";
+                view = "~/Views/Theme/Hotel/_FilterHotenamePartial.cshtml";
             }
             return PartialView(view, obj);
         }
@@ -385,11 +375,11 @@ namespace LiveHolidayapp.Controllers
             var view = "";
             if (Theme != null && Theme != "")
             {
-                view = "~/Views/" + Theme + "/LiveHotel/_FilterHoteDataPartial.cshtml";
+                view = "~/Views/" + Theme + "/Hotel/_FilterHoteDataPartial.cshtml";
             }
             else
             {
-                view = "~/Views/Theme/LiveHotel/_FilterHoteDataPartial.cshtml";
+                view = "~/Views/Theme/Hotel/_FilterHoteDataPartial.cshtml";
             }
             return PartialView(view, obj);
         }
@@ -418,237 +408,17 @@ namespace LiveHolidayapp.Controllers
                 obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")
                 {
-                    return View("~/Views/" + Theme + "/LiveHotel/RoomDetails.cshtml", obj);
+                    return View("~/Views/" + Theme + "/Hotel/RoomDetails.cshtml", obj);
                 }
                 else
                 {
-                    return View("~/Views/Theme/LiveHotel/RoomDetails.cshtml", obj);
+                    return View("~/Views/Theme/Hotel/RoomDetails.cshtml", obj);
                 }
             }
             else
             {
                 return RedirectToAction("Login", "Account");
             }
-        }
-
-        public IActionResult BookHotal(int id)
-        {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
-            {
-                ViewBag.Hotelid = id;
-                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                M_Hotel obj = new M_Hotel();
-                obj.m_SearchHotel = result.m_SearchHotel;
-                if (HttpContext.Session.GetString("Retopup") == "True")
-                {
-                    //check isholiday
-                    try
-                    {
-                        if (HttpContext.Session.GetString("OrderId") != "0")
-                        {
-                            HttpContext.Session.SetString("isholiday", "Y");
-                        }
-                        else
-                        {
-                            HttpContext.Session.SetString("isholiday", "N");
-                        }
-                    }
-                    catch
-                    {
-
-                    }
-                }
-                if (Theme != null && Theme != "")
-                {
-                    return View("~/Views/" + Theme + "/LiveHotel/BookHotal.cshtml", obj);
-                }
-                else
-                {
-                    return View("~/Views/Theme/LiveHotel/BookHotal.cshtml", obj);
-                }
-            }
-            else
-            {
-                return RedirectToAction("Login", "Account");
-            }
-        }
-        [HttpPost]
-        public IActionResult SendOtp(string MobileNo)
-        {
-            try
-            {
-                OTPRequest req = new OTPRequest();
-                req.MobileNo = MobileNo;
-                req.FormNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
-                req.CompanyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
-                req.UserName = Convert.ToString(HttpContext.Session.GetString("UserName"));
-                var Response = _Hotel.SendOTP(req, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
-                var output = JsonConvert.DeserializeObject<CommonResponse<OTPREsponse>>(Response);
-                if (output != null)
-                {
-                    if (output.Code == 200)
-                    {
-                        return Json(new { Code = 200, msg = output.Message, otpid = output.Data.ID });
-                    }
-                    else
-                    {
-                        return Json(new { Code = 300, msg = output.Message, otpid = 0 });
-                    }
-                }
-                else
-                {
-                    return Json(new { Code = 300, msg = "OTP not send", otpid = 0 });
-                }
-            }
-            catch
-            {
-                return Json(new { Code = 300, msg = "Something went wrong", otpid = 0 });
-            }
-        }
-
-        [HttpPost]
-        public IActionResult ValidateOTP(string Otpid, string Otpval)
-        {
-            try
-            {
-                ValidOTPReq req = new ValidOTPReq();
-                req.ID = Convert.ToInt32(Otpid);
-                req.OTP = Otpval;
-                var Response = _Hotel.ValidateOTP(req, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
-                var output = JsonConvert.DeserializeObject<CommonResponse<string>>(Response);
-                if (output != null)
-                {
-                    if (output.Code == 200)
-                    {
-                        return Json(new { Code = 200, msg = output.Message });
-                    }
-                    else
-                    {
-                        return Json(new { Code = 100, msg = output.Message });
-                    }
-                }
-                else
-                {
-                    return Json(new { Code = 100, msg = "OTP not matched" });
-                }
-            }
-            catch
-            {
-                return Json(new { Code = 100, msg = "OTP not matched" });
-            }
-        }
-        [HttpPost]
-        public IActionResult HotelBook(M_HotelBook HotelBookreq)
-        {
-            string msg = string.Empty;
-            string err = string.Empty;
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
-            {
-                if (HttpContext.Session.GetString("CompanyId") == "4844")
-                {
-                    if (HttpContext.Session.GetString("isholiday") == "N")
-                    {
-                        msg = "Please purchase package.";
-                        err = "1";
-                        return Json(new { msg, err });
-                    }
-                }
-                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == Convert.ToInt32(HotelBookreq.hotelCode)).ToList();
-                HotelBookreq.userName = Convert.ToString(HttpContext.Session.GetString("Name"));
-                HotelBookreq.formNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
-                HotelBookreq.companyId = Convert.ToString(HttpContext.Session.GetString("CompanyId"));
-                HotelBookreq.adultCount = result.m_SearchHotel.ddlAdult;
-                HotelBookreq.childCount = result.m_SearchHotel.ddlChild;
-                HotelBookreq.cityName = result.m_SearchHotel.City;
-                HotelBookreq.noOfRoom = "1";
-                HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
-                HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
-                HotelBookreq.orderId = Convert.ToString(HttpContext.Session.GetString("OrderId"));
-                HotelBookreq.bookingAmount = Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price), 2));
-                HotelBookreq.hotelName = Convert.ToString(sortdata[0].hotelName);
-                HotelBookreq.hotelCode = Convert.ToString(sortdata[0].hotelCode);
-                HotelBookreq.dob = "22/04/2019";
-                var Response = _Hotel.HotelBook(HotelBookreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
-                var output = JsonConvert.DeserializeObject<CommonResponse<HotelBookresponse>>(Response);
-                if (output != null)
-                {
-                    if (output.Code == 200 && output.Message == "Hotel Book Successfully" && output.Data.bookStatus == "P")
-                    {
-                        msg = "Hotel Book Successfully";
-                        err = "0";
-                        HttpContext.Session.SetComplexData("BookResponse", output.Data);
-                    }
-                    else
-                    {
-                        msg = "Your Booking failed.";
-                        err = "1";
-                    }
-                }
-                else
-                {
-                    msg = "Your Booking failed.";
-                    err = "1";
-                }
-
-            }
-            return Json(new { msg, err });
-        }
-
-        public async Task<IActionResult> BookingThankyou()
-        {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
-            {
-                HotelBookresponse obj = new HotelBookresponse();
-                obj = HttpContext.Session.GetComplexData<HotelBookresponse>("BookResponse");
-                try
-                {
-                    Loginreq req = new Loginreq();
-                    req.companyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
-                    req.password = HttpContext.Session.GetString("password");
-                    req.userName = HttpContext.Session.GetString("UserName");
-                    R_Login rr = new R_Login();
-                    var response = await rr.UserLogin(req);
-                    if (response != null)
-                    {
-                        HttpContext.Session.SetString("Authnekot", response.tokenString);
-                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                        HttpContext.Session.SetString("Name", response.name);
-                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
-                        HttpContext.Session.SetString("Status", "OK");
-                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                        HttpContext.Session.SetString("UserName", response.userName);
-                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
-                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                    }
-                    else
-                    {
-                        ViewBag.message = "Please enter valid username and password";
-                    }
-                }
-                catch
-                {
-
-                }
-                if (Theme != null && Theme != "")
-                {
-                    return View("~/Views/" + Theme + "/LiveHotel/BookingThankyou.cshtml", obj);
-                }
-                else
-                {
-                    return View("~/Views/Theme/LiveHotel/BookingThankyou.cshtml", obj);
-                }
-            }
-            else
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
         }
     }
 }

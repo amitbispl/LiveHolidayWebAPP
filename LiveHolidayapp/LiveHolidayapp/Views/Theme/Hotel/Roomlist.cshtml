@@ -1,9 +1,10 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc.Core
-
 @model LiveHolidayapp.Models.M_Hotel
 @{
     ViewData["Title"] = "Roomlist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //this view use for tbo 
 }
 
 <!-- Breadcrumb Banner Start -->
@@ -138,14 +139,14 @@
                         <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
                             <div class="row">
                                 <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                    <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_img">
+                                    <a href="~/Hotel/RoomDetails?id=@item.hotelResults_ID" class="room_img">
                                         <img src="@item.hotelPicture" alt="" class="img-fluid img-responsive hotel-room-image hotel-room-image">
                                     </a>
                                 </div>
                                 <div class="col-md-8 col-xs-12 col-12 col-sm-7">
                                     <div class="room_list_l_text">
                                         <div class="name">
-                                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4>@item.hotelName</h4></a>
+                                            <a href="~/Hotel/RoomDetails?id=@item.hotelResults_ID"><h4>@item.hotelName</h4></a>
                                         </div>
                                         <div class="rating">
                                             <span>
@@ -156,7 +157,7 @@
                                             </span>
                                         </div>
                                         <div class="details">
-                                            <a class="book_now_btn" href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
+                                            <a class="book_now_btn" href="~/Hotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -179,31 +180,15 @@
             </div>
         </div>
 
-        <nav aria-label="Page navigation" class="room_pagination" style="display:none;">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        
     </div>
 </section>
 <!-- Room List End -->
 <script type="text/javascript">
     $(document).ready(function () {
-       
+        
         $(".room_pagination .pagination li a").click(function (evt) {
-           
+
             // This stops the form submission.
             evt.preventDefault();
             var ss = evt.target.href;
@@ -222,7 +207,6 @@
         $("input[name=hotelnamechk]:checkbox:checked").each(function () {
             $(this).prop("checked", false);
         });
-
         ApplyFilter("");
     }
 
@@ -241,7 +225,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/LiveHotel/ApplyFilter",
+            url: "/Hotel/ApplyFilter",
             async: true,
             data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
             success: function (data) {
@@ -266,12 +250,12 @@
         var name = $("#namesearch").val();
         $.ajax({
             type: "POST",
-            url: "/LiveHotel/FilterHotelName",
+            url: "/Hotel/FilterHotelName",
             async: true,
             data: { name: name },
             success: function (data) {
                 //alert(data);
-                
+
                 $("#hotelname").html(data);
             },
             failure: function (response) {
@@ -300,3 +284,5 @@
         });
     });
 </script>
+
+

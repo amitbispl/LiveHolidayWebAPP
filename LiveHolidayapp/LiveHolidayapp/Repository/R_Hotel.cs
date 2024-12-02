@@ -41,6 +41,22 @@ namespace LiveHolidayapp.Repository
             }
             return obj;
         }
+        public List<Citylist> GetTboCitylist(Citylistreq req, string Token) 
+        {
+            List<Citylist> obj = new List<Citylist>();
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                var resp = general.CallPostFunction(detail, Token, "hotelv2/Tbocitylist");
+                var output = JsonConvert.DeserializeObject<CommonResponse<List<Citylist>>>(resp);
+                obj = output.Data;
+            }
+            catch
+            {
+
+            }
+            return obj;
+        }
 
         public string HotelsearchResponse(M_SearchHotel req,string Token)
         {
@@ -51,6 +67,21 @@ namespace LiveHolidayapp.Repository
                  resp = general.CallPostFunction(detail, Token, "hotel/SearchHotel");
             }
             catch(Exception ex)
+            {
+
+            }
+            return resp;
+        }
+
+        public string TboHotelsearchResponse(M_SearchHotel req, string Token) 
+        {
+            string resp = "";
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                resp = general.CallPostFunction(detail, Token, "hotelv2/SearchHotel");
+            }
+            catch (Exception ex)
             {
 
             }

@@ -1,4 +1,5 @@
 using LiveHolidayapp.Models;
+using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -86,7 +87,14 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
-                return RedirectToAction("SearchHotel", "LiveHotel");
+                if (HttpContext.Session.GetString("IsHotel") == "R")
+                {
+                    return RedirectToAction("SearchHotel", "LiveHotel");
+                }
+                else
+                {
+                    return RedirectToAction("HotelSearch", "Hotel");
+                }
             }
             else
             {
@@ -99,9 +107,16 @@ namespace LiveHolidayapp.Controllers
                 //    string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
                 //    return RedirectToAction("Login", "Account", new { returnUrl });
                 //}
-                string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
-                return RedirectToAction("Login", "Account", new { returnUrl });
-
+                if (HttpContext.Session.GetString("IsHotel") == "R")
+                {
+                    string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
+                    return RedirectToAction("Login", "Account", new { returnUrl });
+                }
+                else
+                {
+                    string returnUrl = Url.Action("HotelSearch", "Hotel")!;
+                    return RedirectToAction("Login", "Account", new { returnUrl });
+                }
             }
 
         }

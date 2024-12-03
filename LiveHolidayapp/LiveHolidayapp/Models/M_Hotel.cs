@@ -14,6 +14,7 @@ namespace LiveHolidayapp.Models
         public List<Image> images { get; set; }
         public string[] Amenities { get; set; }
         public List<M_PackageTypes> PackageTypesList { get; set; }
+        public List<Hoteldetail> TBoHotelDetails { get; set; }
 
     }
 

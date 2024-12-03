@@ -113,7 +113,7 @@ namespace LiveHolidayapp.Controllers
             }
             else
             {
-                string returnUrl = Url.Action("HotelSearch", "LiveHotel")!;
+                string returnUrl = Url.Action("HotelSearch", "Hotel")!;
                 return RedirectToAction("Login", "Account", new { returnUrl });
             }
 
@@ -126,7 +126,7 @@ namespace LiveHolidayapp.Controllers
             //if (LastCountryname == countrycode)
             //{
             List<Citylist> data = HttpContext.Session.GetComplexData<List<Citylist>>("citylist");
-            
+
             if (!string.IsNullOrEmpty(Cityname))
             {
                 filterdata = data.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
@@ -135,7 +135,7 @@ namespace LiveHolidayapp.Controllers
             {
                 filterdata = data;
             }
-            
+
             //}
             //else
             //{
@@ -388,20 +388,24 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                Hoteldetails req = new Hoteldetails();
+                req.Hotelcodes = id;
+                req.Language = "EN";
                 ViewBag.Hotelid = id;
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == id).ToList();
                 string response = string.Empty;
-                response = _Hotel.PropertyDetail(id);
-                PropertyDetailRoot data = new PropertyDetailRoot();
+                response = _Hotel.TBOHotelDetail(req, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                //Hoteldetailsresponse data = new Hoteldetailsresponse();
                 M_Hotel obj = new M_Hotel();
                 if (response != "")
                 {
-                    data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
-                    if (data.success != false)
+                    var data = JsonConvert.DeserializeObject<CommonResponse<Hoteldetailsresponse>>(response);
+                    if (data.Code == 200 && data.Data.Status.Code==200)
                     {
-                        obj.Amenities = data.propertyDetail.Amenities;
-                        obj.images = data.propertyDetail.images;
+                        obj.TBoHotelDetails = data.Data.HotelDetails;
+                        //obj.Amenities = data.propertyDetail.Amenities;
+                        //obj.images = data.propertyDetail.images;
                     }
                 }
                 obj.hotelsearchResponses = sortdata;
@@ -413,6 +417,47 @@ namespace LiveHolidayapp.Controllers
                 else
                 {
                     return View("~/Views/Theme/Hotel/RoomDetails.cshtml", obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+        public IActionResult BookHotal(int id)
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                ViewBag.Hotelid = id;
+                var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+                M_Hotel obj = new M_Hotel();
+                obj.m_SearchHotel = result.m_SearchHotel;
+                if (HttpContext.Session.GetString("Retopup") == "True")
+                {
+                    //check isholiday
+                    try
+                    {
+                        if (HttpContext.Session.GetString("OrderId") != "0")
+                        {
+                            HttpContext.Session.SetString("isholiday", "Y");
+                        }
+                        else
+                        {
+                            HttpContext.Session.SetString("isholiday", "N");
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/Hotel/BookHotal.cshtml", obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/Hotel/BookHotal.cshtml", obj);
                 }
             }
             else

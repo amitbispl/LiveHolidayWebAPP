@@ -1,0 +1,762 @@
+﻿@model LiveHolidayapp.Models.M_Hotel
+@{
+    ViewData["Title"] = "BookHotal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // this view use for tbo
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>Customer Detail Hotel  </h3>
+            <ul>
+                <li class="active"><a href="~/Home/index">Home</a></li>
+                <li><a href="javascript:void(0);">Book Hotel</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Booking Deatils Start -->
+<section class="room_details_area pt-10 ppt-20">
+    <div class="container">
+        <div class="row room_details_inner">
+            <div class="col-md-4">
+                <div class="search_right_sidebar">
+                    <div class="book_room_area">
+                        <div class="book_room_box bg-white p-3 rounded-1 border-gray">
+                            <div class="book_table_item">
+                                <h3>BOOK HOTELS </h3>
+                            </div>
+
+                            <div class="book_table_item">
+                                <div class="input-append">
+                                    <input type="hidden" id="HidAdult" value="@Model.m_SearchHotel.ddlAdult" />
+                                    <input type="hidden" id="hidddlChild" value="@Model.m_SearchHotel.ddlChild" />
+                                    <input class="input-text" size="16" type="text" value="@Model.m_SearchHotel.txtHotelCheckIn" placeholder="CheckIN Date" disabled>
+                                </div>
+                            </div>
+                            <div class="book_table_item">
+                                <div class="input-append">
+                                    <input class="input-text" size="16" type="text" value="@Model.m_SearchHotel.txtHotelCheckOut" placeholder="CheckOut Date" disabled>
+                                </div>
+                            </div>
+                            <div class="book_table_item">
+                                <select class="selectpicker" id="ddlroom" disabled>
+                                    <option value="0">Select Room</option>
+                                    <option value="1" selected>Room-1</option>
+                                    <option value="2">Room-2</option>
+                                </select>
+                            </div>
+                            <div class="book_table_item mt-0">
+                                <select class="selectpicker" id="ddladult" disabled>
+                                    <option value="0">Adults</option>
+                                    <option value="1">Adults-1</option>
+                                    <option value="2">Adults-2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="border bg-white rounded-1 border-gray">
+                    <div class="room_details_content mb20">
+                        <div class="booking-title mb-2">
+                            <h3>Pax Details </h3>
+                        </div>
+                        @for (int i = 0; i < Convert.ToInt32(Model.m_SearchHotel.ddlAdult); i++)
+                        {
+                            <div class="room_details_comment">
+                                <div class="contact_us_form row" id="contactForm">
+
+                                    <div class="form-group col-md-4">
+                                        <select class="form-control" id="adultTitle_@i" required>
+                                            <option value="0" selected>Select Title</option>
+                                            <option value="Mr">Mr.</option>
+                                            <option value="Ms">Ms.</option>
+                                            <option value="Mrs">Mrs.</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="" id="fistname_@i" class="form-control" value="" required="required" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="" id="lastname_@i" class="form-control" value="" required="required" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    @for (int j = 0; j < Convert.ToInt32(Model.m_SearchHotel.ddlChild); j++)
+                    {
+                        <div class="room_details_content">
+                            <div class="room_details_comment">
+                                <div class="contact_us_form row" id="contactForm" novalidate>
+                                    <div class="form-group col-md-4">
+                                        <select class="form-control" id="ChildTitle_@j" required>
+                                            <option value="0" selected>Select Title</option>
+                                            <option value="Mstr">Mstr.</option>
+                                            <option value="Miss">Miss.</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="" id="Cfirstname_@j" class="form-control" value="" required="required" placeholder="First Name">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="" id="Clastname_@j" class="form-control" value="" required="required" placeholder="Last Name">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="" id="CAge_@j" class="form-control" value="" required="required" placeholder="Age">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                    <div class="room_details_content mt-30">
+                        <div class="booking-title mb-2">
+                            <h3>BASIC INFORMATION</h3>
+                        </div>
+                        <div class="room_details_comment">
+                            <form class="contact_us_form row" action="#" method="post" id="contactForm" novalidate>
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="" id="Address" class="form-control" value="" required="required" placeholder="Address">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="" id="Email" readonly="readonly" class="form-control" value="@Convert.ToString(Context.Session.GetString("EmailID"))" required="required" placeholder="Email ID">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input type="text" name="" id="City" class="form-control" value="" required="required" placeholder="City">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input type="text" name="" id="Mobile" readonly="readonly" class="form-control" onkeypress="return isNumberKey(event);" value="@Convert.ToString(Context.Session.GetString("MobileNo"))" required="required" placeholder="Mobile Number">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%" onclick="Sendotp()">Send OTP</button>
+
+                                </div>
+                                <div class="form-group col-md-6" id="divotp" style="display:none;">
+                                    <input type="text" name="" id="inotp" class="form-control" value="" required="required" placeholder="Enter OTP">
+                                </div>
+                                <div class="form-group col-md-6" id="divsubbtn" style="display:none;">
+                                    <button type="button" id="Submitbtn" onclick="ValidOTP()" class="btn submit_btn form-control" style="width: 100%;">Submit</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("Name"))" id="leadpaxName" />
+    <input type="hidden" value="@ViewBag.Hotelid" id="hotelCode" />
+    <input type="hidden" id="companyid" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
+    <input type="hidden" id="isholiday" value="@Convert.ToString(Context.Session.GetString("isholiday"))" />
+    <input type="hidden" id="Otpid" value="0" />
+    <input type="hidden" id="Retopup" value="@Convert.ToString(Context.Session.GetString("Retopup"))" />
+</section>
+<!-- Booking Deatils End -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var HidAdult = $("#HidAdult").val();
+        $("#ddladult").removeAttr("disabled");
+        $("#ddladult").val(HidAdult);
+        $("#ddladult").attr("disabled", "disabled");
+        var leadpaxName = $("#leadpaxName").val();
+        var paxnamearr = leadpaxName.split(' ');
+        for (var i = 0; i < 1; i++) {
+            $("#fistname_" + i).val(paxnamearr[0]);
+            $("#fistname_" + i).attr("disabled", "disabled");
+            if (paxnamearr.length > 1) {
+                $("#lastname_" + i).val(paxnamearr[1]);
+                $("#lastname_" + i).attr("disabled", "disabled");
+            }
+
+        }
+    });
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode == 46) {
+            return true;
+        }
+        else if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    function validateEmail(email) {
+        var emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // send otp---->
+    var HidAdult = $("#HidAdult").val();
+    var hidddlChild = $("#hidddlChild").val();
+    function Sendotp() {
+        var Retopup = $("#Retopup").val();
+        if (Retopup == "True") {
+            var isholiday = $("#isholiday").val();
+            if (isholiday == "N") {
+                toastr.error('Please purchase package', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                return false;
+            }
+        }
+        for (var i = 0; i < parseInt(HidAdult); i++) {
+            var title = $("#adultTitle_" + i).val();
+            if (title == "0") {
+                toastr.error('Select Title', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#adultTitle_" + i).focus();
+                return false;
+            }
+            var fistname = $("#fistname_" + i).val();
+            if (fistname == "") {
+                toastr.error('Enter First Name', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#fistname_" + i).focus();
+                return false;
+            }
+            var lastname = $("#lastname_" + i).val();
+            if (lastname == "") {
+                toastr.error('Enter Last Name', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#lastname_" + i).focus();
+                return false;
+            }
+
+        }
+
+        if (parseInt(hidddlChild) != 0) {
+            for (var i = 0; i < parseInt(hidddlChild); i++) {
+                var title = $("#ChildTitle_" + i).val();
+                if (title == "0") {
+                    toastr.error('Select Title', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#ChildTitle_" + i).focus();
+                    return false;
+                }
+                var fistname = $("#Cfirstname_" + i).val();
+                if (fistname == "") {
+                    toastr.error('Enter First Name', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Cfirstname_" + i).focus();
+                    return false;
+                }
+                var lastname = $("#Clastname_" + i).val();
+                if (lastname == "") {
+                    toastr.error('Enter Last Name', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Clastname_" + i).focus();
+                    return false;
+                }
+                var CAge = $("#CAge_" + i).val();
+                if (CAge == "") {
+                    toastr.error('Enter Age', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#CAge_" + i).focus();
+                    return false;
+                }
+            }
+        }
+
+        var Address = $("#Address").val();
+        if (Address == "") {
+            toastr.error('Enter Address', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Address").focus();
+            return false;
+        }
+
+        var Email = $("#Email").val();
+        if (Email == "") {
+            toastr.error('Enter Email', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Email").focus();
+            return false;
+        }
+
+        if (Email != "" && validateEmail(Email) == false) {
+            toastr.error('Enter Valid Email', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Email").focus();
+            return false;
+        }
+
+        var City = $("#City").val();
+        if (City == "") {
+            toastr.error('Enter City', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#City").focus();
+            return false;
+        }
+
+
+        var Mobile = $("#Mobile").val();
+        if (Mobile == "") {
+            toastr.error('Enter Mobile', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Mobile").focus();
+            return false;
+        }
+
+        $("#btnotp").prop('disabled', true);
+        $(".page").show();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/SendOtp",
+            async: true,
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#btnotp").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { MobileNo: Mobile },
+            success: function (data) {
+                debugger;
+                if (data.code == 200) {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Otpid").val(data.otpid);
+                    $("#divotp").show();
+                    $("#divsubbtn").show();
+                }
+                else {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                }
+                $(".page").hide();
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            }
+        });
+    }
+
+    function ValidOTP() {
+        debugger;
+        var otp = $("#inotp").val();
+        var otpid = $("#Otpid").val();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/ValidateOTP",
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#btnotp").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { Otpid: otpid, Otpval: otp },
+            success: function (data) {
+                debugger;
+                if (data.code == 200) {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    Savehotel();
+                }
+                else {
+                    toastr.success(data.msg, 'success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $(".page").hide();
+                }
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#btnotp").prop('disabled', false);
+            }
+        });
+    }
+
+    //save hotel
+    function Savehotel() {
+        var hotelBookPassengers = [];
+        var Retopup = $("#Retopup").val();
+        if (Retopup == "True") {
+            var isholiday = $("#isholiday").val();
+            if (isholiday == "N") {
+                toastr.error('Please purchase package', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                return false;
+            }
+        }
+        for (var i = 0; i < parseInt(HidAdult); i++) {
+            var title = $("#adultTitle_" + i).val();
+            if (title == "0") {
+                toastr.error('Select Title', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#adultTitle_" + i).focus();
+                return false;
+            }
+            var fistname = $("#fistname_" + i).val();
+            if (fistname == "") {
+                toastr.error('Enter First Name', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#fistname_" + i).focus();
+                return false;
+            }
+            var lastname = $("#lastname_" + i).val();
+            if (lastname == "") {
+                toastr.error('Enter Last Name', 'Error', {
+                    closeButton: true,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    timeOut: 5000, // 5 seconds
+                    extendedTimeOut: 1000 // 1 second longer than timeOut
+                });
+                $("#lastname_" + i).focus();
+                return false;
+            }
+
+            hotelBookPassengers.push({
+                email: "",
+                title: title,
+                firstName: fistname,
+                middleName: lastname,
+                paxType: "1",
+                dob: "22/04/2019",
+                age: "30"
+            });
+        }
+
+        if (parseInt(hidddlChild) != 0) {
+            for (var i = 0; i < parseInt(hidddlChild); i++) {
+                var title = $("#ChildTitle_" + i).val();
+                if (title == "0") {
+                    toastr.error('Select Title', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#ChildTitle_" + i).focus();
+                    return false;
+                }
+                var fistname = $("#Cfirstname_" + i).val();
+                if (fistname == "") {
+                    toastr.error('Enter First Name', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Cfirstname_" + i).focus();
+                    return false;
+                }
+                var lastname = $("#Clastname_" + i).val();
+                if (lastname == "") {
+                    toastr.error('Enter Last Name', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Clastname_" + i).focus();
+                    return false;
+                }
+                var CAge = $("#CAge_" + i).val();
+                if (CAge == "") {
+                    toastr.error('Enter Age', 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#CAge_" + i).focus();
+                    return false;
+                }
+                hotelBookPassengers.push({
+                    email: "",
+                    title: title,
+                    firstName: fistname,
+                    middleName: lastname,
+                    paxType: "2",
+                    age: CAge,
+                    dob: "22/04/2019"
+                });
+            }
+        }
+
+        var Address = $("#Address").val();
+        if (Address == "") {
+            toastr.error('Enter Address', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Address").focus();
+            return false;
+        }
+
+        var Email = $("#Email").val();
+        if (Email == "") {
+            toastr.error('Enter Email', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Email").focus();
+            return false;
+        }
+
+        if (Email != "" && validateEmail(Email) == false) {
+            toastr.error('Enter Valid Email', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Email").focus();
+            return false;
+        }
+
+        for (var i = 0; i < hotelBookPassengers.length; i++) {
+            hotelBookPassengers[i].email = Email;
+        }
+        var City = $("#City").val();
+        if (City == "") {
+            toastr.error('Enter City', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#City").focus();
+            return false;
+        }
+
+
+        var Mobile = $("#Mobile").val();
+        if (Mobile == "") {
+            toastr.error('Enter Mobile', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#Mobile").focus();
+            return false;
+        }
+
+
+        var HotelBookreq = {};
+        HotelBookreq["address"] = Address;
+        HotelBookreq["hotelCode"] = $("#hotelCode").val();
+        HotelBookreq["userCity"] = City;
+        HotelBookreq["mobileNo"] = Mobile;
+        HotelBookreq["emailID"] = Email;
+        HotelBookreq["hotelBookPassengers"] = hotelBookPassengers;
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/HotelBook",
+            async: true,
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#Submitbtn").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { HotelBookreq: HotelBookreq },
+            success: function (data) {
+                if (data.err == "0") {
+                    toastr.success(data.msg, 'Success', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+
+                    setTimeout(function () {
+                        window.location.href = "/LiveHotel/BookingThankyou";
+                    }, 1000);
+                    // $("#Submitbtn").prop('disabled', true);
+                    $(".page").hide();
+                }
+                else {
+                    toastr.error(data.msg, 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+
+                    setTimeout(function () {
+                        window.location.href = "/Home/Index";
+                    }, 3000);
+
+                    //$("#Submitbtn").prop('disabled', false);
+                    $(".page").hide();
+                }
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#Submitbtn").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#Submitbtn").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                alert(response.responseText);
+                $("#Submitbtn").prop('disabled', false);
+            }
+        });
+
+    }
+</script>
+

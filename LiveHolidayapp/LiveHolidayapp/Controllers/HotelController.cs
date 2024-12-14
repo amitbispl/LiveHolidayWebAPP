@@ -159,6 +159,12 @@ namespace LiveHolidayapp.Controllers
             M_Hotel obj = new M_Hotel();
             try
             {
+                if (HttpContext.Session.GetString("Retopup") == "False" && HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    msg = "Already redeemed this service";
+                    return Json(new { msg });
+                }
+
                 if (Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
                 {
                     HttpContext.Session.SetString("OrderId", Convert.ToString(Hotelreq.Orderid));
@@ -182,11 +188,10 @@ namespace LiveHolidayapp.Controllers
                     {
                         msg = output.Message;
                     }
-
                 }
                 else
                 {
-                    msg = "Something went wrong";
+                    msg = "No Hotel Found";
                 }
             }
             catch (Exception ex)
@@ -401,7 +406,7 @@ namespace LiveHolidayapp.Controllers
                 if (response != "")
                 {
                     var data = JsonConvert.DeserializeObject<CommonResponse<Hoteldetailsresponse>>(response);
-                    if (data.Code == 200 && data.Data.Status.Code==200)
+                    if (data.Code == 200 && data.Data.Status.Code == 200)
                     {
                         obj.TBoHotelDetails = data.Data.HotelDetails;
                         //obj.Amenities = data.propertyDetail.Amenities;

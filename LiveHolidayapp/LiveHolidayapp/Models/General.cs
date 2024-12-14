@@ -52,7 +52,7 @@ namespace LiveHolidayapp.Models
                 HttpWebResponse webResponse = (HttpWebResponse)request.GetResponse();
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 result = responseReader.ReadToEnd();
-            }
+            }   
             catch (Exception ex)
             {
                 var message = ex.Message;

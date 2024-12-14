@@ -38,7 +38,7 @@ namespace LiveHolidayapp.Models
             {
                 if (URL == "BASICHOTELV2.BISPLINDIA.IN")
                 {
-                    ds = _AdminHandler.GetCompanySetting("1", "");
+                    ds = _AdminHandler.GetCompanySetting("4769", "");
                 }
                 else
                 {

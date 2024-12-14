@@ -103,7 +103,7 @@ namespace LiveHolidayapp.Controllers
                         {
                             var reportoutput = _Hotel.GetpackageList(Convert.ToString(HttpContext.Session.GetString("FormNo")), Convert.ToString(HttpContext.Session.GetString("Authnekot")));
                             var output = JsonConvert.DeserializeObject<CommonResponse<List<M_PackageTypes>>>(reportoutput);
-                            if(output!=null && output.Code==200)
+                            if (output != null && output.Code == 200)
                             {
                                 obj.PackageTypesList = output.Data;
                             }
@@ -169,7 +169,7 @@ namespace LiveHolidayapp.Controllers
             M_Hotel obj = new M_Hotel();
             try
             {
-                if(Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
+                if (Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
                 {
                     HttpContext.Session.SetString("OrderId", Convert.ToString(Hotelreq.Orderid));
                     HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(Hotelreq.IDWiseDayAfter));
@@ -196,7 +196,7 @@ namespace LiveHolidayapp.Controllers
                 }
                 else
                 {
-                    msg = "Something went wrong";
+                    msg = "No Hotel Found";
                 }
             }
             catch (Exception ex)
@@ -236,10 +236,10 @@ namespace LiveHolidayapp.Controllers
                     PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
                 }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-                
+
 
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
-                
+
                 obj.hotelsearchResponses = hotelfilter;
                 var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
                 obj.Hotelpaging = pagining;
@@ -477,6 +477,10 @@ namespace LiveHolidayapp.Controllers
         {
             try
             {
+                if (HttpContext.Session.GetString("Retopup") == "False" && HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    return Json(new { Code = 300, msg = "Already redeemed this service", otpid = 0 });
+                }
                 OTPRequest req = new OTPRequest();
                 req.MobileNo = MobileNo;
                 req.FormNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
@@ -562,8 +566,22 @@ namespace LiveHolidayapp.Controllers
                 HotelBookreq.childCount = result.m_SearchHotel.ddlChild;
                 HotelBookreq.cityName = result.m_SearchHotel.City;
                 HotelBookreq.noOfRoom = "1";
-                HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
-                HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
+                if (HttpContext.Session.GetString("IsHotel") == "T")
+                {
+                    //this code for tbo hotel
+                    var inputDate = result.m_SearchHotel.txtHotelCheckIn.Split('-');
+                    string formattedDate = inputDate[2] + "/" + inputDate[1] + "/" + inputDate[0];
+                    HotelBookreq.checkInDate = formattedDate;
+
+                    var inputDate1 = result.m_SearchHotel.txtHotelCheckOut.Split('-');
+                    formattedDate = inputDate1[2] + "/" + inputDate1[1] + "/" + inputDate1[0];
+                    HotelBookreq.checkOutDate = formattedDate;
+                }
+                else
+                {
+                    HotelBookreq.checkInDate = result.m_SearchHotel.txtHotelCheckIn;
+                    HotelBookreq.checkOutDate = result.m_SearchHotel.txtHotelCheckOut;
+                }
                 HotelBookreq.orderId = Convert.ToString(HttpContext.Session.GetString("OrderId"));
                 HotelBookreq.bookingAmount = Convert.ToString(Math.Round(Convert.ToDecimal(sortdata[0].price), 2));
                 HotelBookreq.hotelName = Convert.ToString(sortdata[0].hotelName);
@@ -629,7 +647,12 @@ namespace LiveHolidayapp.Controllers
                     else
                     {
                         ViewBag.message = "Please enter valid username and password";
+                        if (HttpContext.Session.GetString("Retopup") == "False")
+                        {
+                            HttpContext.Session.SetString("isRedeem", Convert.ToString("True"));
+                        }
                     }
+                   
                 }
                 catch
                 {

@@ -7,25 +7,35 @@
 {
     @foreach (var item in Model.Hotelpaging)
     {
-        <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+        <div class="hotel-lising p-3 bg-white rounded-1 border-gray pp-3">
             <div class="row">
-                <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                    <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_img">
-                        <img src="@item.hotelPicture" alt="" class="img-fluid img-responsive hotel-room-image hotel-room-image">
-                    </a>
-                </div>
-                <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                    <div class="room_list_l_text">
+                <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                    <div class="room_list_l_text d-lg-flex justify-content-between">
                         <div class="name">
-                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4>@item.hotelName</h4></a>
+                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4> @item.hotelName </h4></a>
                         </div>
                         <div class="rating">
                             <span>
-                                @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
-                                {
-                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                @{
+                                    decimal i = 1;
+                                    while (i <= 5)
+                                    {
+                                        if (i <= Convert.ToDecimal(item.starRating))
+                                        {
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        }
+                                        i++;
+                                    }
                                 }
                             </span>
+
+                            &nbsp;&nbsp;
+                            <span class="city-name">@Model.m_SearchHotel.City</span>
+                            @*   <span class="city-name">Rs. 1200.00</span> *@
                         </div>
                         <div class="details">
                             <a class="book_now_btn" href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
@@ -37,15 +47,15 @@
     }
 
     @Html.PagedListPager(
-                                 (IPagedList)Model.Hotelpaging,
-                                 pageNo => Url.Action("Roomlist", new { pageNo }),
-                                 new X.PagedList.Web.Common.PagedListRenderOptions
-                         {
-                             ContainerDivClasses = new string[] { "room_pagination" },
-                             PageClasses = new string[] { "" },
-                             UlElementClasses = new string[] { "pagination" },
-                             LiElementClasses = new string[] { "" },
-                         })
+                                         (IPagedList)Model.Hotelpaging,
+                                         pageNo => Url.Action("Roomlist", new { pageNo }),
+                                         new X.PagedList.Web.Common.PagedListRenderOptions
+                                 {
+                                     ContainerDivClasses = new string[] { "room_pagination" },
+                                     PageClasses = new string[] { "" },
+                                     UlElementClasses = new string[] { "pagination" },
+                                     LiElementClasses = new string[] { "" },
+                                 })
 }
 else
 {
@@ -74,7 +84,7 @@ else
 <script type="text/javascript">
     $(document).ready(function () {
         $(".room_pagination .pagination li a").click(function (evt) {
-            
+
             // This stops the form submission.
             evt.preventDefault();
             var ss = evt.target.href;
@@ -82,13 +92,6 @@ else
             const pagval = myArray[1].split("=");
             var val = pagval[1];
             ApplyFilter(val);
-        });
-
-        $(".book_now_btn").click(function (evt) {
-            $(".page").show();
-        });
-        $(".room_img").click(function (evt) {
-            $(".page").show();
         });
     });
 </script>

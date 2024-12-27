@@ -184,9 +184,16 @@ namespace LiveHolidayapp.Controllers
                         obj.m_SearchHotel = new M_SearchHotel();
                         obj.m_SearchHotel = Hotelreq;
                         list = output.Data;
-                        obj.hotelsearchResponses = list;
-                        HttpContext.Session.SetComplexData("hotelsearchResponses", obj);
-                        msg = "Success";
+                        if(list.Count!=0)
+                        {
+                            obj.hotelsearchResponses = list;
+                            HttpContext.Session.SetComplexData("hotelsearchResponses", obj);
+                            msg = "Success";
+                        }
+                        else
+                        {
+                            msg = "No Hotel Found";
+                        }
                     }
                     else
                     {
@@ -241,7 +248,7 @@ namespace LiveHolidayapp.Controllers
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
 
                 obj.hotelsearchResponses = hotelfilter;
-                var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, 16);
                 obj.Hotelpaging = pagining;
 
                 obj.m_SearchHotel = result.m_SearchHotel;
@@ -358,14 +365,14 @@ namespace LiveHolidayapp.Controllers
             {
                 var strStarRating = rating.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
                 obj.Hotelpaging = pagining;
             }
             else if (string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
             {
                 var hotnam = hotelname.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => hotnam.Contains(p.hotelName)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
                 obj.Hotelpaging = pagining;
             }
             else if (!string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
@@ -373,15 +380,16 @@ namespace LiveHolidayapp.Controllers
                 var strStarRating = rating.Split(',').ToList();
                 var hotnam = hotelname.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating) && hotnam.Contains(p.hotelName)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 12);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
                 obj.Hotelpaging = pagining;
             }
             else
             {
                 //obj.hotelsearchResponses = hotelfilter;
-                var pagining = hotelfilter.ToPagedList((int)pageIndex, 12);
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, 16);
                 obj.Hotelpaging = pagining;
             }
+            obj.m_SearchHotel = result.m_SearchHotel;
             var view = "";
             if (Theme != null && Theme != "")
             {

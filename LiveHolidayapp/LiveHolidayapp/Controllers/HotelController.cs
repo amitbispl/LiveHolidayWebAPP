@@ -231,8 +231,6 @@ namespace LiveHolidayapp.Controllers
                     PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
                 }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
-
-
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
 
                 obj.hotelsearchResponses = hotelfilter;

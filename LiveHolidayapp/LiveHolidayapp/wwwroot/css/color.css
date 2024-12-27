@@ -289,6 +289,16 @@ body {
     color: var(--primary-color);
 }
 
+.room_list_l_text .name, .room_list_l_text .rating, .room_list_l_text .details {
+    margin-bottom: 0 !important;
+}
+
 .f_title h3:before {
     background: var(--primary-color);
+}
+
+.room_list_l_text .book_now_btn {
+    background: none !important;
+    color: #ffb606 !important;
+    border: none !important;
 }

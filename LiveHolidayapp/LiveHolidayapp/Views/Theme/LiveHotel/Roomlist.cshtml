@@ -133,27 +133,40 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-sm-7 col-12" id="hoteldaat">
+                    
                     @foreach (var item in Model.Hotelpaging)
                     {
-                        <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+
+                        <div class="hotel-lising p-3 bg-white rounded-1 border-gray pp-3">
                             <div class="row">
-                                <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                    <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_img">
-                                        <img src="@item.hotelPicture" alt="" class="img-fluid img-responsive hotel-room-image hotel-room-image">
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                    <div class="room_list_l_text">
+                                <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                                    <div class="room_list_l_text d-lg-flex justify-content-between">
                                         <div class="name">
-                                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4>@item.hotelName</h4></a>
+                                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4> @item.hotelName </h4></a>
                                         </div>
                                         <div class="rating">
                                             <span>
-                                                @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
-                                                {
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @{
+                                                    decimal i = 1;
+                                                    while (i <= 5)
+                                                    {
+                                                        if (i <= Convert.ToDecimal(item.starRating))
+                                                        {
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        }
+                                                        i++;
+                                                    }
                                                 }
+                                              
                                             </span>
+                                          
+                                            &nbsp;&nbsp;
+                                            <span class="city-name">@Model.m_SearchHotel.City</span>
+                                            @*   <span class="city-name">Rs. 1200.00</span> *@
                                         </div>
                                         <div class="details">
                                             <a class="book_now_btn" href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
@@ -162,6 +175,8 @@
                                 </div>
                             </div>
                         </div>
+
+                       
                     }
 
                     @Html.PagedListPager(
@@ -179,23 +194,7 @@
             </div>
         </div>
 
-        <nav aria-label="Page navigation" class="room_pagination" style="display:none;">
-            <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+      
     </div>
 </section>
 <!-- Room List End -->

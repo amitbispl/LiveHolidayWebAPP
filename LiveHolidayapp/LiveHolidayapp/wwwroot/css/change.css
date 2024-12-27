@@ -835,6 +835,52 @@ input.input-text[type=text][disabled] {
         object-fit: contain !important;
     }
 
-.ui-widget {
-    font-family: "Montserrat", sans-serif !important;
+.d-lg-flex {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.pp-3 {
+    padding: 3px 15px !important;
+}
+
+.room_list_l_text .name h4 {
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
+.room_list_l_text span {
+    font-weight: 600;
+    color: #000;
+}
+
+.hotel-lising .room_list_l_text {
+    padding: 4px 0 !important;
+}
+
+.room_list_l_text .name {
+    width: 300px;
+}
+
+@media only screen and (max-width :767px) {
+    .d-lg-flex {
+        display: block !important;
+    }
+
+    .room_list_l_text .book_now_btn {
+        padding: 0 !important;
+    }
+
+    .room_list_l_text .name h4 {
+        margin-bottom: 6px;
+    }
+
+    .room_list_l_text .name, .room_list_l_text .rating, .room_list_l_text .details {
+        margin-bottom: 6px !important;
+    }
+
+    .hotel-lising .room_list_l_text {
+        padding: 13px 0 !important;
+    }
 }

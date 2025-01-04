@@ -413,15 +413,23 @@ namespace LiveHolidayapp.Controllers
                 response = _Hotel.PropertyDetail(id);
                 PropertyDetailRoot data = new PropertyDetailRoot();
                 M_Hotel obj = new M_Hotel();
-                if (response != "")
+                try
                 {
-                    data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
-                    if (data.success != false)
+                    if (response != "")
                     {
-                        obj.Amenities = data.propertyDetail.Amenities;
-                        obj.images = data.propertyDetail.images;
+                        data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
+                        if (data.success != false)
+                        {
+                            obj.Amenities = data.propertyDetail.Amenities;
+                            obj.images = data.propertyDetail.images;
+                        }
                     }
                 }
+                catch
+                {
+
+                }
+               
                 obj.hotelsearchResponses = sortdata;
                 obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")

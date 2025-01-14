@@ -1,0 +1,302 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "RoomlistGrid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>Room Details</h3>
+            <ul>
+                <li class="active"><a href="~/Home/index">Home</a></li>
+                <li><a href="javascript:void(0)">Rooms</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Room List Start -->
+<section class="room_list_area pt-10 ppt-20">
+    <div class="container">
+        <div class="room_list_inner">
+            <div class="row mr-0">
+                <div class="col-md-12">
+                    <div class="filter-button" align="right">
+                        <button type="button" value="submit" class="btn submit_btn filter-button-btn" id="OpenSidebar"><i class="fa fa-filter" aria-hidden="true"></i> Filter </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-5 col-12">
+                    <div class="booking-item-dates-change mb30 theme-color p-1 border-gray" id="SideBar">
+                        <div class="booking-deatils mb-1">
+                            <div class="header-flex fixed-top">
+                                <div class="title">
+                                    <h6>Filter</h6>
+                                </div>
+                                <div class="close-button">
+                                    <div id="CloseSidebar"><i class="fa fa-times" aria-hidden="true"></i> </div>
+                                </div>
+                            </div>
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Booking details</h4>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>City</th>
+                                            <th>@Model.m_SearchHotel.City</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Check In </td>
+                                            <td>@Model.m_SearchHotel.txtHotelCheckIn</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Check Out</td>
+                                            <td>@Model.m_SearchHotel.txtHotelCheckOut</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No of Room</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. of Adult</td>
+                                            <td>@Model.m_SearchHotel.ddlAdult</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. of Child</td>
+                                            <td>@Model.m_SearchHotel.ddlChild</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="ratings mb-1">
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Star Rating </h4>
+                                <input type="hidden" name="">
+                                <div id="starRating">
+                                    @foreach (var item in Model.starRatings)
+                                    {
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" class="form-check-input" name="starcheck" value="@item.Rating">
+                                                <span class="pull-left">
+                                                    <div>
+                                                        @for (decimal i = 0; i < Convert.ToDecimal(item.Rating); i++)
+                                                        {
+                                                            <span class="fa fa-star checked"></span>
+                                                        }
+                                                    </div>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hotel-list">
+                            <div class="bg-white p-3">
+                                <h4 class="fw-6 theme-text-color" style="margin-bottom: 20px;">Hotel Name</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control height" onkeyup="Hotelnamesearch()" id="namesearch" placeholder="Hotel Name Here">
+                                </div>
+                                <div class="scrollbar mt-1" id="hotelname">
+                                    <div class="hotels-name">
+                                        @foreach (var item in Model.hotelsearchResponses)
+                                        {
+                                            <div class="form-check" style="margin-bottom: 5px;">
+                                                <input class="form-check-input" name="hotelnamechk" type="checkbox" value="@item.hotelName" id="Checkbox_@item.hotelResults_ID">
+                                                <label class="form-check-label" for="Checkbox_@item.hotelResults_ID">
+                                                    @item.hotelName
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div class="flex mt-3">
+                                    <div class="close-button">
+                                        <button type="button" class="btn btn-danger rounded-0" style="width: 100%;" onclick="clearall()">Clear All
+                                    </div>
+                                    <div class="close-button">
+                                        <button type="button" class="btn theme-color text-white rounded-0" style="width: 100%;" onclick="ApplyFilter()">Apply Filter
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-7 col-12" id="hoteldaat">
+
+                    @foreach (var item in Model.Hotelpaging)
+                    {
+
+                        <div class="hotel-lising p-3 bg-white rounded-1 border-gray pp-3">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                                    <div class="room_list_l_text d-lg-flex justify-content-between">
+                                        <div class="name">
+                                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4> @item.hotelName </h4></a>
+                                        </div>
+                                        <div class="rating">
+                                            <span>
+                                                @{
+                                                    decimal i = 1;
+                                                    while (i <= 5)
+                                                    {
+                                                        if (i <= Convert.ToDecimal(item.starRating))
+                                                        {
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                        }
+                                                        i++;
+                                                    }
+                                                }
+
+                                            </span>
+
+                                            &nbsp;&nbsp;
+                                            <span class="city-name">@Model.m_SearchHotel.City</span>
+                                            @*   <span class="city-name">Rs. 1200.00</span> *@
+                                        </div>
+                                        <div class="details">
+                                            <a class="book_now_btn" href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+
+                    @Html.PagedListPager(
+                             (IPagedList)Model.Hotelpaging,
+                             pageNo => Url.Action("Roomlist", new { pageNo }),
+                             new X.PagedList.Web.Common.PagedListRenderOptions
+                    {
+                        ContainerDivClasses = new string[] { "room_pagination" },
+                        PageClasses = new string[] { "" },
+                        UlElementClasses = new string[] { "pagination" },
+                        LiElementClasses = new string[] { "" },
+                    })
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<!-- Room List End -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".room_pagination .pagination li a").click(function (evt) {
+
+            // This stops the form submission.
+            evt.preventDefault();
+            var ss = evt.target.href;
+            const myArray = ss.split("?");
+            const pagval = myArray[1].split("=");
+            var val = pagval[1];
+            ApplyFilter(val);
+        });
+    });
+
+    function clearall() {
+        $("input[name=starcheck]:checkbox:checked").each(function () {
+            $(this).prop("checked", false);
+        });
+
+        $("input[name=hotelnamechk]:checkbox:checked").each(function () {
+            $(this).prop("checked", false);
+        });
+
+        ApplyFilter("");
+    }
+
+    function ApplyFilter(page) {
+        $(".page").show();
+        var starrat = [];
+        hotelnamechk = [];
+        $("input[name=starcheck]:checkbox:checked").each(function () {
+            starrat.push(this.value);
+        });
+        var starratcomma = starrat.join(",");
+        $("input[name=hotelnamechk]:checkbox:checked").each(function () {
+            hotelnamechk.push(this.value);
+        });
+        var hotelnamecomma = hotelnamechk.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/ApplyFilter",
+            async: true,
+            data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
+            success: function (data) {
+                $("#hoteldaat").html(data);
+                $(".page").hide();
+            },
+            failure: function (response) {
+                alert('failure');
+                console.log(response.responseText);
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert('error');
+                console.log(response.responseText);
+                alert(response.responseText);
+            }
+
+        });
+    }
+
+    function Hotelnamesearch() {
+        var name = $("#namesearch").val();
+        $.ajax({
+            type: "POST",
+            url: "/LiveHotel/FilterHotelName",
+            async: true,
+            data: { name: name },
+            success: function (data) {
+                //alert(data);
+
+                $("#hotelname").html(data);
+            },
+            failure: function (response) {
+                alert('failure');
+                console.log(response.responseText);
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert('error');
+
+                console.log(response.responseText);
+                alert(response.responseText);
+            }
+
+        });
+    }
+
+</script>
+<script>
+    $(document).ready(function () {
+        $("#CloseSidebar").click(function () {
+            $("#SideBar").hide();
+        });
+        $("#OpenSidebar").click(function () {
+            $("#SideBar").show();
+        });
+    });
+</script>
+
+

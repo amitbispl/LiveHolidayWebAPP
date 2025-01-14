@@ -106,7 +106,7 @@
                     <input type="hidden" id="hdnCountry" value="@Model.searchHotel.hdnCountry" />
                     <input type="hidden" id="hdnNatinality" value="@Model.searchHotel.hdnNatinality" />
                     <input type="hidden" id="hdnHotelCity" value="" />
-
+                    <input type="hidden" id="hdnlisttheme" value="@Convert.ToString(Context.Session.GetString("HotelListTheme"))" />
                 </div>
             </div>
         </div>
@@ -424,7 +424,7 @@
             data: { Hotelreq: Hotelreq },
             success: function (data) {
                 if (data.msg == "Success") {
-                    window.location.href = "/LiveHotel/Roomlist";
+                    window.location.href = "/LiveHotel/Roomlist?PT=G";
                     $("#Btnsubmit").prop('disabled', true);
                     $(".page").hide();
                 }

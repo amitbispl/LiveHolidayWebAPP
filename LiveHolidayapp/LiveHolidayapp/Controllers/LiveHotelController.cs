@@ -114,6 +114,8 @@ namespace LiveHolidayapp.Controllers
 
                     }
                 }
+
+
                 if (Theme != null && Theme != "")
                 {
                     return View("~/Views/" + Theme + "/LiveHotel/SearchHotel.cshtml", obj);
@@ -122,6 +124,7 @@ namespace LiveHolidayapp.Controllers
                 {
                     return View("~/Views/Theme/LiveHotel/SearchHotel.cshtml", obj);
                 }
+
             }
             else
             {
@@ -184,7 +187,7 @@ namespace LiveHolidayapp.Controllers
                         obj.m_SearchHotel = new M_SearchHotel();
                         obj.m_SearchHotel = Hotelreq;
                         list = output.Data;
-                        if(list.Count!=0)
+                        if (list.Count != 0)
                         {
                             obj.hotelsearchResponses = list;
                             HttpContext.Session.SetComplexData("hotelsearchResponses", obj);
@@ -213,7 +216,7 @@ namespace LiveHolidayapp.Controllers
             return Json(new { msg });
         }
 
-        public IActionResult Roomlist(int? pageNo)
+        public IActionResult Roomlist(int? pageNo, string PT = "B")
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
@@ -269,13 +272,27 @@ namespace LiveHolidayapp.Controllers
                     }
                 }
                 obj.starRatings = slist;
-                if (Theme != null && Theme != "")
+                if (PT == "G" && Convert.ToString(HttpContext.Session.GetString("HotelListTheme"))=="G")
                 {
-                    return View("~/Views/" + Theme + "/LiveHotel/Roomlist.cshtml", obj);
+                    if (Theme != null && Theme != "")
+                    {
+                        return View("~/Views/" + Theme + "/LiveHotel/RoomlistGrid.cshtml", obj);
+                    }
+                    else
+                    {
+                        return View("~/Views/Theme/LiveHotel/RoomlistGrid.cshtml", obj);
+                    }
                 }
                 else
                 {
-                    return View("~/Views/Theme/LiveHotel/Roomlist.cshtml", obj);
+                    if (Theme != null && Theme != "")
+                    {
+                        return View("~/Views/" + Theme + "/LiveHotel/Roomlist.cshtml", obj);
+                    }
+                    else
+                    {
+                        return View("~/Views/Theme/LiveHotel/Roomlist.cshtml", obj);
+                    }
                 }
             }
             else
@@ -429,7 +446,7 @@ namespace LiveHolidayapp.Controllers
                 {
 
                 }
-               
+
                 obj.hotelsearchResponses = sortdata;
                 obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")
@@ -668,7 +685,7 @@ namespace LiveHolidayapp.Controllers
                             HttpContext.Session.SetString("isRedeem", Convert.ToString("True"));
                         }
                     }
-                   
+
                 }
                 catch
                 {

@@ -29,6 +29,7 @@ namespace LiveHolidayapp.Models
         public string PriceRangeStart { get; set; }
         public string PriceRangeEnd { get; set; }
         public string Theme { get; set; }
+        public string HotelListTheme { get; set; }
 
     }
 }

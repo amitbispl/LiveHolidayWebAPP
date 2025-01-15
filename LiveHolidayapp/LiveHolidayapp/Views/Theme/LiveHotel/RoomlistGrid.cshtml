@@ -135,59 +135,56 @@
 
                     @foreach (var item in Model.Hotelpaging)
                     {
-
-                        <div class="hotel-lising p-3 bg-white rounded-1 border-gray pp-3">
-                            <div class="row">
-                                <div class="col-md-12 col-xs-12 col-12 col-sm-12">
-                                    <div class="room_list_l_text d-lg-flex justify-content-between">
-                                        <div class="name">
-                                            <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID"><h4> @item.hotelName </h4></a>
-                                        </div>
-                                        <div class="rating">
-                                            <span>
-                                                @{
-                                                    decimal i = 1;
-                                                    while (i <= 5)
+                        <div class="col-lg-4 col-sm-4 col-12 hotel-lising" style="padding:5px;">
+                            <div class="items mt-0 bg-white border" style="padding:10px;">
+                                <div class="place-image">
+                                    <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_img">
+                                        <img src="@item.hotelPicture" class="img-fluid img-responsive hotel-room-image hotel-room-image" alt="">
+                                        </a>
+                                    <div class="rating">
+                                        <span>
+                                            @{
+                                                decimal i = 1;
+                                                while (i <= 5)
+                                                {
+                                                    if (i <= Convert.ToDecimal(item.starRating))
                                                     {
-                                                        if (i <= Convert.ToDecimal(item.starRating))
-                                                        {
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        }
-                                                        else
-                                                        {
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        }
-                                                        i++;
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
                                                     }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    }
+                                                    i++;
                                                 }
-
-                                            </span>
-
-                                            &nbsp;&nbsp;
-                                            <span class="city-name">@Model.m_SearchHotel.City</span>
-                                            @*   <span class="city-name">Rs. 1200.00</span> *@
-                                        </div>
-                                        <div class="details">
-                                            <a class="book_now_btn" href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID">View details</a>
-                                        </div>
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="text-des">
+                                    <div class="description">
+                                        <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_list_l_text" title="@item.hotelName"><h6 style="white-space: nowrap;width: 160px; overflow: hidden;  text-overflow: ellipsis; line-height:21px;">@item.hotelName</h6></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
+                       
                     }
-
-                    @Html.PagedListPager(
-                             (IPagedList)Model.Hotelpaging,
-                             pageNo => Url.Action("Roomlist", new { pageNo }),
-                             new X.PagedList.Web.Common.PagedListRenderOptions
-                    {
-                        ContainerDivClasses = new string[] { "room_pagination" },
-                        PageClasses = new string[] { "" },
-                        UlElementClasses = new string[] { "pagination" },
-                        LiElementClasses = new string[] { "" },
-                    })
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            @Html.PagedListPager(
+                                     (IPagedList)Model.Hotelpaging,
+                                     pageNo => Url.Action("Roomlist", new { pageNo }),
+                                     new X.PagedList.Web.Common.PagedListRenderOptions
+                            {
+                                ContainerDivClasses = new string[] { "room_pagination" },
+                                PageClasses = new string[] { "" },
+                                UlElementClasses = new string[] { "pagination" },
+                                LiElementClasses = new string[] { "" },
+                            })
+                        </div>
+                    </div>
+                   
 
                 </div>
             </div>

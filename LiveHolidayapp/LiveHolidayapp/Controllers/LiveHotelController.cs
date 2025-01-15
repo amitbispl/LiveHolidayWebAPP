@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
@@ -216,11 +217,12 @@ namespace LiveHolidayapp.Controllers
             return Json(new { msg });
         }
 
-        public IActionResult Roomlist(int? pageNo, string PT = "B")
+        public IActionResult Roomlist(int? pageNo)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
                 int pageIndex = 1;
+                int pagesize = 16;
                 pageIndex = pageNo.HasValue ? Convert.ToInt32(pageNo) : 1;
                 M_Hotel obj = new M_Hotel();
 
@@ -251,7 +253,11 @@ namespace LiveHolidayapp.Controllers
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
 
                 obj.hotelsearchResponses = hotelfilter;
-                var pagining = hotelfilter.ToPagedList((int)pageIndex, 16);
+                if (Convert.ToString(HttpContext.Session.GetString("HotelListTheme")) == "G")
+                {
+                    pagesize = 18;
+                }
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, pagesize);
                 obj.Hotelpaging = pagining;
 
                 obj.m_SearchHotel = result.m_SearchHotel;
@@ -272,7 +278,7 @@ namespace LiveHolidayapp.Controllers
                     }
                 }
                 obj.starRatings = slist;
-                if (PT == "G" && Convert.ToString(HttpContext.Session.GetString("HotelListTheme"))=="G")
+                if (Convert.ToString(HttpContext.Session.GetString("HotelListTheme")) == "G")
                 {
                     if (Theme != null && Theme != "")
                     {
@@ -355,6 +361,11 @@ namespace LiveHolidayapp.Controllers
         {
             int pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            int pagesize=16;
+            if (Convert.ToString(HttpContext.Session.GetString("HotelListTheme")) == "G")
+            {
+                pagesize = 18;
+            }
             M_Hotel obj = new M_Hotel();
             var PriceRangeStart = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeStart"));
             decimal PriceRangeEnd = 0;
@@ -382,14 +393,14 @@ namespace LiveHolidayapp.Controllers
             {
                 var strStarRating = rating.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, pagesize);
                 obj.Hotelpaging = pagining;
             }
             else if (string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
             {
                 var hotnam = hotelname.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => hotnam.Contains(p.hotelName)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, pagesize);
                 obj.Hotelpaging = pagining;
             }
             else if (!string.IsNullOrEmpty(rating) && !string.IsNullOrEmpty(hotelname))
@@ -397,25 +408,40 @@ namespace LiveHolidayapp.Controllers
                 var strStarRating = rating.Split(',').ToList();
                 var hotnam = hotelname.Split(',').ToList();
                 var cusfilter = hotelfilter.Where(p => strStarRating.Contains(p.starRating) && hotnam.Contains(p.hotelName)).ToList();
-                var pagining = cusfilter.ToPagedList((int)pageIndex, 16);
+                var pagining = cusfilter.ToPagedList((int)pageIndex, pagesize);
                 obj.Hotelpaging = pagining;
             }
             else
             {
                 //obj.hotelsearchResponses = hotelfilter;
-                var pagining = hotelfilter.ToPagedList((int)pageIndex, 16);
+                var pagining = hotelfilter.ToPagedList((int)pageIndex, pagesize);
                 obj.Hotelpaging = pagining;
             }
             obj.m_SearchHotel = result.m_SearchHotel;
             var view = "";
-            if (Theme != null && Theme != "")
+            if (Convert.ToString(HttpContext.Session.GetString("HotelListTheme")) == "G")
             {
-                view = "~/Views/" + Theme + "/LiveHotel/_FilterHoteDataPartial.cshtml";
+                if (Theme != null && Theme != "")
+                {
+                    view = "~/Views/" + Theme + "/LiveHotel/_FilterHoteDataGridPartial.cshtml";
+                }
+                else
+                {
+                    view = "~/Views/Theme/LiveHotel/_FilterHoteDataGridPartial.cshtml";
+                }
             }
             else
             {
-                view = "~/Views/Theme/LiveHotel/_FilterHoteDataPartial.cshtml";
+                if (Theme != null && Theme != "")
+                {
+                    view = "~/Views/" + Theme + "/LiveHotel/_FilterHoteDataPartial.cshtml";
+                }
+                else
+                {
+                    view = "~/Views/Theme/LiveHotel/_FilterHoteDataPartial.cshtml";
+                }
             }
+            
             return PartialView(view, obj);
         }
 

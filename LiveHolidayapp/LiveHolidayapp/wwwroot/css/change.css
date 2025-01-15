@@ -845,7 +845,7 @@ input.input-text[type=text][disabled] {
     padding: 3px 15px !important;
 }
 
-.room_list_l_text .name h4 {
+.room_list_l_text .name h4 h6 {
     font-size: 14px !important;
     font-weight: 600;
 }

@@ -34,14 +34,14 @@
 
     <link href="~/css/style.css?v=1" rel="stylesheet" asp-append-version="true">
     <link href="~/css/responsive.css?v=1" rel="stylesheet" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/change.css?v=1" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/change.css?v=2" asp-append-version="true">
     @if (string.IsNullOrEmpty(Context.Session.GetString("colorcss")))
     {
         <link href="~/css/color.css?v=1" asp-append-version="true" rel="stylesheet" />
     }
     else
     {
-        <link href="~/css/4844color.css?v=1" rel="stylesheet" asp-append-version="true" />
+        <link href="~/css/@Context.Session.GetString("colorcss")?v=1" rel="stylesheet" asp-append-version="true" />
     }
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css?v=1">
     <link href="~/toastr/toastr.css?v=1" asp-append-version="true" rel="stylesheet" />

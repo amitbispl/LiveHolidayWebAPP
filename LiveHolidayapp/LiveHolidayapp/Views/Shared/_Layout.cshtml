@@ -43,6 +43,7 @@
     {
         <link href="~/css/@Context.Session.GetString("colorcss")?v=1" rel="stylesheet" asp-append-version="true" />
     }
+    
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css?v=1">
     <link href="~/toastr/toastr.css?v=1" asp-append-version="true" rel="stylesheet" />
 
@@ -53,9 +54,10 @@
 
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-
-
-
+    @if (Context.Session.GetString("CompanyId") == "8806" || Context.Session.GetString("CompanyId") == "4769")
+    {
+        <link href="~/css/sollywood.css" asp-append-version="true" rel="stylesheet" />
+    }
 </head>
 <body class="notLoaded">
     <!-- Header Include Start -->
@@ -161,12 +163,24 @@
                             {
                                 <img src="~/companylogo/1/logo.png" alt="">
                             }
+                            else if (Context.Session.GetString("CompanyId") == "8806" || Context.Session.GetString("CompanyId") == "4769")
+                            {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:200px;" alt="">
+                            }
                             else
                             {
                                 <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:100px;" alt="">
                             }
 
                             <div class="ab_wd_list">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>@Convert.ToString(Context.Session.GetString("CMEmailID"))</h4>
+                                    </div>
+                                </div>
                                 <div class="media">
                                     <div class="media-left">
                                         <i class="fa fa-map-marker"></i>

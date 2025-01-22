@@ -43,7 +43,7 @@
     {
         <link href="~/css/@Context.Session.GetString("colorcss")?v=1" rel="stylesheet" asp-append-version="true" />
     }
-    
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css?v=1">
     <link href="~/toastr/toastr.css?v=1" asp-append-version="true" rel="stylesheet" />
 
@@ -173,30 +173,57 @@
                             }
 
                             <div class="ab_wd_list">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-envelope"></i>
+                                @if (!string.IsNullOrEmpty(Convert.ToString(Context.Session.GetString("CMEmailID"))) && !string.IsNullOrWhiteSpace(Convert.ToString(Context.Session.GetString("CMEmailID"))))
+                                {
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>@Convert.ToString(Context.Session.GetString("CMEmailID"))</h4>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>@Convert.ToString(Context.Session.GetString("CMEmailID"))</h4>
+                                }
+                               
+                                @if (!string.IsNullOrEmpty(Convert.ToString(Context.Session.GetString("Address"))) && !string.IsNullOrWhiteSpace(Convert.ToString(Context.Session.GetString("Address"))))
+                                {
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>@Convert.ToString(Context.Session.GetString("Address"))</h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-map-marker"></i>
+                                }
+                              
+                                @if (!string.IsNullOrEmpty(Convert.ToString(Context.Session.GetString("CMMobileNo"))) && Convert.ToString(Context.Session.GetString("CMMobileNo"))!="0")
+                                {
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>@Convert.ToString(Context.Session.GetString("CMMobileNo"))</h4>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>@Convert.ToString(Context.Session.GetString("Address"))</h4>
+                                }
+                                @if (!string.IsNullOrEmpty(Convert.ToString(Context.Session.GetString("BusinessHours"))))
+                                {
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <i class="fa fa-hourglass-half"></i>
+                                        </div>
+                                        <div class="media-body">
+
+                                            <h4>
+                                                Business Hours
+                                                <br />
+                                                @Convert.ToString(Context.Session.GetString("BusinessHours"))
+                                                </h4>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>@Convert.ToString(Context.Session.GetString("CMMobileNo"))</h4>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </aside>
                     </div>

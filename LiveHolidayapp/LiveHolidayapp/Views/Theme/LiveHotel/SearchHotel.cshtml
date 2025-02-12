@@ -107,6 +107,7 @@
                     <input type="hidden" id="hdnNatinality" value="@Model.searchHotel.hdnNatinality" />
                     <input type="hidden" id="hdnHotelCity" value="" />
                     <input type="hidden" id="hdnlisttheme" value="@Convert.ToString(Context.Session.GetString("HotelListTheme"))" />
+                    <input type="hidden" id="hdnIsInternational" value="@Convert.ToString(Context.Session.GetString("IsInternational"))" />
                 </div>
             </div>
         </div>
@@ -118,7 +119,12 @@
     var hdnorderid = $("#hdnorderid").val();
     var ISchild = $("#ISchild").val();
     var days = $("#StartAfterday").val();
+    var hdnIsInternational =$("#hdnIsInternational").val();
     $(document).ready(function () {
+        if(hdnIsInternational=="False")
+        {
+            $("#txtNationality").attr('disabled', 'disabled');
+        }
         if (hdnorderid != "0") {
             $("#ddlpackage").val(hdnorderid);
         }
@@ -410,7 +416,7 @@
         Hotelreq["City"] = txtHotelOrigin;
         Hotelreq["Orderid"] = orderid;
         Hotelreq["IDWiseDayAfter"] = IDWiseDayAfter;
-        
+
         $.ajax({
             type: "POST",
             url: "/LiveHotel/SearchHotel",
@@ -442,17 +448,38 @@
             },
             failure: function (response) {
                 $(".page").hide();
-                alert(response.responseText);
+                // alert(response.responseText);
+                toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
                 $("#Btnsubmit").prop('disabled', false);
             },
             error: function (response) {
                 $(".page").hide();
-                alert(response.responseText);
+                //alert(response.responseText);
+                 toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
                 $("#Btnsubmit").prop('disabled', false);
             },
             failure: function (response) {
                 $(".page").hide();
-                alert(response.responseText);
+                //alert(response.responseText);
+                 toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
                 $("#Btnsubmit").prop('disabled', false);
             }
         });

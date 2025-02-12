@@ -13,6 +13,7 @@ namespace LiveHolidayapp.Models
         public IPagedList<HotelsearchResponse> Hotelpaging { get; set; }
         public List<Image> images { get; set; }
         public string[] Amenities { get; set; }
+        public Dictionary<string, string> Amenitiesdisctionary { get; set; }
         public List<M_PackageTypes> PackageTypesList { get; set; }
         public List<Hoteldetail> TBoHotelDetails { get; set; }
 
@@ -41,7 +42,7 @@ namespace LiveHolidayapp.Models
         public string ddlAdult { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
-        public string Orderid { get; set; } 
+        public string Orderid { get; set; }
         public int IDWiseDayAfter { get; set; }
     }
 

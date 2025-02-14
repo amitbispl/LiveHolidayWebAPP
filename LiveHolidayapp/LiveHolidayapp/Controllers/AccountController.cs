@@ -76,7 +76,18 @@ namespace LiveHolidayapp.Controllers
                             HttpContext.Session.SetString("password", Convert.ToString(obj.Password));
                             HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
                             HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                            if (Url.IsLocalUrl(returnUrl))
+                            if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)
+                            {
+                                if (HttpContext.Session.GetString("IsHotel") == "R")
+                                {
+                                    return RedirectToAction("SearchHotel", "LiveHotel");
+                                }
+                                else
+                                {
+                                    return RedirectToAction("HotelSearch", "Hotel");
+                                }
+                            }
+                            else if (Url.IsLocalUrl(returnUrl))
                             {
                                 return Redirect(returnUrl);
                             }
@@ -93,11 +104,11 @@ namespace LiveHolidayapp.Controllers
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.message = "Please enter valid username and password";
             }
-            
+
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Account/Login.cshtml", obj);
@@ -188,7 +199,21 @@ namespace LiveHolidayapp.Controllers
                             //HttpContext.Session.SetString("OrderId", response.OrderId);
                             HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
                             HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                            return RedirectToAction(nameof(HomeController.Index), "Home");
+                            if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)
+                            {
+                                if (HttpContext.Session.GetString("IsHotel") == "R")
+                                {
+                                    return RedirectToAction("SearchHotel", "LiveHotel");
+                                }
+                                else
+                                {
+                                    return RedirectToAction("HotelSearch", "Hotel");
+                                }
+                            }
+                            else
+                            {
+                                return RedirectToAction(nameof(HomeController.Index), "Home");
+                            }
                         }
                     }
                     else
@@ -211,6 +236,7 @@ namespace LiveHolidayapp.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+
             return RedirectToAction("Index", "Home");
         }
 

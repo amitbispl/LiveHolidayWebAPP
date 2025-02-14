@@ -24,6 +24,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Index()
         {
+            if(Convert.ToInt32(HttpContext.Session.GetString("CompanyId"))== 4306)
+            {
+                return RedirectToAction("Dreamdays", "Home");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/index.cshtml");
@@ -34,6 +38,11 @@ namespace LiveHolidayapp.Controllers
             }
 
         }
+        public ActionResult Dreamdays() 
+        {
+            return View("~/Views/Shared/Dreamdaysindex.cshtml");
+        }
+
 
         public IActionResult Privacy()
         {

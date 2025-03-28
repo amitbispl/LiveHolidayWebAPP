@@ -206,5 +206,20 @@ namespace LiveHolidayapp.Repository
             }
             return str;
         }
+
+        public string HotelMergesearchResponse(M_SearchHotel req, string Token)
+        {
+            string resp = "";
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                resp = general.CallPostFunction(detail, Token, "hotelv3/SearchHotel");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
     }
 }

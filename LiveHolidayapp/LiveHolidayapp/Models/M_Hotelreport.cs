@@ -20,4 +20,8 @@
     {
         public int Formno { get; set; }
     }
+    public class BookHotelReport
+    {
+        public List<M_Hotelreport> Hotelreports { get; set; }
+    }
 }

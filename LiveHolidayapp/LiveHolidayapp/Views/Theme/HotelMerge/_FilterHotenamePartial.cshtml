@@ -1,0 +1,13 @@
+﻿@model LiveHolidayapp.Models.M_Hotel
+
+<div class="hotels-name">
+    @foreach (var item in Model.hotelsearchResponses)
+    {
+        <div class="form-check" style="margin-bottom: 5px;">
+            <input class="form-check-input" name="hotelnamechk" type="checkbox" value="@item.hotelName" id="Checkbox_@item.hotelResults_ID">
+            <label class="form-check-label" for="Checkbox_@item.hotelResults_ID">
+                @item.hotelName
+            </label>
+        </div>
+    }
+</div>

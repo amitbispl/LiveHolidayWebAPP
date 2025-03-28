@@ -1,0 +1,80 @@
+﻿@model LiveHolidayapp.Models.BookHotelReport
+@{
+    ViewData["Title"] = "Already Redemption";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Breadcrumb Banner Start -->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_inner_content">
+            <h3>  Thank you  </h3>
+            <ul>
+                <li class="active"><a href="~/Home/Index">Home</a></li>
+                <li><a href="javascript:void(0);">Hotel Confirmation</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Banner End -->
+<!-- Thank You Start -->
+<section class="room_details_area thank-you-table pt-10 ppt-20">
+    <div class="container">
+        <center>
+            <div class="p-3 bg-white w-100">
+                <table width="70%">
+                    <tbody>
+                        <tr>
+                            <td class="text-center text-success">
+                                <h1>Thank You For Booking...!</h1>
+                            </td>
+                        </tr>
+
+                        @if(Model.Hotelreports!=null && Model.Hotelreports.Count()>0)
+                        {
+                            @foreach (var item in Model.Hotelreports)
+                            {
+                                <tr>
+                                    <td>
+                                        <table class="w-100 border-light detail-table mb-3">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-left"><b>Ref no</b></td>
+                                                    <td class="text-center">:</td>
+                                                    <td class="text-right">@item.ID</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left"><b>Hotel Name </b></td>
+                                                    <td class="text-center">:</td>
+                                                    <td class="text-right">@item.HotelName</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left"><b>Check-In Date</b></td>
+                                                    <td class="text-center">:</td>
+                                                    <td class="text-right">@item.CheckInDate</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left"><b>Check-Out Date</b></td>
+                                                    <td class="text-center">:</td>
+                                                    <td class="text-right">@item.CheckOutDate</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            }
+
+                            
+                        }
+                       
+
+                        
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    </div>
+</section>
+<!-- Thank You End -->

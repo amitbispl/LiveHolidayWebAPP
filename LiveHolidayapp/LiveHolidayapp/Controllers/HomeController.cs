@@ -1,6 +1,7 @@
 using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace LiveHolidayapp.Controllers
@@ -12,6 +13,7 @@ namespace LiveHolidayapp.Controllers
         private IHttpContextAccessor _httpContextAccessor;
         private readonly string Theme = "";
         M_Company obj = new M_Company();
+        R_Hotel _Hotel = new R_Hotel();
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
 
@@ -24,7 +26,7 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Index()
         {
-            if(Convert.ToInt32(HttpContext.Session.GetString("CompanyId"))== 4306)
+            if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)
             {
                 return RedirectToAction("Dreamdays", "Home");
             }
@@ -38,7 +40,7 @@ namespace LiveHolidayapp.Controllers
             }
 
         }
-        public ActionResult Dreamdays() 
+        public ActionResult Dreamdays()
         {
             return View("~/Views/Shared/Dreamdaysindex.cshtml");
         }
@@ -100,6 +102,10 @@ namespace LiveHolidayapp.Controllers
                 {
                     return RedirectToAction("SearchHotel", "LiveHotel");
                 }
+                if (HttpContext.Session.GetString("IsHotel") == "RT")
+                {
+                    return RedirectToAction("SearchHotel", "HotelMerge");
+                }
                 else
                 {
                     return RedirectToAction("HotelSearch", "Hotel");
@@ -119,6 +125,11 @@ namespace LiveHolidayapp.Controllers
                 if (HttpContext.Session.GetString("IsHotel") == "R")
                 {
                     string returnUrl = Url.Action("SearchHotel", "LiveHotel")!;
+                    return RedirectToAction("Login", "Account", new { returnUrl });
+                }
+                if (HttpContext.Session.GetString("IsHotel") == "RT")
+                {
+                    string returnUrl = Url.Action("SearchHotel", "HotelMerge")!;
                     return RedirectToAction("Login", "Account", new { returnUrl });
                 }
                 else
@@ -150,6 +161,36 @@ namespace LiveHolidayapp.Controllers
             {
                 return View("~/Views/Theme/Home/Refund.cshtml");
             }
+        }
+
+        public IActionResult Redemption()
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                BookHotelReport obj = new BookHotelReport();
+                HotelReq hotelReq = new HotelReq();
+                hotelReq.Formno = Convert.ToInt32(HttpContext.Session.GetString("FormNo"));
+                //hotelReq.Formno = 22859;
+                var reportoutput = _Hotel.GetHotelreport(hotelReq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                var output = JsonConvert.DeserializeObject<CommonResponse<List<M_Hotelreport>>>(reportoutput);
+                if (output != null && output.Code == 200)
+                {
+                    obj.Hotelreports = output.Data;
+                }
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/Home/Redemption.cshtml",obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/Home/Redemption.cshtml",obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

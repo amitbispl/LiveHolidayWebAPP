@@ -1,0 +1,508 @@
+﻿@using Microsoft.AspNetCore.Http
+@model LiveHolidayapp.Models.M_Hotel
+@{
+    ViewData["Title"] = "SearchHotel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Slider With Form Start -->
+<section class="main_slider_area">
+    <div id="main_slider3" class="rev_slider" data-version="5.3.1.6">
+        <ul>
+            <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="/img/home-slider/slider-5.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="~/img/home-slider/slider-5.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+
+            <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="/img/home-slider/slider-6.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="~/img/home-slider/slider-6.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+
+            <li data-index="rs-1589" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="/img/home-slider/slider-7.jpg" data-rotate="0" data-saveperformance="off" data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                <img src="~/img/home-slider/slider-7.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+            </li>
+        </ul>
+    </div>
+    <div class="book_room_area">
+        <div class="container">
+            <div class="book_room_box theme-color">
+                <div class="book_table_item">
+                    <h3>BOOK HOTELS </h3>
+                </div>
+                <div class="book_table_item">
+                    <div class="input-append">
+                        @*  <input type="text" class="form-control" name="" id="txtNationality" value="@Model.searchHotel.hdnCountry" aria-describedby="helpId" placeholder="Enter Country"> *@
+                        <select class="selectpicker" asp-for="@Model.searchHotel.hdnCountry" id="txtNationality" onchange="countrychange()">
+                            <option value="0">Select Country</option>
+                            @foreach (var item in Model.countryList)
+                            {
+                                <option value="@item.Code">@item.CountryName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter City">
+                    </div>
+                </div>
+                @if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(Context.Session.GetString("IsManualSelectPackage")) == true)
+                {
+                    <div class="book_table_item">
+                        <select class="selectpicker" id="ddlpackage" onchange="PackageChange()">
+                            <option value="0">Select Package</option>
+                            @if (Model.PackageTypesList != null && Model.PackageTypesList.Count > 0)
+                            {
+                                foreach (var item in Model.PackageTypesList)
+                                {
+                                    <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                }
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckIn" aria-describedby="helpId" placeholder="CheckIn Date">
+                    </div>
+                </div>
+
+                <div class="book_table_item">
+                    <div class="input-append">
+                        <input type="text" class="form-control" name="" id="txtHotelCheckOut" aria-describedby="helpId" placeholder="CheckOut Date">
+                    </div>
+                </div>
+                <div class="book_table_item">
+                    <select class="selectpicker" id="ddlRoom">
+                        <option value="0">Select Room</option>
+                        <option value="1">1 Room</option>
+                    </select>
+                </div>
+                <div class="book_table_item">
+                    <select class="selectpicker" id="ddlAdults">
+                        <option value="0">Adults</option>
+                        <option value="1">Adults-1</option>
+                        <option value="2">Adults-2</option>
+                    </select>
+                </div>
+                <div class="book_table_item" id="dvchild">
+                    <select class="selectpicker" id="ddlChild">
+                        <option value="0">Select Children</option>
+                        @for (int i = 1; i <= Convert.ToInt32(Context.Session.GetString("ChildAllowed")); i++)
+                        {
+                            <option value="@i">Children-@i</option>
+                        }
+                    </select>
+                </div>
+                <div class="book_table_item">
+                    <a class="book_now_btn_black" id="Btnsubmit" href="javascript:void(0)" onclick="HotelSearch()">Check Availability</a>
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("ISchild"))" id="ISchild" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
+                    <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
+                    <input type="hidden" id="hdnorderid" value="@Convert.ToString(Context.Session.GetString("OrderId"))" />
+                    @if (Convert.ToString(Context.Session.GetString("OrderId")) == "0")
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    }
+                    else
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IDWiseDayAfter"))" id="DayAfter" />
+                    }
+                    <input type="hidden" id="hdnCompanyId" value="@Convert.ToString(Context.Session.GetString("CompanyId"))" />
+                    <input type="hidden" id="hdnKitId" value="@Convert.ToString(Context.Session.GetString("KitID"))" />
+                    <input type="hidden" id="hdnDays" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" />
+                    <input type="hidden" id="hdnCountry" value="@Model.searchHotel.hdnCountry" />
+                    <input type="hidden" id="hdnNatinality" value="@Model.searchHotel.hdnNatinality" />
+                    <input type="hidden" id="hdnHotelCity" value="" />
+                    <input type="hidden" id="hdnlisttheme" value="@Convert.ToString(Context.Session.GetString("HotelListTheme"))" />
+                    <input type="hidden" id="hdnIsInternational" value="@Convert.ToString(Context.Session.GetString("IsInternational"))" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Slider With Form End -->
+<script type="text/javascript">
+    var IsCustomizeDuration = $("#IsCustomizeDuration").val();
+    var hdnorderid = $("#hdnorderid").val();
+    var ISchild = $("#ISchild").val();
+    var days = $("#StartAfterday").val();
+    var hdnIsInternational =$("#hdnIsInternational").val();
+    $(document).ready(function () {
+
+        $("#txtNationality").val('@Model.searchHotel.hdnNatinality');
+        if(hdnIsInternational=="False")
+        {
+            $("#txtNationality").attr('disabled', 'disabled');
+        }
+        if (hdnorderid != "0") {
+            $("#ddlpackage").val(hdnorderid);
+        }
+        if (ISchild == "N") {
+            $("#dvchild").hide();
+        } else {
+            $("#dvchild").show();
+        }
+        var dt = new Date();
+        var da = parseInt(days);
+        dt.setDate(dt.getDate() + da);
+        var d = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        today = monthNames[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+        $("#txtHotelCheckOut").attr("disabled", "disabled");
+        $("#txtHotelCheckIn").datepicker({
+            defaultDate: "+3d",
+            minDate: dt,
+            format: "dd/mm/yyyy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: dt,
+            autoclose: true
+        });
+        $("#txtHotelCheckIn").change(function () {
+            debugger;
+            var DayAfter = $("#DayAfter").val();
+            var from = $("#txtHotelCheckIn").datepicker("getDate");
+            var date_diff = Math.ceil((from.getTime() - Date.parse(today)) / 86400000);
+            var hdnKitId = $("#hdnKitId").val();
+            var hdnCompanyId = $("#hdnCompanyId").val();
+            var diff = DayAfter;
+            var IsCustomizeDuration = IsCustomizeDuration;
+            if ((IsCustomizeDuration = 0)) {
+                if (hdnCompanyId == "300") {
+                    if (hdnKitId == "3" || hdnKitId == "6") {
+                        diff = 2;
+                    } else if (hdnKitId == "5") {
+                        diff = 4;
+                    } else if (hdnKitId == "6") {
+                        diff = 2;
+                    }
+                } else if (hdnCompanyId == "1613") {
+                    diff = 3;
+                } else if (hdnCompanyId == "2830") {
+                    diff = 3;
+                }
+            } else {
+                diff = DayAfter;
+            }
+            //--------------------------------------
+            $("#txtHotelCheckOut").removeAttr('disabled');
+            var maxDate_d = parseInt(date_diff) + parseInt(diff);
+            date_diff = date_diff;
+            dt = new Date();
+            dt.setDate(dt.getDate() + parseInt(maxDate_d));
+            var dtmin = new Date();
+            dtmin.setDate(dtmin.getDate() + parseInt(date_diff));
+
+            $('#txtHotelCheckOut').datepicker('remove');
+            $("#txtHotelCheckOut").datepicker({
+                startDate: dtmin,
+                endDate: dt,
+                format: "dd/mm/yyyy",
+                showOtherMonths: true,
+                changeMonth: true,
+                selectOtherMonths: true,
+                required: true,
+                showOn: "focus",
+                numberOfMonths: 1,
+                orientation: "top",
+                autoclose: true
+            });
+            var startDate = $("#txtHotelCheckIn").datepicker('getDate');
+            startDate.setDate(startDate.getDate() + parseInt(diff));
+            var month2 = ('0' + (startDate.getMonth() + 1)).slice(-2); // Adding 1 to the month to get correct month number
+            var day2 = ('0' + startDate.getDate()).slice(-2);
+            var year2 = startDate.getFullYear();
+            if (month2.length < 2) month2 = '0' + month2;
+            if (day2.length < 2) day2 = '0' + day2;
+            var formatedate = day2 + '/' + month2 + '/' + year2;
+            $("#txtHotelCheckOut").datepicker('setDate', formatedate);
+            $('#txtHotelCheckOut').datepicker('update');
+            //$("#txtHotelCheckOut").val(day2 + '/' + month2 + '/' + year2);
+        });
+        //---------------------------
+        $("#txtNationality").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/LiveHotel/GetCountry?CountryName=" + $("#txtNationality").val(),
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.countryName,
+                                val: item.code,
+                                id: item.code
+                            };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#hdnNatinality").val('');
+                $("#hdnNatinality").val(i.item.id);
+                $("#hdnCountry").val('');
+                $("#hdnCountry").val(i.item.id);
+            }
+        });
+
+        //--------------------------------------------
+        $("#txtHotelOrigin").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/LiveHotel/GetCitylist?Cityname=" + $("#txtHotelOrigin").val() + "&countrycode=" + $("#hdnNatinality").val(),
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+
+                            return {
+                                label: item.cityName,
+                                val: item.cityCode,
+                                id: item.CountryCode
+                            };
+                        }))
+                    }
+                })
+            },
+            select: function (e, i) {
+                $("#hdnHotelCity").val('');
+                $("#hdnHotelCity").val(i.item.val);
+                //$("#hdnCountry").val(i.item.id);
+            }
+        });
+    });
+
+    function countrychange()
+    {
+        var countrycode= $("#txtNationality").val();
+        var country= $("#txtNationality option:selected").text();
+        $("#hdnNatinality").val(countrycode);
+        $("#hdnCountry").val(country);
+    }
+
+    //when user change package
+    function PackageChange() {
+        debugger;
+        // Get the selected option
+        var selectedOption = $("#ddlpackage").find('option:selected');
+        var orderid = selectedOption.val();
+        $("#hdnorderid").val(orderid);
+        // Get the data-dayafter attribute value
+        var dayAfter = selectedOption.data('dayafter');
+        $("#DayAfter").val(dayAfter);
+        var dt = new Date();
+        var da = parseInt(days);
+        dt.setDate(dt.getDate() + da);
+        var d = new Date();
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        today = monthNames[d.getMonth()] + " " + d.getDate() + " " + d.getFullYear();
+        $('#txtHotelCheckIn').val('');
+
+        $('#txtHotelCheckIn').datepicker('remove');
+        $("#txtHotelCheckIn").datepicker({
+            defaultDate: "+3d",
+            minDate: dt,
+            format: "dd/mm/yyyy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: dt,
+            autoclose: true
+        });
+        $("#txtHotelCheckOut").datepicker('setDate', dt);
+        $('#txtHotelCheckIn').datepicker('update');
+        $('#txtHotelCheckOut').val('');
+    }
+    function setdate(val, val2) {
+
+        $("#txtHotelCheckOut").datepicker('setDate', val);
+        $("#txtHotelCheckOut").datepicker({
+            defaultDate: "+3d",
+            minDate: val,
+            dateFormat: "dd/mm/yy",
+            showOtherMonths: true,
+            changeMonth: true,
+            selectOtherMonths: true,
+            required: true,
+            showOn: "focus",
+            numberOfMonths: 1,
+            orientation: "top",
+            startDate: val2,
+        });
+    }
+
+
+    function HotelSearch() {
+        debugger;
+        var orderid = $("#hdnorderid").val();
+        var IDWiseDayAfter = $("#IDWiseDayAfter").val();
+        var txtNationality = $("#txtNationality").val();
+        if (txtNationality == "" || txtNationality == "0") {
+            toastr.error('Enter country', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#txtNationality").focus();
+            return false;
+        }
+        var txtHotelOrigin = $("#txtHotelOrigin").val();
+        if (txtHotelOrigin == "") {
+            toastr.error('Enter city', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#txtHotelOrigin").focus();
+            return false;
+        }
+        var txtHotelCheckIn = $("#txtHotelCheckIn").val();
+        if (txtHotelCheckIn == "") {
+            toastr.error('Enter checkin date', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#txtHotelCheckIn").focus();
+            return false;
+        }
+        var txtHotelCheckOut = $("#txtHotelCheckOut").val();
+        if (txtHotelCheckOut == "") {
+            toastr.error('Enter checkout date', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#txtHotelCheckOut").focus();
+            return false;
+        }
+        var ddlRoom = $("#ddlRoom").val();
+        if (ddlRoom == "0") {
+            toastr.error('Select room', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#ddlRoom").focus();
+            return false;
+        }
+        var ddlAdults = $("#ddlAdults").val();
+        if (ddlAdults == "0") {
+            toastr.error('Select adult', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-right',
+                timeOut: 5000, // 5 seconds
+                extendedTimeOut: 1000 // 1 second longer than timeOut
+            });
+            $("#ddlAdults").focus();
+            return false;
+        }
+        var ddlChild = $("#ddlChild").val();
+        var hdnNatinality = $("#hdnNatinality").val();
+        var hdnHotelCity = $("#hdnHotelCity").val();
+        var Hotelreq = {};
+        Hotelreq["hdnCountry"] = hdnNatinality;
+        Hotelreq["hdnNatinality"] = hdnNatinality;
+        Hotelreq["hdnHotelCity"] = hdnHotelCity;
+        Hotelreq["txtHotelCheckIn"] = txtHotelCheckIn;
+        Hotelreq["txtHotelCheckOut"] = txtHotelCheckOut;
+        Hotelreq["ddlChild"] = ddlChild;
+        Hotelreq["ddlAdult"] = ddlAdults;
+        Hotelreq["Country"] = txtNationality;
+        Hotelreq["City"] = txtHotelOrigin;
+        Hotelreq["Orderid"] = orderid;
+        Hotelreq["IDWiseDayAfter"] = IDWiseDayAfter;
+
+        $.ajax({
+            type: "POST",
+            url: "/HotelMerge/SearchHotel",
+            async: true,
+            dataType: "Json",
+            timeout: 900000,
+            beforeSend: function () {
+                $("#Btnsubmit").prop('disabled', true);
+                $(".page").show();
+            },
+            data: { Hotelreq: Hotelreq },
+            success: function (data) {
+                if (data.msg == "Success") {
+                    window.location.href = "/HotelMerge/Roomlist";
+                    $("#Btnsubmit").prop('disabled', true);
+                    $(".page").hide();
+                }
+                else {
+                    toastr.error(data.msg, 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                    $("#Btnsubmit").prop('disabled', false);
+                    $(".page").hide();
+                }
+            },
+            failure: function (response) {
+                $(".page").hide();
+                // alert(response.responseText);
+                toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                $("#Btnsubmit").prop('disabled', false);
+            },
+            error: function (response) {
+                $(".page").hide();
+                //alert(response.responseText);
+                 toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                $("#Btnsubmit").prop('disabled', false);
+            },
+            failure: function (response) {
+                $(".page").hide();
+                //alert(response.responseText);
+                 toastr.error("No hotel found", 'Error', {
+                        closeButton: true,
+                        progressBar: true,
+                        positionClass: 'toast-top-right',
+                        timeOut: 5000, // 5 seconds
+                        extendedTimeOut: 1000 // 1 second longer than timeOut
+                    });
+                $("#Btnsubmit").prop('disabled', false);
+            }
+        });
+    }
+
+</script>
+

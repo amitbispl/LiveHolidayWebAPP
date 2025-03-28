@@ -1,0 +1,97 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model LiveHolidayapp.Models.M_Hotel
+
+
+@if (Model.Hotelpaging.Count() > 0)
+{
+    @foreach (var item in Model.Hotelpaging)
+    {
+        <div class="hotel-lising p-3 bg-white rounded-1 border-gray pp-3">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                    <div class="room_list_l_text d-lg-flex justify-content-between">
+                        <div class="name">
+                            <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID&Ishotel=@item.isHotel"><h4> @item.hotelName </h4></a>
+                        </div>
+                        <div class="rating">
+                            <span>
+                                @{
+                                    decimal i = 1;
+                                    while (i <= 5)
+                                    {
+                                        if (i <= Convert.ToDecimal(item.starRating))
+                                        {
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        }
+                                        i++;
+                                    }
+                                }
+                            </span>
+
+                            &nbsp;&nbsp;
+                            <span class="city-name">@Model.m_SearchHotel.City</span>
+                            @*   <span class="city-name">Rs. 1200.00</span> *@
+                        </div>
+                        <div class="details">
+                            <a class="book_now_btn" href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID&Ishotel=@item.isHotel">View details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @Html.PagedListPager(
+                                                 (IPagedList)Model.Hotelpaging,
+                                                 pageNo => Url.Action("Roomlist", new { pageNo }),
+                                                 new X.PagedList.Web.Common.PagedListRenderOptions
+                                         {
+                                             ContainerDivClasses = new string[] { "room_pagination" },
+                                             PageClasses = new string[] { "" },
+                                             UlElementClasses = new string[] { "pagination" },
+                                             LiElementClasses = new string[] { "" },
+                                         })
+}
+else
+{
+    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+        <div class="row">
+
+            <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                <div class="room_list_l_text">
+                    <div class="name">
+                        <a href="javascript:void(0);">
+                            <h4>
+                                <span><i class="fa fa-filter " aria-hidden="true"></i></span>
+                                No hotel matching your search
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".room_pagination .pagination li a").click(function (evt) {
+
+            // This stops the form submission.
+            evt.preventDefault();
+            var ss = evt.target.href;
+            const myArray = ss.split("?");
+            const pagval = myArray[1].split("=");
+            var val = pagval[1];
+            ApplyFilter(val);
+        });
+    });
+</script>

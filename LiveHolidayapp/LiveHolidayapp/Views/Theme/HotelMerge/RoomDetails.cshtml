@@ -24,17 +24,17 @@
             <div class="col-md-8">
                 <div class="room_details_content bg-white p-3 rounded-1 border-gray">
                     <div class="room_d_main_text pb-0">
-                        @if (Model.images != null)
+                        @if (Model.hoteldetailCommonres!=null && Model.hoteldetailCommonres.HoteldetailImages != null)
                         {
                             <div class="room_details_img owl-carousel">
-                                @if (Model.images != null)
+                                @if (Model.hoteldetailCommonres != null && Model.hoteldetailCommonres.HoteldetailImages != null)
                                 {
-                                    foreach (var item in Model.images)
+                                    foreach (var item in Model.hoteldetailCommonres.HoteldetailImages)
                                     {
-                                        if (item.image_url._1000Px != null)
+                                        if (item.Images != null)
                                         {
                                             <div class="item">
-                                                <img src="@item.image_url._1000Px" style="width:900px;height:400px" alt="">
+                                                <img src="@item.Images" onerror="this.src='https://xmlhub.rezlive.com/images/noimage.gif';" style="width:900px;height:400px" alt="">
                                             </div>
                                         }
 
@@ -53,26 +53,14 @@
                             }
                         </a>
                         <div class="room_service_list">
-                            <h3 class="room_d_title">Room services</h3>
+                            <h3 class="room_d_title">Amenities</h3>
                             <div class="row room_service_list_inner">
                                 <div class="col-sm-12 col-md-offset-right-1">
                                     <div class="resot_list list-details">
-                                        <ul style="display:none;">
-                                            @* @if (Model.Amenities != null)
-                                            {
-                                                foreach (var item in Model.Amenities)
-                                                {
-                                                    <li style="float:none;">@item</li>
-                                                }
-                                            } *@
-
-                                        </ul>
-
-
                                         <div class="row">
-                                            @if (Model.Amenitiesdisctionary != null && Model.Amenitiesdisctionary.Count() > 0)
+                                            @if (Model.hoteldetailCommonres!=null && Model.hoteldetailCommonres.AmenitiesDictionary != null && Model.hoteldetailCommonres.AmenitiesDictionary.Count() > 0)
                                             {
-                                                @foreach (var item in Model.Amenitiesdisctionary)
+                                                @foreach (var item in Model.hoteldetailCommonres.AmenitiesDictionary)
                                                 {
                                                     <div class="col-lg-6" style="font-size:18px;margin-bottom:15px;"><i class="@item.Value"></i> @item.Key</div>
                                                 }

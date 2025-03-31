@@ -16,6 +16,7 @@ namespace LiveHolidayapp.Models
         public Dictionary<string, string> Amenitiesdisctionary { get; set; }
         public List<M_PackageTypes> PackageTypesList { get; set; }
         public List<Hoteldetail> TBoHotelDetails { get; set; }
+        public HoteldetailCommonres hoteldetailCommonres { get; set; }
 
     }
 
@@ -58,6 +59,7 @@ namespace LiveHolidayapp.Models
         public string starRating { get; set; }
         public decimal price { get; set; }
         public string isHotel { get; set; }
+        public List<HotelCodes> hotelCodes { get; set; }
     }
 
     public class StarRating
@@ -151,5 +153,28 @@ namespace LiveHolidayapp.Models
         public string OrderId { get; set; }
         public int dayafter { get; set; }
         public string package { get; set; }
+    }
+    
+    public class HotelCodes
+    {
+        public string HotelCode { get; set; }
+        public string IsHotel { get; set; }
+    }
+    public class HoteldetailCommonres
+    {
+        public string Address { get; set; }
+        public string Decription { get; set; }
+        public List<HoteldetailImages> HoteldetailImages { get; set; }
+        public Dictionary<string, string> AmenitiesDictionary { get; set; }
+        public string BusinessAmenities { get; set; }
+        public string Amenities { get; set; }
+    }
+    public class HoteldetailImages
+    {
+        public string Images { get; set; }
+    }
+    public class HotelDetailreq
+    {
+        public List<HotelCodes> Hotelcodes { get; set; }
     }
 }

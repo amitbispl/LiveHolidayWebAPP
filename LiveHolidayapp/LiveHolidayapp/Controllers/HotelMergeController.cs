@@ -399,78 +399,27 @@ namespace LiveHolidayapp.Controllers
             return PartialView(view, obj);
         }
 
-        public IActionResult RoomDetails(int id,string Ishotel)
+        public IActionResult RoomDetails(int id)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
                 ViewBag.Hotelid = id;
+                M_Hotel obj = new M_Hotel();
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == id).ToList();
+                HotelDetailreq detailreq = new HotelDetailreq();
+                detailreq.Hotelcodes = sortdata[0].hotelCodes;
                 string response = string.Empty;
+                response = _Hotel.HotelMergeDetail(detailreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var output = JsonConvert.DeserializeObject<CommonResponse<HoteldetailCommonres>>(response);
                 response = _Hotel.PropertyDetail(id);
-                PropertyDetailRoot data = new PropertyDetailRoot();
-                M_Hotel obj = new M_Hotel();
-                try
+                if (output != null)
                 {
-                    if (response != "")
+                    if (output.Message == "Success")
                     {
-                        data = JsonConvert.DeserializeObject<PropertyDetailRoot>(response);
-                        if (data.success != false)
-                        {
-                            obj.Amenities = data.propertyDetail.Amenities;
-                            if (obj.Amenities.Count() > 0)
-                            {
-                                var iconMappings = new Dictionary<string, string>
-                                  {
-                                      { "Safe-deposit box at front desk", "fa fa-lock" },
-                                      { "Supervised childcare/activities", "fa fa-child" },
-                                      { "Breakfast available (surcharge)", "fa fa-coffee" },
-                                      { "Designated smoking areas", "fa fa-smoking" },
-                                      { "Accessible bathroom", "fa fa-bath" },
-                                      { "Free self-parking", "fa fa-car" },
-                                      { "Free newspapers in lobby", "fa-solid fa-newspaper" },
-                                      { "Restaurant - 1", "fa fa-cutlery" },
-                                      { "Free WiFi", "fa fa-wifi" },
-                                      { "Luggage storage", "fas fa-luggage-cart" },
-                                      { "Picnic area", "fa-regular fa-circle-check" },
-                                      { "Express check-in", "fa fa-check" },
-                                      { "Couples/private dining", "fa fa-cutlery" },
-                                      { "Children's toys", "fa-solid fa-baseball-bat-ball" },
-                                      { "Elevator", "fa-solid fa-elevator" },
-                                      { "24-hour front desk", "fa fa-phone" },
-                                      { "Free breakfast", "fa-solid fa-mug-saucer" },
-                                      { "Free self parking", "fa-solid fa-square-parking" },
-                                      { "Smoke-free property", "fas fa-smoking-ban" },
-                                      { "Meeting rooms", "fa-solid fa-handshake" },
-                                      { "Number of bars/lounges - 2", "fas fa-glass-martini" },
-                                      { "Coffee shop or cafÃ©", "fas fa-coffee" },
-                                      { "Free wired Internet", "fa-solid fa-globe" },
-                                      { "Wheelchair accessible path of travel", "fas fa-wheelchair" },
-                                      { "Television in common areasl", "fas fa-tv" },
-                                      { "Outdoor pool", "fas fa-swimming-pool" },
-                                      { "Garden", "fa-solid fa-tree" },
-                                      { "Restaurant", "fa fa-cutlery" },
-                                      { "Bar/lounge", "fas fa-glass-martini-alt" },
-                                      { "One meeting room", "fa-solid fa-handshake" },
-                                      { "Airport transportation (surcharge)", "fa fa-plane" },
-                                  };
-
-                                var roomServices = obj.Amenities.ToDictionary(
-                                      s => s,
-                                      s => iconMappings.ContainsKey(s) ? iconMappings[s] : "fa-regular fa-circle-check" // Default icon
-                                      );
-                                obj.Amenitiesdisctionary = roomServices;
-                            }
-
-                            obj.images = data.propertyDetail.images;
-                        }
+                        obj.hoteldetailCommonres = output.Data;
                     }
                 }
-                catch
-                {
-
-                }
-
                 obj.hotelsearchResponses = sortdata;
                 obj.m_SearchHotel = result.m_SearchHotel;
                 if (Theme != null && Theme != "")

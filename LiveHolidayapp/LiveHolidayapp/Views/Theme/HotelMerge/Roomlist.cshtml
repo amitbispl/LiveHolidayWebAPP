@@ -141,7 +141,7 @@
                                 <div class="col-md-12 col-xs-12 col-12 col-sm-12">
                                     <div class="room_list_l_text d-lg-flex justify-content-between">
                                         <div class="name">
-                                            <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID&Ishotel=@item.isHotel"><h4> @item.hotelName </h4></a>
+                                            <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID"><h4> @item.hotelName </h4></a>
                                         </div>
                                         <div class="rating">
                                             <span>
@@ -239,7 +239,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/LiveHotel/ApplyFilter",
+            url: "/HotelMerge/ApplyFilter",
             async: true,
             data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
             success: function (data) {

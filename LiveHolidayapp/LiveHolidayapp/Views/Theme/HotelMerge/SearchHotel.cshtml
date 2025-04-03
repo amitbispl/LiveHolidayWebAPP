@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
 <!-- Slider With Form Start -->
 <section class="main_slider_area">
     <div id="main_slider3" class="rev_slider" data-version="5.3.1.6">
@@ -253,31 +255,85 @@
         });
 
         //--------------------------------------------
-        $("#txtHotelOrigin").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: "/LiveHotel/GetCitylist?Cityname=" + $("#txtHotelOrigin").val() + "&countrycode=" + $("#hdnNatinality").val(),
-                    type: "POST",
-                    dataType: "json",
-                    data: { Prefix: request.term },
-                    success: function (data) {
-                        response($.map(data, function (item) {
+        // $("#txtHotelOrigin").autocomplete({
+        //     source: function (request, response) {
+        //         $.ajax({
+        //             url: "/LiveHotel/GetCitylist?Cityname=" + $("#txtHotelOrigin").val() + "&countrycode=" + $("#hdnNatinality").val(),
+        //             type: "POST",
+        //             dataType: "json",
+        //             data: { Prefix: request.term },
+        //             success: function (data) {
+        //                 response($.map(data, function (item) {
 
-                            return {
-                                label: item.cityName,
-                                val: item.cityCode,
-                                id: item.CountryCode
-                            };
-                        }))
-                    }
-                })
-            },
-            select: function (e, i) {
-                $("#hdnHotelCity").val('');
-                $("#hdnHotelCity").val(i.item.val);
-                //$("#hdnCountry").val(i.item.id);
-            }
-        });
+        //                     return {
+        //                         label: item.cityName,
+        //                         val: item.cityCode,
+        //                         id: item.CountryCode
+        //                     };
+        //                 }))
+        //             }
+        //         })
+        //     },
+        //     select: function (e, i) {
+        //         $("#hdnHotelCity").val('');
+        //         $("#hdnHotelCity").val(i.item.val);
+        //         //$("#hdnCountry").val(i.item.id);
+        //     }
+        // });
+
+        var $txtHotelOrigin = $("#txtHotelOrigin");
+       var isSearchTriggered = false;
+    $txtHotelOrigin.autocomplete({
+        source: function (request, response) {
+            console.log("Autocomplete triggered with:", request.term); // Debugging
+
+            $.ajax({
+                url: "/LiveHotel/GetCitylist",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    Prefix: request.term || "",
+                    Cityname: $txtHotelOrigin.val(),
+                    countrycode: $("#hdnNatinality").val()
+                },
+                success: function (data) {
+
+                    response($.map(data, function (item) {
+                        return {
+                            label: item.cityName,
+                            val: item.cityCode,
+                            id: item.CountryCode
+                        };
+                    }));
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching data:", error);
+                }
+            });
+        },
+        minLength: 0,
+          select: function (event, ui) {
+            console.log("City selected:", ui.item);
+            $("#hdnHotelCity").val(ui.item.val); // Store selected city code
+            $("#txtHotelOrigin").val(ui.item.label); // Update input field
+            return false; // Prevent default behavior (optional)
+        }
+    });
+
+    // Ensure autocomplete is initialized before calling "search"
+    $txtHotelOrigin.on("focus click", function () {
+        console.log("Textbox focused/clicked"); // Debugging
+        if (!isSearchTriggered) {
+            isSearchTriggered = true; // Mark search as triggered
+            $txtHotelOrigin.autocomplete("search", " "); // Show all options
+
+        }
+    });
+     $txtHotelOrigin.on("blur", function () {
+        console.log("Textbox focus lost (blur event)"); // Debugging
+        isSearchTriggered = false;
+    });
+        //end of document
     });
 
     function countrychange()
@@ -286,6 +342,7 @@
         var country= $("#txtNationality option:selected").text();
         $("#hdnNatinality").val(countrycode);
         $("#hdnCountry").val(country);
+        $("#txtHotelOrigin").val('');
     }
 
     //when user change package

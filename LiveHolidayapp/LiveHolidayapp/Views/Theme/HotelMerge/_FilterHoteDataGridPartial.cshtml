@@ -1,0 +1,108 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model LiveHolidayapp.Models.M_Hotel
+
+@if (Model.Hotelpaging.Count() > 0)
+{
+    @foreach (var item in Model.Hotelpaging)
+    {
+        <div class="hotel-card">
+            <img src="@item.hotelPicture" alt="Avion Holiday Resort">
+            <div class="hotel-details">
+                <div class="hotel-name">@item.hotelName</div>
+                <div class="star-rating">
+                    @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
+                    {
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    }
+                </div>
+                <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="view-detail">View Details</a>
+            </div>
+        </div>
+
+        @* <div class="col-lg-4 col-sm-4 col-12 hotel-lising" style="padding:5px;">
+            <div class="items mt-0 bg-white border" style="padding:10px;">
+                <div class="place-image">
+                    <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="room_img">
+                        <img src="@item.hotelPicture" class="img-fluid img-responsive hotel-room-image hotel-room-image" alt="">
+                    </a>
+                    <div class="rating">
+                        <span>
+                            @{
+                                decimal i = 1;
+                                while (i <= 5)
+                                {
+                                    if (i <= Convert.ToDecimal(item.starRating))
+                                    {
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    }
+                                    i++;
+                                }
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="text-des">
+                    <div class="description">
+                        <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="room_list_l_text" title="@item.hotelName"><h6 style="white-space: nowrap;width: 160px; overflow: hidden;  text-overflow: ellipsis; line-height:21px;">@item.hotelName</h6></a>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+
+    }
+    <div class="row">
+        <div class="col-lg-12 col-12">
+            @Html.PagedListPager(
+                     (IPagedList)Model.Hotelpaging,
+                     pageNo => Url.Action("Roomlist", new { pageNo }),
+                     new X.PagedList.Web.Common.PagedListRenderOptions
+        {
+            ContainerDivClasses = new string[] { "room_pagination" },
+            PageClasses = new string[] { "" },
+            UlElementClasses = new string[] { "pagination" },
+            LiElementClasses = new string[] { "" },
+        })
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-12 col-sm-12">
+                <div class="room_list_l_text">
+                    <div class="name">
+                        <a href="javascript:void(0);">
+                            <h4>
+                                <span><i class="fa fa-filter " aria-hidden="true"></i></span>
+                                No hotel matching your search
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".room_pagination .pagination li a").click(function (evt) {
+
+            // This stops the form submission.
+            evt.preventDefault();
+            var ss = evt.target.href;
+            const myArray = ss.split("?");
+            const pagval = myArray[1].split("=");
+            var val = pagval[1];
+            ApplyFilter(val);
+        });
+    });
+</script>

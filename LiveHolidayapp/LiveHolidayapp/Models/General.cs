@@ -55,7 +55,7 @@ namespace LiveHolidayapp.Models
             }   
             catch (Exception ex)
             {
-                var message = ex.Message;
+               var message = ex.Message;
             }
             return result;
         }

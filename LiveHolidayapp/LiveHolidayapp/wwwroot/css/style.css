@@ -6868,7 +6868,14 @@ i:before {
         line-height: 37px !important;
     }
 }
-
+.ui-autocomplete {
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    z-index: 1000; /* Ensure it appears above other elements */
+    background: white; /* Optional: Improves visibility */
+    border: 1px solid #ccc; /* Optional: Makes dropdown more visible */
+}
 /* End Footer Area css
 ============================================================================================ */
 /*---------------------------------------------------- */

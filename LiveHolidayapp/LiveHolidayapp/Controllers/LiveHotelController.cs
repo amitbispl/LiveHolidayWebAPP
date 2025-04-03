@@ -149,19 +149,33 @@ namespace LiveHolidayapp.Controllers
             if (LastCountryname == countrycode)
             {
                 List<Citylist> data = HttpContext.Session.GetComplexData<List<Citylist>>("citylist");
-                filterdata = data.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                if (Cityname != null)
+                {
+                    filterdata = data.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                }
+                else
+                {
+                    filterdata = data;
+                }
             }
             else
             {
                 Citylistreq cityreq = new Citylistreq();
-                cityreq.cityName = Cityname;
+                cityreq.cityName = Cityname == null ? "" : Cityname;
                 cityreq.countryCode = countrycode;
                 cityreq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
                 List<Citylist> citylist = new List<Citylist>();
                 citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
                 HttpContext.Session.SetComplexData("citylist", citylist);
                 LastCountryname = countrycode;
-                filterdata = citylist.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                if (Cityname != null)
+                {
+                    filterdata = citylist.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                }
+                else
+                {
+                    filterdata = citylist;
+                }
             }
             return Json(filterdata);
         }
@@ -500,14 +514,14 @@ namespace LiveHolidayapp.Controllers
                                       { "One meeting room", "fa-solid fa-handshake" },
                                       { "Airport transportation (surcharge)", "fa fa-plane" },
                                   };
-                             
+
                                 var roomServices = obj.Amenities.ToDictionary(
                                       s => s,
                                       s => iconMappings.ContainsKey(s) ? iconMappings[s] : "fa-regular fa-circle-check" // Default icon
                                       );
                                 obj.Amenitiesdisctionary = roomServices;
                             }
-                            
+
                             obj.images = data.propertyDetail.images;
                         }
                     }

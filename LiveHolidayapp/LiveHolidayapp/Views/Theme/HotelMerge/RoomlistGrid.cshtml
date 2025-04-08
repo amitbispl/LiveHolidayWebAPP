@@ -229,7 +229,7 @@ else
                     @foreach (var item in Model.Hotelpaging)
                     {
                         <div class="hotel-card">
-                            <img src="@item.hotelPicture" alt="Avion Holiday Resort">
+                            <img src="@item.hotelPicture" onerror="this.src='https://xmlhub.rezlive.com/images/noimage.gif';" alt="Avion Holiday Resort">
                             <div class="hotel-details">
                                 <div class="hotel-name">@item.hotelName</div>
                                 <div class="star-rating">

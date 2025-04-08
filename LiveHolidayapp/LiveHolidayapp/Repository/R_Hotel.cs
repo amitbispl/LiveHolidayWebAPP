@@ -221,6 +221,20 @@ namespace LiveHolidayapp.Repository
             }
             return resp;
         }
+        public string HotelMergesearchResponseWithCaching(M_SearchHotel req, string Token) 
+        {
+            string resp = "";
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                resp = general.CallPostFunction(detail, Token, "hotelv3/SearchHotelWithCaching");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
         public string HotelMergeDetail(HotelDetailreq req, string Token)
         {
             string resp = ""; 

@@ -106,8 +106,8 @@ namespace LiveHolidayapp.Models
                     _httpContextAccessor.HttpContext.Session.SetString("Retopup", Convert.ToString(ds.Tables[0].Rows[0]["Retopup"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("IsManualSelectPackage", Convert.ToString(ds.Tables[0].Rows[0]["IsManualSelectPackage"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("IsHotel", Convert.ToString(ds.Tables[0].Rows[0]["IsHotel"])!);
-                    //_httpContextAccessor.HttpContext.Session.SetString("HotelListTheme", Convert.ToString(ds.Tables[0].Rows[0]["HotelListTheme"])!);
-                    _httpContextAccessor.HttpContext.Session.SetString("HotelListTheme", "G");
+                    _httpContextAccessor.HttpContext.Session.SetString("HotelListTheme", Convert.ToString(ds.Tables[0].Rows[0]["HotelListTheme"])!);
+                    //_httpContextAccessor.HttpContext.Session.SetString("HotelListTheme", "G");
                     _httpContextAccessor.HttpContext.Session.SetString("BusinessHours", Convert.ToString(ds.Tables[0].Rows[0]["BusinessHours"])!);
                     
                 }

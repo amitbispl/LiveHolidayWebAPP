@@ -30,6 +30,10 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                if (HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    return RedirectToAction("Redemption", "Home");
+                }
 
                 M_Hotel obj = new M_Hotel();
                 //get country list-----------------
@@ -119,7 +123,44 @@ namespace LiveHolidayapp.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl });
             }
         }
+        [HttpPost]
+        public IActionResult GetCitylist(string Cityname, string countrycode)
+        {
+            List<Citylist> filterdata = new List<Citylist>();
+            List<Citylist> data = HttpContext.Session.GetComplexData<List<Citylist>>("citylist");
+            if (LastCountryname == countrycode && countrycode == data[0].countryCode)
+            {
 
+                if (Cityname != null)
+                {
+                    filterdata = data.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                }
+                else
+                {
+                    filterdata = data;
+                }
+            }
+            else
+            {
+                Citylistreq cityreq = new Citylistreq();
+                cityreq.cityName = Cityname == null ? "" : Cityname;
+                cityreq.countryCode = countrycode;
+                cityreq.registerId = Convert.ToInt32(HttpContext.Session.GetString("registerId"));
+                List<Citylist> citylist = new List<Citylist>();
+                citylist = _Hotel.GetCitylist(cityreq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                HttpContext.Session.SetComplexData("citylist", citylist);
+                LastCountryname = countrycode;
+                if (Cityname != null)
+                {
+                    filterdata = citylist.Where(p => Regex.IsMatch(p.cityName, Cityname, RegexOptions.IgnoreCase)).ToList();
+                }
+                else
+                {
+                    filterdata = citylist;
+                }
+            }
+            return Json(filterdata);
+        }
         [HttpPost]
         public IActionResult SearchHotel(M_SearchHotel Hotelreq)
         {
@@ -133,7 +174,8 @@ namespace LiveHolidayapp.Controllers
                     HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(Hotelreq.IDWiseDayAfter));
                 }
                 List<HotelsearchResponse> list = new List<HotelsearchResponse>();
-                var response = _Hotel.HotelMergesearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                //var response = _Hotel.HotelMergesearchResponse(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                var response = _Hotel.HotelMergesearchResponseWithCaching(Hotelreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
                 var output = JsonConvert.DeserializeObject<CommonResponse<List<HotelsearchResponse>>>(response);
                 if (output != null)
                 {

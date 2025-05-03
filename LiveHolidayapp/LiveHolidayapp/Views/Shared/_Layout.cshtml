@@ -36,7 +36,7 @@
 
     <link href="~/css/style.css?v=1" rel="stylesheet" asp-append-version="true">
     <link href="~/css/responsive.css?v=1" rel="stylesheet" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/change.css?v=2" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/change.css?v=2.1" asp-append-version="true">
     @if (string.IsNullOrEmpty(Context.Session.GetString("colorcss")))
     {
         <link href="~/css/color.css?v=1" asp-append-version="true" rel="stylesheet" />
@@ -80,7 +80,15 @@
             <div class="header_top_inner">
                 <div class="container">
                     <div class="pull-right p-2">
-                        <p><i class="fa fa-user" aria-hidden="true"></i> Welcome To @Convert.ToString(Context.Session.GetString("CompanyName"))</p>
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("Authnekot")) && Context.Session.GetString("CompanyId") == "10989")
+                        {
+                            <p><i class="fa fa-user" aria-hidden="true"></i> Welcome to Lotus Brand Bazaar</p>
+                        }
+                        else
+                        {
+                            <p><i class="fa fa-user" aria-hidden="true"></i> Welcome To @Convert.ToString(Context.Session.GetString("CompanyName"))</p>
+                        }
+                        
                     </div>
                 </div>
             </div>
@@ -95,8 +103,12 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        
                         <button type="button" class="navbar-toggle collapsed user-button">
-                            <a asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <a asp-area="" asp-controller="Account" asp-action="Login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                        </button>
+                        <button type="button" class="navbar-toggle collapsed user-button">
+                            <a href="~/Home/BookHotel" class="btn book_now_btn filter-mobile-button">Book Hotel</a>
                         </button>
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                             @if (Context.Session.GetString("CompanyId") == "1")
@@ -106,6 +118,7 @@
                             }
                             else
                             {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
                                 <img src="@Convert.ToString(Context.Session.GetString("logo"))" alt="">
                             }
 
@@ -119,11 +132,11 @@
                             <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                             <li><a href="~/Home/Destinations">Destinations</a></li>
                             <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
-                            @if (Context.Session.GetString("isRedeem") == "False")
+                           @*  @if (Context.Session.GetString("isRedeem") == "False")
                             {
                                 <li><a href="~/Home/BookHotel">Book Hotel</a></li>
-                            }
-
+                            } *@
+                            <li><a href="~/Home/BookHotel">Book Hotel</a></li>
                             <li><a href="~/Home/Contactus">Get In Touch</a></li>
 
                             @if (!string.IsNullOrEmpty(Context.Session.GetString("Authnekot")))
@@ -179,6 +192,14 @@
                             }
 
                             <div class="ab_wd_list">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-building"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>@Convert.ToString(Context.Session.GetString("CompanyName"))</h4>
+                                    </div>
+                                </div>
                                 @if (!string.IsNullOrEmpty(Convert.ToString(Context.Session.GetString("CMEmailID"))) && !string.IsNullOrWhiteSpace(Convert.ToString(Context.Session.GetString("CMEmailID"))))
                                 {
                                     <div class="media">

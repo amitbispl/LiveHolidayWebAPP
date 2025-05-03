@@ -800,7 +800,7 @@ input.input-text[type=text][disabled] {
     }
 
 .hotel-room-image {
-    height: 150px;
+    height: 120px;
     width: 100%;
     border: 1px solid rgb(235, 235, 235);
     object-fit: contain;
@@ -845,7 +845,7 @@ input.input-text[type=text][disabled] {
     padding: 3px 15px !important;
 }
 
-.room_list_l_text .name h4 h6 {
+.room_list_l_text .name h4 {
     font-size: 14px !important;
     font-weight: 600;
 }
@@ -882,5 +882,126 @@ input.input-text[type=text][disabled] {
 
     .hotel-lising .room_list_l_text {
         padding: 13px 0 !important;
+    }
+
+    .image-hotel-mobile {
+        height: 96px !important;
+        max-width: fit-content !important;
+        width: 100% !important;
+        padding: 3px !important;
+    }
+
+    .padding-3 {
+        padding: 10px !important;
+    }
+
+    .pp-4 {
+        padding: 10px 0 10px 20px !important;
+    }
+
+    .align-item-center {
+        display: block !important;
+    }
+}
+
+.hotel-name-list .name {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hotel-name-list .name {
+    width: 200px;
+}
+
+.mmt-1 {
+    margin-top: 10px !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.padding-0 {
+    padding: 0 !important;
+}
+
+.align-item-center {
+    display: flex;
+    align-items: center !important;
+}
+
+.fs-5 {
+    font-size: 15px !important;
+    padding: 0 15px 0 0;
+    color: #000;
+}
+
+.pl-4 {
+    padding-left: 15px !important;
+}
+
+.text-warning-2 {
+    color: #ffb606 !important;
+}
+
+.rounded-30 {
+    border-radius: 10px !important;
+}
+
+.height-image {
+    height: 170px;
+    width: 100%;
+}
+
+    .height-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+@media only screen and (max-width : 767px ) {
+    .pl-4 {
+        padding-left: 3px !important;
+    }
+
+    .amenities {
+        white-space: nowrap;
+        overflow: auto;
+    }
+
+        .amenities .fs-5 {
+            font-size: 11px !important;
+            line-height: 20px;
+            padding: 0 3px 0 0 !important;
+        }
+
+    .fs-4 {
+        font-size: 15px !important;
+        line-height: 1.1;
+    }
+
+    .fs-3 {
+        font-size: 12px !important;
+        line-height: 1.1;
+    }
+
+    .gx-3 {
+        padding-left: 0px !important;
+    }
+
+    .pp-0 {
+        padding: 2px 10px !important;
+        font-weight: 600;
+    }
+
+    .mmb-0 {
+        margin-bottom: 5px !important;
+    }
+
+    .height-image {
+        height: 116px !important;
+        width: 100% !important;
     }
 }

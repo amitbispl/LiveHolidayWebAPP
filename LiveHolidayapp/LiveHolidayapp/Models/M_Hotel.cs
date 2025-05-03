@@ -59,6 +59,10 @@ namespace LiveHolidayapp.Models
         public string starRating { get; set; }
         public decimal price { get; set; }
         public string isHotel { get; set; }
+        public string Amenity1 { get; set; }
+        public string Amenity2 { get; set; }
+        public string Amenity3 { get; set; }
+        public string HotelAddress { get; set; }
         public List<HotelCodes> hotelCodes { get; set; }
     }
 

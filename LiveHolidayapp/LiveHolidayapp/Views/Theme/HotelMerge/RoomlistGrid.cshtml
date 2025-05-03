@@ -6,99 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     string color = "#ffb606";
 }
-<style>
 
-    .hotel-card {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 20px;
-    padding: 15px;
-    }
-
-    .hotel-card img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    }
-
-    .hotel-details {
-    flex: 1;
-    padding-left: 15px;
-    }
-
-    .hotel-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    }
-   
-    
-      
-    @@media (max-width: 768px) {
-        .hotel-card
-
-    {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hotel-card img {
-        width: 100%;
-        height: auto;
-    }
-
-    }
-
-        
-</style>
-@if (Convert.ToString(Context.Session.GetString("CompanyId")) == "4844")
-{
-    <style>
-        .star-rating {
-            color: #a92adb;
-            margin: 5px 0;
-        }
-
-        .view-detail {
-            margin-top: 10px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            background: #a92adb;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-    </style>
-}
-else
-{
-    <style>
-        .star-rating {
-            color: #ffb606;
-            margin: 5px 0;
-        }
-
-        .view-detail {
-            margin-top: 10px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            background: #ffb606;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-    </style>
-}
 <!-- Breadcrumb Banner Start -->
 <section class="banner_area">
     <div class="container">
@@ -228,47 +136,78 @@ else
                 <div class="col-lg-8 col-sm-7 col-12" id="hoteldaat">
                     @foreach (var item in Model.Hotelpaging)
                     {
-                        <div class="hotel-card">
-                            <img src="@item.hotelPicture" onerror="this.src='https://xmlhub.rezlive.com/images/noimage.gif';" alt="Avion Holiday Resort">
-                            <div class="hotel-details">
-                                <div class="hotel-name">@item.hotelName</div>
-                                <div class="star-rating">
-                                    @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
-                                    {
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    }
+
+                        <div class="hotel-listing p-2 bg-white rounded-1 border-gray mb-1">
+                            <div class="row align-items-center gx-2">
+                                <div class="col-md-3 col-sm-4 col-xs-4 mb-sm-0">
+                                    <div class="height-image">
+                                        <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="room-img">
+                                            <img src="@item.hotelPicture" onerror="this.src='https://xmlhub.rezlive.com/images/noimage.gif';" alt="@item.hotelName" class="img-fluid rounded-30 img-responsive ">
+                                        </a>
+                                    </div>
                                 </div>
-                                <a href="~/LiveHotel/RoomDetails?id=@item.hotelResults_ID" class="view-detail">View Details</a>
-                            </div>
-                        </div>
-                        
-                       @*  <div class="hotel-lising p-3 bg-white rounded-1 border-gray">
-                            <div class="row">
-                                <div class="col-md-4 col-xs-12 col-12 col-sm-5">
-                                    <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="room_img">
-                                        <img src="@item.hotelPicture" alt="" class="img-fluid img-responsive hotel-room-image hotel-room-image">
-                                    </a>
-                                </div>
-                                <div class="col-md-8 col-xs-12 col-12 col-sm-7">
-                                    <div class="room_list_l_text">
-                                        <div class="name">
-                                            <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID"><h4>@item.hotelName</h4></a>
-                                        </div>
-                                        <div class="rating">
-                                            <span>
-                                                @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
+                                <div class="col-md-9 col-sm-8 col-xs-8 gx-3">
+                                    <div class="room-list-text">
+                                        <h4 class="hotel-name mb-1 text-dark fs-4">
+                                            <b><a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="text-black">@item.hotelName</a></b>
+                                        </h4>
+                                        <p class="location text-muted mb-1 fs-3">@item.HotelAddress</p>
+                                        <div class="rating mb-1 fs-3">
+                                            <span class="text-warning-2">
+                                                @for (decimal i = 0; i < 5; i++)
                                                 {
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    if (i <= Convert.ToDecimal(item.starRating))
+                                                    {
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="fa fa-star-o"></i>
+                                                    }
+
                                                 }
                                             </span>
                                         </div>
-                                        <div class="details">
-                                            <a class="book_now_btn" href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID">View details</a>
+                                        <div class="amenities mb-2 mmb-0">
+                                            @if (!string.IsNullOrEmpty(item.Amenity1) && !string.IsNullOrEmpty(item.Amenity2) && !string.IsNullOrEmpty(item.Amenity3))
+                                            {
+                                                <text>
+                                                    <span class="text-muted fs-5">@Html.Raw(item.Amenity1)</span> |
+                                                    <span class="text-muted fs-5 pl-4">@Html.Raw(item.Amenity2)</span> |
+                                                    <span class="text-muted fs-5 pl-4">@Html.Raw(item.Amenity3)</span>
+                                                </text>
+                                            }
+                                            else if (!string.IsNullOrEmpty(item.Amenity1) && !string.IsNullOrEmpty(item.Amenity2))
+                                            {
+                                                <text>
+                                                    <span class="text-muted fs-5">@Html.Raw(item.Amenity1)</span> |
+                                                    <span class="text-muted fs-5 pl-4">@Html.Raw(item.Amenity2)</span> 
+                                                </text>
+                                            }
+                                            else if (!string.IsNullOrEmpty(item.Amenity1))
+                                            {
+                                                <text>
+                                                    <span class="text-muted fs-5">@Html.Raw(item.Amenity1)</span> 
+                                                </text>
+                                            }
+                                            else
+                                            {
+                                                <text>
+                                                    <span class="text-muted fs-5"><i class="fa fa-wifi"></i> Free Wi-Fi</span> |
+                                                    <span class="text-muted fs-5 pl-4"><i class="fa fa-car"></i> Free Parking</span> |
+                                                    <span class="text-muted fs-5 pl-4"><i class="fa fa-cutlery"></i> Restaurant</span>
+                                                </text>
+                                            }
                                         </div>
+                                        <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="btn btn-primary btn-sm pp-0">View Details</a>
                                     </div>
                                 </div>
                             </div>
-                        </div> *@
+                        </div>
+
+                      
+                        
+                       
                     }
 
                     @Html.PagedListPager(

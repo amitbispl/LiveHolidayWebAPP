@@ -41,6 +41,10 @@ namespace LiveHolidayapp.Controllers
 
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                if (HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    return RedirectToAction("Redemption", "Home");
+                }
 
                 M_Hotel obj = new M_Hotel();
                 //get country list-----------------

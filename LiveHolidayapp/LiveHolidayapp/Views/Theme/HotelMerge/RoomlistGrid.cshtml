@@ -154,17 +154,9 @@
                                         <p class="location text-muted mb-1 fs-3">@item.HotelAddress</p>
                                         <div class="rating mb-1 fs-3">
                                             <span class="text-warning-2">
-                                                @for (decimal i = 0; i < 5; i++)
+                                                @for (decimal i = 0; i < Convert.ToDecimal(item.starRating); i++)
                                                 {
-                                                    if (i <= Convert.ToDecimal(item.starRating))
-                                                    {
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                    }
-                                                    else
-                                                    {
-                                                        <i class="fa fa-star-o"></i>
-                                                    }
-
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
                                                 }
                                             </span>
                                         </div>

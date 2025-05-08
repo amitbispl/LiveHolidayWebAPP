@@ -421,6 +421,8 @@ input.input-text[type=text][disabled] {
 }
 
 @media only screen and (max-width : 767px) {
+
+
     .header_menu .navbar.navbar-default .navbar-collapse {
         max-height: 500px;
         padding: 10px;
@@ -429,7 +431,7 @@ input.input-text[type=text][disabled] {
     .user-button a {
         font-size: 25px;
         display: block;
-        margin: -5px 10px;
+        margin: -5px 0px;
     }
 
     .header_menu .hover-block a {
@@ -815,7 +817,7 @@ input.input-text[type=text][disabled] {
 
     .header_menu .navbar.navbar-default .navbar-header .navbar-brand img,
     .header_menu .navbar.navbar-default .navbar-header .navbar-brand {
-        width: 150px !important;
+        width: 120px !important;
     }
 
     .header_menu .navbar.navbar-default .navbar-header .navbar-brand {
@@ -876,7 +878,9 @@ input.input-text[type=text][disabled] {
         margin-bottom: 6px;
     }
 
-    .room_list_l_text .name, .room_list_l_text .rating, .room_list_l_text .details {
+    .room_list_l_text .name,
+    .room_list_l_text .rating,
+    .room_list_l_text .details {
         margin-bottom: 6px !important;
     }
 
@@ -961,7 +965,7 @@ input.input-text[type=text][disabled] {
         object-fit: cover;
     }
 
-@media only screen and (max-width : 767px ) {
+@media only screen and (max-width : 767px) {
     .pl-4 {
         padding-left: 3px !important;
     }
@@ -1003,5 +1007,293 @@ input.input-text[type=text][disabled] {
     .height-image {
         height: 116px !important;
         width: 100% !important;
+    }
+}
+
+
+.room-details-section .location {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+
+
+
+.room-details-section .booking-section {
+    padding: 50px 0 30px;
+    background-color: #f9f9f9;
+}
+
+.pl-2 {
+    padding-right: 10px;
+    color: #ffb606;
+}
+
+.guarantee span {
+    font-size: 30px;
+    color: #ffb606;
+    font-weight: bold;
+}
+
+.border-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.room-details-section .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+    .room-details-section .gallery img:hover {
+        transform: scale(1.03);
+    }
+
+.room-details-section .view-more {
+    display: block;
+    background-color: #0056d2;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.room-details-section .booking-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.room-details-section .form-control {
+    box-shadow: none !important;
+    border-color: #ccc !important;
+}
+
+.room-details-section .btn {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.room-details-section .booking-form h3 {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.room-details-section .form-control,
+.room-details-section .btn-primary {
+    border-radius: 6px;
+}
+
+.room-details-section .btn-primary {
+    background-color: #0056d2;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.row.no-padding > [class*='col-'] {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.rounded-3 {
+    border-radius: 10px !important;
+    margin-bottom: 20px;
+}
+
+.row.no-padding-4 > [class*='col-'] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.row.no-padding-2 > [class*='col-'] {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-bottom: 7px !important;
+}
+
+.text-warning {
+    color: #ffb606 !important;
+}
+
+.big-image {
+    height: 57ch !important;
+    width: 100%;
+}
+
+.small-image {
+    height: 27.2ch !important;
+    width: 100%;
+}
+
+.room-details-section label {
+    font-weight: normal;
+    color: #8b8b8b;
+}
+
+.big-image img,
+.small-image img {
+    height: 100% !important;
+    width: 100%;
+    object-fit: cover;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+    .position-absolute .view-more {
+        height: 100%;
+        width: 100%;
+        background: #1a1a1a70;
+        font-size: 16px;
+        margin-top: 0px;
+        padding: 6em 0;
+    }
+
+div#modal-fullscreen {
+    width: 100%;
+    background-color: #fff;
+    padding: 0 !important;
+}
+
+.modal-fullscreen .modal-dialog {
+    width: 100% !important;
+    height: 100%;
+    margin: 0 !important;
+    transition: none !important;
+    transform: none !important;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.modal-fullscreen .modal-content {
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.modal-fullscreen .modal-header h4 {
+    color: #000;
+    font-size: 20px !important;
+    font-weight: 600;
+}
+
+.modal-fullscreen .gallery-item {
+    height: 30ch;
+    width: 100%;
+    padding: 0 !important;
+}
+
+    .modal-fullscreen .gallery-item img {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px !important;
+        object-fit: cover;
+        padding: 0 !important;
+    }
+
+.room-about-section .panel-default {
+    border: 0 !important;
+    padding: 20px;
+    text-align: justify !important;
+}
+
+.text-black {
+    color: #242424 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .room-details-section .gallery img {
+        height: 150px;
+    }
+
+    .room-details-section .booking-section {
+        padding: 30px 0;
+    }
+
+    .big-image {
+        height: 30ch !important;
+        width: 100%;
+    }
+
+    .small-image {
+        height: 14.5ch !important;
+        width: 100%;
+    }
+
+    .position-absolute .view-more {
+        font-size: 10px;
+        padding: 5em 0;
+    }
+
+    .row.no-padding > [class*='col-'] {
+        padding-right: 15px;
+        padding-left: 0px;
+        margin-left: 0px;
+        margin-right: 0px
+    }
+
+    .gallery .col-lg-8 {
+        padding-left: 12px;
+        padding-right: 9px;
+    }
+
+    .room-details-section .booking-section {
+        padding: 15px 0;
+    }
+
+    .room-details-section .gallery img {
+        margin-bottom: 0 !important;
+    }
+
+    .booking-section .mt-1 {
+        margin-top: 9px !important;
+    }
+
+    .modal-fullscreen .gallery-item {
+        height: 15ch;
+    }
+
+    .room-details-section .booking-form {
+        padding: 20px !important;
+        margin-top: 20px;
+    }
+
+    .room-about-section .panel-default {
+        padding: 10px 10px !important;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .carousel-inner > .item > img {
+        height: 175px !important;
+        object-fit: cover !important;
     }
 }

@@ -132,16 +132,16 @@
                                     <input type="text" name="" id="Address" class="form-control" value="" required="required" placeholder="Address">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" name="" id="Email"  class="form-control" value="@Convert.ToString(Context.Session.GetString("EmailID"))" required="required" placeholder="Email ID">
+                                    <input type="email" name="" id="Email" class="form-control" value="@Convert.ToString(Context.Session.GetString("EmailID"))" required="required" placeholder="Email ID">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text" name="" id="City" class="form-control" value="" required="required" placeholder="City">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" name="" id="Mobile"  class="form-control" onkeypress="return isNumberKey(event);" value="@Convert.ToString(Context.Session.GetString("MobileNo"))" required="required" placeholder="Mobile Number">
+                                    <input type="text" name="" id="Mobile" class="form-control" onkeypress="return isNumberKey(event);" value="@Convert.ToString(Context.Session.GetString("MobileNo"))" required="required" placeholder="Mobile Number">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <button type="button" value="submit"  id="btnotp" class="btn submit_btn form-control" style="width: 100%" onclick="Sendotp()">Send OTP</button>
+                                    <button type="button" value="submit" id="btnotp" class="btn submit_btn form-control" style="width: 100%" onclick="Sendotp()">Send OTP</button>
 
                                 </div>
                                 <div class="form-group col-md-6" id="divotp" style="display:none;">
@@ -180,11 +180,30 @@
         for (var i = 0; i < 1; i++) {
             $("#fistname_" + i).val(paxnamearr[0]);
             $("#fistname_" + i).attr("disabled", "disabled");
-            if (paxnamearr.length > 1) {
+            if(paxnamearr.length > 2)
+            {
+                var paxlastname="";
+            for (var j = 0; j < paxnamearr.length; j++)
+            {
+                if(j!=0)
+                {
+                    if(paxlastname=="")
+                    {
+                        paxlastname+=paxnamearr[j];
+                    }
+                    else
+                    {
+                        paxlastname+=" "+paxnamearr[j];
+                    }
+                }
+            }
+            $("#lastname_" + i).val(paxlastname);
+                $("#lastname_" + i).attr("disabled", "disabled");
+            }
+            else if (paxnamearr.length > 1) {
                 $("#lastname_" + i).val(paxnamearr[1]);
                 $("#lastname_" + i).attr("disabled", "disabled");
             }
-
         }
     });
 

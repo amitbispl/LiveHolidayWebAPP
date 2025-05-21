@@ -26,7 +26,16 @@
                     </div>
                     <div class="conditons">
                         <ul>
-                            <li>@Convert.ToString(Context.Session.GetString("CompanyName")) entitles the customer for Two night’s hotel accommodation for two adults and two children under the age of 5 years sharing the same room without extra bed.</li>
+                            <li>
+                                @Convert.ToString(Context.Session.GetString("CompanyName")) entitles the customer for Two night’s hotel accommodation for two adults
+                                @if (Convert.ToString(Context.Session.GetString("ISchild")) == "Y")
+                                {
+                                    <text>
+                                        and @(Convert.ToString(Context.Session.GetString("ChildAllowed")) == "2" ? "two" : "one") children under the age of 5 years sharing the same room without extra bed
+                                    </text>
+                                }
+
+                               .</li>
 
                             <li>This scheme is valid only for the customers of “@Convert.ToString(Context.Session.GetString("CompanyName"))."</li>
 

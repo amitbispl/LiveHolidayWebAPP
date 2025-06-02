@@ -88,7 +88,7 @@
                         {
                             <p><i class="fa fa-user" aria-hidden="true"></i> Welcome To @Convert.ToString(Context.Session.GetString("CompanyName"))</p>
                         }
-                        
+
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        
+
                         <button type="button" class="navbar-toggle collapsed user-button">
                             <a asp-area="" asp-controller="Account" asp-action="Login"><i class="fa fa-user" aria-hidden="true"></i></a>
                         </button>
@@ -115,6 +115,11 @@
                             {
                                 <img src="~/companylogo/1/logo.png" alt="">
                                 <img src="~/companylogo/1/logo.png" alt="">
+                            }
+                            else if (Context.Session.GetString("CompanyId") == "264") 
+                            {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:150px;" alt="">
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:150px;" alt="">
                             }
                             else
                             {
@@ -132,7 +137,7 @@
                             <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                             <li><a href="~/Home/Destinations">Destinations</a></li>
                             <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
-                           @*  @if (Context.Session.GetString("isRedeem") == "False")
+                            @*  @if (Context.Session.GetString("isRedeem") == "False")
                             {
                                 <li><a href="~/Home/BookHotel">Book Hotel</a></li>
                             } *@
@@ -160,6 +165,10 @@
                             else if (Context.Session.GetString("IsFrontLogin") == "Y")
                             {
                                 <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                                if (Context.Session.GetString("CompanyId") == "264")
+                                {
+                                    <li><a href="https://stanveeservices.com/packages.asp">Signup</a></li>
+                                }
                             }
 
                         </ul>

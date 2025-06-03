@@ -102,7 +102,11 @@
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("StartAfterday"))" id="StartAfterday" />
                     <input type="hidden" value="@Convert.ToString(Context.Session.GetString("IsCustomizeDuration"))" id="IsCustomizeDuration" />
                     <input type="hidden" id="hdnorderid" value="@Convert.ToString(Context.Session.GetString("OrderId"))" />
-                    @if (Convert.ToString(Context.Session.GetString("OrderId")) == "0")
+                    @if (Convert.ToString(Context.Session.GetString("OrderId")) == "0" && Context.Session.GetString("Retopup") == "True")
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    }
+                    else if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Context.Session.GetString("Retopup") == "False")
                     {
                         <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
                     }

@@ -195,6 +195,10 @@
                             {
                                 <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:200px;" alt="">
                             }
+                            else if (Context.Session.GetString("CompanyId") == "4928")
+                            {
+                                <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width: 180px;background-color: white;padding: 10px;border-radius: 15px;" alt="">
+                            }
                             else
                             {
                                 <img src="@Convert.ToString(Context.Session.GetString("logo"))" style="width:100px;" alt="">

@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,9 @@ builder.Services.AddSession(option =>
     option.Cookie.HttpOnly = true;
     option.Cookie.IsEssential = true;
 });
-
+var cultureInfo = new CultureInfo("en-GB");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 

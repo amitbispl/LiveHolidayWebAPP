@@ -85,7 +85,7 @@ namespace LiveHolidayapp.Controllers
                                     var checkoutdate = Convert.ToString(hrs[0].CheckOutDate);
                                     // Define two dates
                                     DateTime today = DateTime.Today;
-                                    DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd-MM-yyyy HH:mm:ss", null);
+                                    DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                                     //DateTime futureDate = Convert.ToDateTime(checkoutdate).ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
                                     //DateTime futureDate = new DateTime(2024, 8, 18);
                                     // Calculate the difference between the two dates

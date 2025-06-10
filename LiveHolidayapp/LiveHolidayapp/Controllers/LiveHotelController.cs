@@ -556,6 +556,10 @@ namespace LiveHolidayapp.Controllers
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
             {
+                if (HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    return RedirectToAction("Redemption", "Home");
+                }
                 ViewBag.Hotelid = id;
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 M_Hotel obj = new M_Hotel();
@@ -598,7 +602,7 @@ namespace LiveHolidayapp.Controllers
         {
             try
             {
-                if (HttpContext.Session.GetString("Retopup") == "False" && HttpContext.Session.GetString("isRedeem") == "True")
+                if (HttpContext.Session.GetString("isRedeem") == "True")
                 {
                     return Json(new { Code = 300, msg = "Already redeemed this service", otpid = 0 });
                 }
@@ -678,6 +682,12 @@ namespace LiveHolidayapp.Controllers
                         return Json(new { msg, err });
                     }
                 }
+                if (HttpContext.Session.GetString("isRedeem") == "True")
+                {
+                    msg = "Already redeemed this service";
+                    err = "1";
+                    return Json(new { msg, err });
+                }
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
                 var sortdata = result.hotelsearchResponses.Where(p => Convert.ToInt32(p.hotelResults_ID) == Convert.ToInt32(HotelBookreq.hotelCode)).ToList();
                 HotelBookreq.userName = Convert.ToString(HttpContext.Session.GetString("Name"));
@@ -717,6 +727,11 @@ namespace LiveHolidayapp.Controllers
                         msg = "Hotel Book Successfully";
                         err = "0";
                         HttpContext.Session.SetComplexData("BookResponse", output.Data);
+                    }
+                    else if(output.Code == 201 && output.Message == "Booking already exists on this checkin and checkout")
+                    {
+                        msg = "Booking already exists on this checkin and checkout";
+                        err = "1";
                     }
                     else
                     {

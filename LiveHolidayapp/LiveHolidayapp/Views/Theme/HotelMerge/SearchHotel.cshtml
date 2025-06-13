@@ -106,6 +106,10 @@
                     {
                         <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
                     }
+                    else if (Convert.ToString(Context.Session.GetString("OrderId")) == "0" && Context.Session.GetString("Retopup") == "False")
+                    {
+                        <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />
+                    }
                     else if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Context.Session.GetString("Retopup") == "False")
                     {
                         <input type="hidden" value="@Convert.ToString(Context.Session.GetString("DayAfter"))" id="DayAfter" />

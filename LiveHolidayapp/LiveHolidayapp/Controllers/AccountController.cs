@@ -238,8 +238,53 @@ namespace LiveHolidayapp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public async Task<IActionResult> OrgayholidayLogin(string usr_token) 
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Loginreq req = new Loginreq();
+                    req.companyId = Convert.ToInt32(companyId);
+                    req.password = usr_token;
+                    req.userName = "sadsfsf";
+                    R_Login rr = new R_Login();
+                    var response = await rr.UserLogin(req);
+                    if (response != null)
+                    {
 
-
-
+                        HttpContext.Session.SetString("Authnekot", response.tokenString);
+                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
+                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
+                        HttpContext.Session.SetString("Name", response.name);
+                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
+                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
+                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                        HttpContext.Session.SetString("Status", "OK");
+                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
+                        HttpContext.Session.SetString("UserName", response.userName);
+                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("password", Convert.ToString(usr_token));
+                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
+                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
+                        if (response.isRedeem == true)
+                        {
+                            return RedirectToAction("Redemption", "Home");
+                        }
+                        return RedirectToAction(nameof(HomeController.Index), "Home");
+                    }
+                    else
+                    {
+                        ViewBag.message = "Please enter valid username and password";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.message = "Please enter valid username and password";
+            }
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
     }
 }

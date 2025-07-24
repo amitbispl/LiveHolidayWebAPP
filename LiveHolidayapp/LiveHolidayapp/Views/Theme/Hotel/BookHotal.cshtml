@@ -175,7 +175,7 @@
         $("#ddladult").removeAttr("disabled");
         $("#ddladult").val(HidAdult);
         $("#ddladult").attr("disabled", "disabled");
-        var leadpaxName = $("#leadpaxName").val();
+        var leadpaxName = $("#leadpaxName").val().trim();
         var paxnamearr = leadpaxName.split(' ');
         for (var i = 0; i < 1; i++) {
             $("#fistname_" + i).val(paxnamearr[0]);

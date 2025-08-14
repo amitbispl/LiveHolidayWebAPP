@@ -30,6 +30,21 @@
                 <div class="book_table_item">
                     <h3>BOOK HOTELS </h3>
                 </div>
+                @if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(Context.Session.GetString("IsManualSelectPackage")) == true)
+                {
+                    <div class="book_table_item">
+                        <select class="selectpicker" id="ddlpackage" onchange="PackageChange()">
+                            <option value="0">Select Package</option>
+                            @if (Model.PackageTypesList != null && Model.PackageTypesList.Count > 0)
+                            {
+                                foreach (var item in Model.PackageTypesList)
+                                {
+                                    <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                }
                 <div class="book_table_item">
                     <div class="input-append">
                         @*  <input type="text" class="form-control" name="" id="txtNationality" value="@Model.searchHotel.hdnCountry" aria-describedby="helpId" placeholder="Enter Country"> *@
@@ -48,21 +63,7 @@
                         <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter City">
                     </div>
                 </div>
-                @if (Convert.ToString(Context.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(Context.Session.GetString("IsManualSelectPackage")) == true)
-                {
-                    <div class="book_table_item">
-                        <select class="selectpicker" id="ddlpackage" onchange="PackageChange()">
-                            <option value="0">Select Package</option>
-                            @if (Model.PackageTypesList != null && Model.PackageTypesList.Count > 0)
-                            {
-                                foreach (var item in Model.PackageTypesList)
-                                {
-                                    <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
-                                }
-                            }
-                        </select>
-                    </div>
-                }
+                
                 <div class="book_table_item">
                     <div class="input-append">
                         <input type="text" class="form-control" name="" id="txtHotelCheckIn" readonly aria-describedby="helpId" placeholder="CheckIn Date">

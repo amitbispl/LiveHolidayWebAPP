@@ -157,6 +157,7 @@ namespace LiveHolidayapp.Models
         public string OrderId { get; set; }
         public int dayafter { get; set; }
         public string package { get; set; }
+        public string packageName { get; set; }
     }
     
     public class HotelCodes

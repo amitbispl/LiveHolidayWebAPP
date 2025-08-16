@@ -39,7 +39,14 @@
                             {
                                 foreach (var item in Model.PackageTypesList)
                                 {
-                                    <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                    if(!string.IsNullOrEmpty(item.packageName))
+                                    {
+                                        <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.packageName</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                    }
                                 }
                             }
                         </select>

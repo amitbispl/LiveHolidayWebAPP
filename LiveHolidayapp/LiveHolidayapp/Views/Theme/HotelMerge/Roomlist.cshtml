@@ -243,8 +243,10 @@
             async: true,
             data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
             success: function (data) {
+                debugger;
                 $("#hoteldaat").html(data);
                 $(".page").hide();
+                 $("#SideBar").hide();
             },
             failure: function (response) {
                 alert('failure');

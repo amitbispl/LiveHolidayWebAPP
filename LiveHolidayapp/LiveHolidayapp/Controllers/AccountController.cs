@@ -81,6 +81,10 @@ namespace LiveHolidayapp.Controllers
                             {
                                 return RedirectToAction("SearchHotel", "LiveHotel");
                             }
+                            else if (HttpContext.Session.GetString("IsHotel") == "RT")
+                            {
+                                return RedirectToAction("SearchHotel", "HotelMerge");
+                            }
                             else
                             {
                                 return RedirectToAction("HotelSearch", "Hotel");
@@ -202,6 +206,10 @@ namespace LiveHolidayapp.Controllers
                                 if (HttpContext.Session.GetString("IsHotel") == "R")
                                 {
                                     return RedirectToAction("SearchHotel", "LiveHotel");
+                                }
+                                else if(HttpContext.Session.GetString("IsHotel") == "RT")
+                                {
+                                    return RedirectToAction("SearchHotel", "HotelMerge");
                                 }
                                 else
                                 {

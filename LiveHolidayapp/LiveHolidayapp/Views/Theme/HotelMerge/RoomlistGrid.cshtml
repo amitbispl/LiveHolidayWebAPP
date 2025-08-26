@@ -142,7 +142,7 @@
                                 <div class="col-md-3 col-sm-4 col-xs-4 mb-sm-0">
                                     <div class="height-image">
                                         <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="room-img">
-                                            <img src="@item.hotelPicture" onerror="this.src='https://xmlhub.rezlive.com/images/noimage.gif';" alt="@item.hotelName" class="img-fluid rounded-30 img-responsive ">
+                                            <img src="@item.hotelPicture" onerror="this.src='https://testshop.biztadka.com/images/noimage.png';" alt="@item.hotelName" class="img-fluid rounded-30 img-responsive ">
                                         </a>
                                     </div>
                                 </div>
@@ -267,8 +267,10 @@
             async: true,
             data: { rating: starratcomma, hotelname: hotelnamecomma, page: page },
             success: function (data) {
+                
                 $("#hoteldaat").html(data);
                 $(".page").hide();
+                 $("#SideBar").hide();
             },
             failure: function (response) {
                 alert('failure');

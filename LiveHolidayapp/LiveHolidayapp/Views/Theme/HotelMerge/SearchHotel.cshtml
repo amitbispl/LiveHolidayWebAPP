@@ -39,13 +39,13 @@
                             {
                                 foreach (var item in Model.PackageTypesList)
                                 {
-                                    if(!string.IsNullOrEmpty(item.packageName))
+                                    if (!string.IsNullOrEmpty(item.packageName))
                                     {
-                                        <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.packageName</option>
+                                        <option value="@item.OrderId" data-dayafter="@item.dayafter" data-adults="@item.Adults" data-childs="@item.Childs">@item.packageName</option>
                                     }
                                     else
                                     {
-                                        <option value="@item.OrderId" data-dayafter="@item.dayafter">@item.package</option>
+                                        <option value="@item.OrderId" data-dayafter="@item.dayafter" data-adults="@item.Adults" data-childs="@item.Childs">@item.package</option>
                                     }
                                 }
                             }
@@ -70,7 +70,7 @@
                         <input type="text" class="form-control" name="" id="txtHotelOrigin" aria-describedby="helpId" placeholder="Enter City">
                     </div>
                 </div>
-                
+
                 <div class="book_table_item">
                     <div class="input-append">
                         <input type="text" class="form-control" name="" id="txtHotelCheckIn" readonly aria-describedby="helpId" placeholder="CheckIn Date">
@@ -134,6 +134,8 @@
                     <input type="hidden" id="hdnHotelCity" value="" />
                     <input type="hidden" id="hdnlisttheme" value="@Convert.ToString(Context.Session.GetString("HotelListTheme"))" />
                     <input type="hidden" id="hdnIsInternational" value="@Convert.ToString(Context.Session.GetString("IsInternational"))" />
+                    <input type="hidden" id="hidIsManualSelectPackage" value="@Convert.ToString(Context.Session.GetString("IsManualSelectPackage"))" />
+                    <input type="hidden" id="hidOrderId" value="@Convert.ToString(Context.Session.GetString("OrderId"))" />
                 </div>
             </div>
         </div>
@@ -147,6 +149,7 @@
     var days = $("#StartAfterday").val();
     var hdnIsInternational =$("#hdnIsInternational").val();
     $(document).ready(function () {
+        
 
         $("#txtNationality").val('@Model.searchHotel.hdnNatinality');
         if(hdnIsInternational=="False")
@@ -370,6 +373,8 @@
         $("#hdnorderid").val(orderid);
         // Get the data-dayafter attribute value
         var dayAfter = selectedOption.data('dayafter');
+        var childs = selectedOption.data('childs');
+        var adults = selectedOption.data('adults');
         $("#DayAfter").val(dayAfter);
         var dt = new Date();
         var da = parseInt(days);
@@ -397,6 +402,38 @@
         $("#txtHotelCheckOut").datepicker('setDate', dt);
         $('#txtHotelCheckIn').datepicker('update');
         $('#txtHotelCheckOut').val('');
+
+        //package wise adult selection
+        if(adults!="0")
+        {
+            var ddlAdults = $("#ddlAdults");
+            // Clear existing options
+            ddlAdults.empty();
+            ddlAdults.append($("<option>").val("0").text("Adults"));
+            for (var i = 1; i <= parseInt(adults); i++) {
+               ddlAdults.append($("<option>").val(i).text("Adults-" + i));
+            }
+            ddlAdults.selectpicker('refresh');
+
+            if(childs!="0")
+            {
+                $("#dvchild").show();
+                var ddlChild = $("#ddlChild");
+                ddlChild.empty();
+                ddlChild.append($("<option>").val("0").text("Select Children"));
+
+                 for (var i = 1; i <= parseInt(childs); i++) {
+                      ddlChild.append($("<option>").val(i).text("Children-" + i));
+                 }
+
+                 ddlChild.selectpicker('refresh');
+            }
+            else
+            {
+                $("#dvchild").hide();
+            }
+        }
+
     }
     function setdate(val, val2) {
 
@@ -576,6 +613,14 @@
             }
         });
     }
+
+    $(document).ready(function () {
+        debugger;
+        if($("#hidOrderId").val()!="0" && $("#hidIsManualSelectPackage").val()=="True")
+        {
+            PackageChange();
+        }
+    });
 
 </script>
 

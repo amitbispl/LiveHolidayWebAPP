@@ -179,18 +179,86 @@ namespace LiveHolidayapp.Controllers
                 }
                 if (Theme != null && Theme != "")
                 {
-                    return View("~/Views/" + Theme + "/Home/Redemption.cshtml",obj);
+                    return View("~/Views/" + Theme + "/Home/Redemption.cshtml", obj);
                 }
                 else
                 {
-                    return View("~/Views/Theme/Home/Redemption.cshtml",obj);
+                    return View("~/Views/Theme/Home/Redemption.cshtml", obj);
                 }
             }
             else
             {
                 return RedirectToAction("Login", "Account");
             }
-            
+
+        }
+        public ActionResult RedemptionDetails()
+        {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Authnekot")))
+            {
+                BookHotelReport obj = new BookHotelReport();
+                HotelReq hotelReq = new HotelReq();
+                hotelReq.Formno = Convert.ToInt32(HttpContext.Session.GetString("FormNo"));
+                //hotelReq.Formno = 22859;
+                var reportoutput = _Hotel.GetHotelBookingList(hotelReq, Convert.ToString(HttpContext.Session.GetString("Authnekot"))!);
+                var output = JsonConvert.DeserializeObject<CommonResponse<List<M_Hotelreport>>>(reportoutput);
+                if (output != null && output.Code == 200)
+                {
+                    obj.Hotelreports = output.Data;
+                    HttpContext.Session.SetComplexData("HotelBookingList", obj.Hotelreports);
+                }
+                if (Theme != null && Theme != "")
+                {
+                    return View("~/Views/" + Theme + "/Home/RedemptionDetails.cshtml", obj);
+                }
+                else
+                {
+                    return View("~/Views/Theme/Home/RedemptionDetails.cshtml", obj);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+
+        public async Task<IActionResult> BookingDownloadPdf(int id) 
+        {
+
+            try
+            {
+                List<M_Hotelreport> data = HttpContext.Session.GetComplexData<List<M_Hotelreport>>("HotelBookingList");
+                var filterdata = data.Where(p => p.ID == id).FirstOrDefault();
+                if (filterdata != null)
+                {
+                    string fileUrl = filterdata.bookingfile;
+                    using var httpClient = new HttpClient();
+                    using var response = await httpClient.GetAsync(fileUrl);
+
+                    if (!response.IsSuccessStatusCode)
+                        return NotFound("File not found on remote server");
+
+                    var fileBytes = await response.Content.ReadAsByteArrayAsync();
+                    var fileName = Path.GetFileName(fileUrl); // get file name from URL
+
+                    return File(fileBytes, "application/pdf", fileName);
+                }
+              
+            }
+            catch
+            {
+
+            }
+            if (Theme != null && Theme != "")
+            {
+                return View("~/Views/" + Theme + "/Home/RedemptionDetails.cshtml", obj);
+            }
+            else
+            {
+                return View("~/Views/Theme/Home/RedemptionDetails.cshtml", obj);
+            }
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -198,5 +266,6 @@ namespace LiveHolidayapp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

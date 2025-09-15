@@ -15,6 +15,16 @@
         public decimal BookingAmount { get; set; }
         public string HotelBookingRefNo { get; set; }
         public int OrderId { get; set; }
+        public string UserName { get; set; }
+        public string PackageName { get; set; }
+        public string BookStatus { get; set; }
+        public string bookingfile { get; set; }
+        public List<PassengerDetails> PassengerDetails { get; set; }
+    }
+    public class PassengerDetails
+    {
+        public string Name { get; set; }
+        public string PaxType { get; set; }
     }
     public class HotelReq
     {

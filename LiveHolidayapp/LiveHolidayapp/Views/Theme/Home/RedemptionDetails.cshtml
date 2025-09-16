@@ -26,13 +26,17 @@
                         <table class="table table-striped ">
                             <thead>
                                 <tr>
+                                    <th>Ref. No.</th>
+                                    <th>Order ID</th>
                                     <th>Checkin Date</th>
                                     <th>Checkout Date</th>
                                     <th>Destination</th>
                                     <th>Hotel Name</th>
                                     <th>Package Name</th>
+                                    <th>Total Room</th>
                                     <th>Total Adult</th>
                                     <th>Total Child</th>
+                                    <th>Status</th>
                                     <th>Booking File</th>
                                     <th>Detail</th>
                                 </tr>
@@ -43,13 +47,17 @@
                                     foreach (var item in Model.Hotelreports)
                                     {
                                         <tr>
+                                            <td>@item.ID</td>
+                                            <td>@item.OrderId</td>
                                             <td>@item.CheckInDate.ToString("dd/MM/yyy")</td>
                                             <td>@item.CheckOutDate.ToString("dd/MM/yyy")</td>
                                             <td>@item.City</td>
                                             <td>@item.HotelName</td>
                                             <td>@item.PackageName</td>
+                                            <td>@item.NoOfRooms</td>
                                             <td>@item.AdultCount</td>
                                             <td>@item.ChildCount</td>
+                                            <td>@item.BookStatus</td>
                                             <td>
                                                 @if (!string.IsNullOrEmpty(item.bookingfile))
                                                 {

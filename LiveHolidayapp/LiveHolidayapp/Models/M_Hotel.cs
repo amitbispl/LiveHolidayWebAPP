@@ -45,6 +45,7 @@ namespace LiveHolidayapp.Models
         public string City { get; set; }
         public string Orderid { get; set; }
         public int IDWiseDayAfter { get; set; }
+        public string TotalRoom { get; set; }
     }
 
 

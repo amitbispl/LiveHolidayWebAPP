@@ -696,7 +696,14 @@ namespace LiveHolidayapp.Controllers
                 HotelBookreq.adultCount = result.m_SearchHotel.ddlAdult;
                 HotelBookreq.childCount = result.m_SearchHotel.ddlChild;
                 HotelBookreq.cityName = result.m_SearchHotel.City;
-                HotelBookreq.noOfRoom = "1";
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString("TotalBookingRoom")))
+                {
+                    HotelBookreq.noOfRoom = HttpContext.Session.GetString("TotalBookingRoom");
+                }
+                else
+                {
+                    HotelBookreq.noOfRoom = "1";
+                }
                 if (HttpContext.Session.GetString("IsHotel") == "T")
                 {
                     //this code for tbo hotel

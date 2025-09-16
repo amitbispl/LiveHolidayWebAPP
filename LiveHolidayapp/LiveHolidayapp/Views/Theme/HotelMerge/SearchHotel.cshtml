@@ -149,7 +149,7 @@
     var days = $("#StartAfterday").val();
     var hdnIsInternational =$("#hdnIsInternational").val();
     $(document).ready(function () {
-        
+
 
         $("#txtNationality").val('@Model.searchHotel.hdnNatinality');
         if(hdnIsInternational=="False")
@@ -406,6 +406,34 @@
         //package wise adult selection
         if(adults!="0")
         {
+            var maxpaxperroom=2;
+
+            if(adults=="3")
+            {
+                maxpaxperroom=3;
+            }
+
+            if(parseInt(adults)>=4)
+            {
+                var maxroom=parseInt(adults)/maxpaxperroom
+                var ddlRoom = $("#ddlRoom");
+                ddlRoom.empty();
+                ddlRoom.append($("<option>").val("0").text("Select Room"));
+                  for (var i = 1; i <= parseInt(maxroom); i++) {
+                     ddlRoom.append($("<option>").val(i).text(i+" Room"));
+                  }
+                ddlRoom.selectpicker('refresh');
+                //$("#ddlRoom").val(maxroom);
+            }
+            else
+            {
+                var ddlRoom = $("#ddlRoom");
+                ddlRoom.empty();
+                ddlRoom.append($("<option>").val("0").text("Select Room"));
+                ddlRoom.append($("<option>").val("1").text("1 Room"));
+                ddlRoom.selectpicker('refresh');
+            }
+
             var ddlAdults = $("#ddlAdults");
             // Clear existing options
             ddlAdults.empty();
@@ -533,6 +561,8 @@
         var ddlChild = $("#ddlChild").val();
         var hdnNatinality = $("#hdnNatinality").val();
         var hdnHotelCity = $("#hdnHotelCity").val();
+        var ddlRoom = $("#ddlRoom").val();
+
         var Hotelreq = {};
         Hotelreq["hdnCountry"] = hdnNatinality;
         Hotelreq["hdnNatinality"] = hdnNatinality;
@@ -545,6 +575,7 @@
         Hotelreq["City"] = txtHotelOrigin;
         Hotelreq["Orderid"] = orderid;
         Hotelreq["IDWiseDayAfter"] = IDWiseDayAfter;
+        Hotelreq["TotalRoom"] = ddlRoom;
 
         $.ajax({
             type: "POST",

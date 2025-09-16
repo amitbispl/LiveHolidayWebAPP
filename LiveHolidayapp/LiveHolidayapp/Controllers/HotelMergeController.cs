@@ -1,7 +1,9 @@
 ﻿using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Protocol;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using X.PagedList;
@@ -169,6 +171,7 @@ namespace LiveHolidayapp.Controllers
             M_Hotel obj = new M_Hotel();
             try
             {
+                HttpContext.Session.SetString("TotalBookingRoom", Hotelreq.TotalRoom);
                 if (Convert.ToString(HttpContext.Session.GetString("OrderId")) != "0" && Convert.ToBoolean(HttpContext.Session.GetString("IsManualSelectPackage")) == true)
                 {
                     HttpContext.Session.SetString("OrderId", Convert.ToString(Hotelreq.Orderid));

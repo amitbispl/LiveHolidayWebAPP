@@ -52,7 +52,21 @@
                                 </h4>
                             }
                         </a>
-                        <div class="room_service_list">
+                 @*        <div class="room_service_list">
+                            <h3 class="room_d_title">Details</h3>
+                            <div class="row room_service_list_inner">
+                                <div class="col-sm-12 col-md-offset-right-1">
+                                    <div class="resot_list list-details">
+                                        @if (Model.hoteldetailCommonres != null && Model.hoteldetailCommonres.Decription != null)
+                                        {
+                                            @Html.Raw(Model.hoteldetailCommonres.Decription)
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> *@
+                        <div class="room_service_list mt-2">
                             <h3 class="room_d_title">Amenities</h3>
                             <div class="row room_service_list_inner">
                                 <div class="col-sm-12 col-md-offset-right-1">

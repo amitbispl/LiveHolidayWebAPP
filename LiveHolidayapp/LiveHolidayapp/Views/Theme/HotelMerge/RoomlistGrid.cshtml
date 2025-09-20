@@ -136,13 +136,13 @@
                 <div class="col-lg-8 col-sm-7 col-12" id="hoteldaat">
                     @foreach (var item in Model.Hotelpaging)
                     {
-
+                        
                         <div class="hotel-listing p-2 bg-white rounded-1 border-gray mb-1">
                             <div class="row align-items-center gx-2">
                                 <div class="col-md-3 col-sm-4 col-xs-4 mb-sm-0">
                                     <div class="height-image">
                                         <a href="~/HotelMerge/RoomDetails?id=@item.hotelResults_ID" class="room-img">
-                                            <img src="@item.hotelPicture" onerror="this.src='https://testshop.biztadka.com/images/noimage.png';" alt="@item.hotelName" class="img-fluid rounded-30 img-responsive ">
+                                            <img src="@item.hotelPicture" onerror="this.src='/img/noimage.png';" alt="@item.hotelName" class="img-fluid rounded-30 img-responsive ">
                                         </a>
                                     </div>
                                 </div>

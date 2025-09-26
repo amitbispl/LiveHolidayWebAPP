@@ -74,17 +74,25 @@ namespace LiveHolidayapp.Controllers
                                 List<M_Hotelreport> hrs = output.Data;
                                 if (hrs != null && hrs.Count > 0)
                                 {
+                                    //var checkoutdate = Convert.ToString(hrs[0].CheckOutDate);
+                                    //// Define two dates
+                                    //DateTime today = DateTime.Today;
+                                    //DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                                    ////DateTime futureDate = Convert.ToDateTime(checkoutdate).ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
+                                    ////DateTime futureDate = new DateTime(2024, 8, 18);
+                                    //// Calculate the difference between the two dates
+                                    //TimeSpan difference = futureDate - today;
+                                    //// Get the difference in days
+                                    //int daysDifference = difference.Days;
+                                    //daysDifference = daysDifference + 2;
                                     var checkoutdate = Convert.ToString(hrs[0].CheckOutDate);
-                                    // Define two dates
-                                    DateTime today = DateTime.Today;
                                     DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-                                    //DateTime futureDate = Convert.ToDateTime(checkoutdate).ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
-                                    //DateTime futureDate = new DateTime(2024, 8, 18);
-                                    // Calculate the difference between the two dates
+                                    DateTime today = DateTime.Now;
+
                                     TimeSpan difference = futureDate - today;
-                                    // Get the difference in days
-                                    int daysDifference = difference.Days;
-                                    daysDifference = daysDifference + 2;
+
+                                    // If you only care about future days and want 0 if past:
+                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 0;
                                     _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
                                 }
                             }

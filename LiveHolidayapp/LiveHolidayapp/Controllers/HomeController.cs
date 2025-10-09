@@ -26,6 +26,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Index()
         {
+            if(Convert.ToString(HttpContext.Session.GetString("Isundermaintenance"))=="Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)
             {
                 return RedirectToAction("Dreamdays", "Home");
@@ -48,6 +52,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Privacy()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/Privacy.cshtml");
@@ -60,6 +68,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult About()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/About.cshtml");
@@ -72,6 +84,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Termscondition()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/Termscondition.cshtml");
@@ -84,6 +100,10 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Contactus()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/Contactus.cshtml");
@@ -142,6 +162,10 @@ namespace LiveHolidayapp.Controllers
         }
         public IActionResult Destinations()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/Destinations.cshtml");
@@ -153,6 +177,10 @@ namespace LiveHolidayapp.Controllers
         }
         public IActionResult Refund()
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             if (Theme != null && Theme != "")
             {
                 return View("~/Views/" + Theme + "/Home/Refund.cshtml");
@@ -259,6 +287,19 @@ namespace LiveHolidayapp.Controllers
                 return View("~/Views/Theme/Home/RedemptionDetails.cshtml", obj);
             }
 
+        }
+
+        public ActionResult Undermaintenance()
+        {
+            HttpContext.Session.Clear();
+            if (Theme != null && Theme != "")
+            {
+                return View("~/Views/" + Theme + "/Undermaintenance.cshtml");
+            }
+            else
+            {
+                return View("~/Views/Theme/Undermaintenance.cshtml");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

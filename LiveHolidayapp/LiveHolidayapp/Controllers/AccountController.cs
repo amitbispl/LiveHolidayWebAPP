@@ -26,6 +26,10 @@ namespace LiveHolidayapp.Controllers
         }
         public IActionResult Login(string returnUrl = null)
         {
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+            {
+                return Redirect("/Home/Undermaintenance");
+            }
             ViewData["ReturnUrl"] = returnUrl;
             if (Theme != null && Theme != "")
             {
@@ -126,6 +130,10 @@ namespace LiveHolidayapp.Controllers
         {
             try
             {
+                if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
+                {
+                    return Redirect("/Home/Undermaintenance");
+                }
                 string action = string.Empty;
                 string userName = string.Empty;
                 string token = string.Empty;

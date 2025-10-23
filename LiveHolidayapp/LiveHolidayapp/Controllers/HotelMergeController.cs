@@ -88,8 +88,10 @@ namespace LiveHolidayapp.Controllers
                                     var checkoutdate = Convert.ToString(hrs[0].CheckOutDate);
                                     DateTime futureDate = DateTime.ParseExact(checkoutdate, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                                     DateTime today = DateTime.Now;
+                                    // Add one month to checkout date
+                                    DateTime nextCheckoutDate = futureDate.AddMonths(1);
 
-                                    TimeSpan difference = futureDate - today;
+                                    TimeSpan difference = nextCheckoutDate - today;
 
                                     // If you only care about future days and want 0 if past:
                                     int daysDifference = difference.Days > 0 ? difference.Days + 2 : 0;

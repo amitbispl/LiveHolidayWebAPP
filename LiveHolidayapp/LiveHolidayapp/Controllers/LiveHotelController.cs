@@ -89,10 +89,11 @@ namespace LiveHolidayapp.Controllers
                                     //DateTime futureDate = Convert.ToDateTime(checkoutdate).ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture);
                                     //DateTime futureDate = new DateTime(2024, 8, 18);
                                     // Calculate the difference between the two dates
-                                    TimeSpan difference = futureDate - today;
+                                    DateTime nextCheckoutDate = futureDate.AddMonths(1);
+                                    TimeSpan difference = nextCheckoutDate - today;
                                     // Get the difference in days
-                                    int daysDifference = difference.Days;
-                                    daysDifference = daysDifference + 2;
+                                    //int daysDifference = difference.Days;
+                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 21;
                                     _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
                                 }
                             }

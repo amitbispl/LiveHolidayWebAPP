@@ -83,7 +83,7 @@ namespace LiveHolidayapp.Controllers
                                     // Get the difference in days
                                     //int daysDifference = difference.Days;
                                     //daysDifference = daysDifference + 2;
-                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 0;
+                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 21;
                                     _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
                                 }
                             }

@@ -94,7 +94,7 @@ namespace LiveHolidayapp.Controllers
                                     TimeSpan difference = nextCheckoutDate - today;
 
                                     // If you only care about future days and want 0 if past:
-                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 0;
+                                    int daysDifference = difference.Days > 0 ? difference.Days + 2 : 21;
                                     _httpContextAccessor.HttpContext.Session.SetString("StartAfterday", Convert.ToString(daysDifference)!);
                                 }
                             }

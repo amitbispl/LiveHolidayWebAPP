@@ -160,7 +160,12 @@
                                         <i class="fa fa-user" aria-hidden="true"></i> My Account <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu bootstrap-dropdown">
-                                        <li class="dropdown-header mb-1">@Convert.ToString(Context.Session.GetString("CompanyName"))</li>
+
+                                         @if (Context.Session.GetString("CompanyId") != "10989")
+                                        {
+                                            <li class="dropdown-header mb-1">@Convert.ToString(Context.Session.GetString("CompanyName"))</li>
+                                        }
+                                        
                                         <li class="user-name mb-2"><h5>@Convert.ToString(Context.Session.GetString("Name"))</h5></li>
                                         <li class="user-name"><h6>Membership ID: @Convert.ToString(Context.Session.GetString("UserName"))</h6></li>
                                         <hr class="mt-2 mb-2" />

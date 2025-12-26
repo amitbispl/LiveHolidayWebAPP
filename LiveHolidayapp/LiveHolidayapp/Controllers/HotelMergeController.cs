@@ -100,7 +100,7 @@ namespace LiveHolidayapp.Controllers
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
 
                     }
@@ -251,14 +251,18 @@ namespace LiveHolidayapp.Controllers
                         dayafter = Convert.ToInt32(HttpContext.Session.GetString("IDWiseDayAfter"));
                     }
                     PriceRangeEnd = tempPriceRangeEnd * dayafter;
-
                 }
                 else
                 {
                     PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
                 }
+
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
 
+                if (Convert.ToInt32(HttpContext.Session.GetString("FormNo"))== 32178)
+                {
+                    PriceRangeEnd=result.hotelsearchResponses.Max(p => p.price);
+                }
 
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
 
@@ -343,6 +347,10 @@ namespace LiveHolidayapp.Controllers
                 PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
             }
             var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+            if (Convert.ToInt32(HttpContext.Session.GetString("FormNo")) == 32178)
+            {
+                PriceRangeEnd = result.hotelsearchResponses.Max(p => p.price);
+            }
             var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
             if (name == null || name == "")
             {
@@ -398,6 +406,10 @@ namespace LiveHolidayapp.Controllers
                 PriceRangeEnd = Convert.ToDecimal(HttpContext.Session.GetString("PriceRangeEnd"));
             }
             var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+            if (Convert.ToInt32(HttpContext.Session.GetString("FormNo")) == 32178)
+            {
+                PriceRangeEnd = result.hotelsearchResponses.Max(p => p.price);
+            }
             var hotelfilter = result.hotelsearchResponses.Where(p => Convert.ToDecimal(p.price) >= PriceRangeStart && Convert.ToDecimal(p.price) <= PriceRangeEnd).ToList();
             if (!string.IsNullOrEmpty(rating) && string.IsNullOrEmpty(hotelname))
             {

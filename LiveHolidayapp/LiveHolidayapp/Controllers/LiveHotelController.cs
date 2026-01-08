@@ -771,22 +771,22 @@ namespace LiveHolidayapp.Controllers
                     req.userName = HttpContext.Session.GetString("UserName");
                     R_Login rr = new R_Login();
                     var response = await rr.UserLogin(req);
-                    if (response != null)
+                    if (response.Data != null)
                     {
-                        HttpContext.Session.SetString("Authnekot", response.tokenString);
-                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                        HttpContext.Session.SetString("Name", response.name);
-                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                        HttpContext.Session.SetString("Authnekot", response.Data.tokenString);
+                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.Data.formNo));
+                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.Data.id));
+                        HttpContext.Session.SetString("KitID", Convert.ToString(response.Data.kitId));
+                        HttpContext.Session.SetString("Name", response.Data.name);
+                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.Data.isRedeem));
+                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.Data.email));
+                        HttpContext.Session.SetString("doj", Convert.ToString(response.Data.doj));
                         HttpContext.Session.SetString("Status", "OK");
-                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                        HttpContext.Session.SetString("UserName", response.userName);
-                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
-                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
+                        HttpContext.Session.SetString("MobileNo", response.Data.mobileNo);
+                        HttpContext.Session.SetString("UserName", response.Data.userName);
+                        HttpContext.Session.SetString("registerId", Convert.ToString(response.Data.id));
+                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.Data.orderId));
+                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.Data.IDWiseDayAfter));
                     }
                     else
                     {

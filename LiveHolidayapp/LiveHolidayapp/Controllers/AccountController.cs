@@ -57,25 +57,25 @@ namespace LiveHolidayapp.Controllers
                     req.userName = obj.Username;
                     R_Login rr = new R_Login();
                     var response = await rr.UserLogin(req);
-                    if (response != null)
+                    if (response.Data != null)
                     {
-                        
-                        HttpContext.Session.SetString("Authnekot", response.tokenString);
-                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                        HttpContext.Session.SetString("Name", response.name);
-                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+
+                        HttpContext.Session.SetString("Authnekot", response.Data.tokenString);
+                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.Data.formNo));
+                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.Data.id));
+                        HttpContext.Session.SetString("KitID", Convert.ToString(response.Data.kitId));
+                        HttpContext.Session.SetString("Name", response.Data.name);
+                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.Data.isRedeem));
+                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.Data.email));
+                        HttpContext.Session.SetString("doj", Convert.ToString(response.Data.doj));
                         HttpContext.Session.SetString("Status", "OK");
-                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                        HttpContext.Session.SetString("UserName", response.userName);
-                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("MobileNo", response.Data.mobileNo);
+                        HttpContext.Session.SetString("UserName", response.Data.userName);
+                        HttpContext.Session.SetString("registerId", Convert.ToString(response.Data.id));
                         HttpContext.Session.SetString("password", Convert.ToString(obj.Password));
-                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
-                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                        if (response.isRedeem == true)
+                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.Data.orderId));
+                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.Data.IDWiseDayAfter));
+                        if (response.Data.isRedeem == true)
                         {
                             return RedirectToAction("Redemption", "Home");
                         }
@@ -103,6 +103,10 @@ namespace LiveHolidayapp.Controllers
                             return RedirectToAction(nameof(HomeController.Index), "Home");
                         }
 
+                    }
+                    else if (response.Code == 201)
+                    {
+                        ViewBag.message = response.Message== "Login Falied"? "Please enter valid username and password":response.Message;
                     }
                     else
                     {
@@ -185,37 +189,37 @@ namespace LiveHolidayapp.Controllers
                     req.userName = userName;
                     R_Login rr = new R_Login();
                     var response = await rr.UserLogin(req);
-                    if (response != null)
+                    if (response.Data != null)
                     {
-                        if (response.isRedeem == true)
+                        if (response.Data.isRedeem == true)
                         {
                             ViewBag.message = "Already redeemed this service";
                             return RedirectToAction("Index", "Home");
                         }
                         else
                         {
-                            HttpContext.Session.SetString("Authnekot", response.tokenString);
-                            HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                            HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                            HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                            HttpContext.Session.SetString("Name", response.name);
-                            HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                            HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                            HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                            HttpContext.Session.SetString("Authnekot", response.Data.tokenString);
+                            HttpContext.Session.SetString("FormNo", Convert.ToString(response.Data.formNo));
+                            HttpContext.Session.SetString("RegisterId", Convert.ToString(response.Data.id));
+                            HttpContext.Session.SetString("KitID", Convert.ToString(response.Data.kitId));
+                            HttpContext.Session.SetString("Name", response.Data.name);
+                            HttpContext.Session.SetString("isRedeem", Convert.ToString(response.Data.isRedeem));
+                            HttpContext.Session.SetString("EmailID", Convert.ToString(response.Data.email));
+                            HttpContext.Session.SetString("doj", Convert.ToString(response.Data.doj));
                             HttpContext.Session.SetString("Status", "OK");
-                            HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                            HttpContext.Session.SetString("UserName", response.userName);
-                            HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                            HttpContext.Session.SetString("MobileNo", response.Data.mobileNo);
+                            HttpContext.Session.SetString("UserName", response.Data.userName);
+                            HttpContext.Session.SetString("registerId", Convert.ToString(response.Data.id));
                             //HttpContext.Session.SetString("OrderId", response.OrderId);
-                            HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
-                            HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
+                            HttpContext.Session.SetString("OrderId", Convert.ToString(response.Data.orderId));
+                            HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.Data.IDWiseDayAfter));
                             if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)
                             {
                                 if (HttpContext.Session.GetString("IsHotel") == "R")
                                 {
                                     return RedirectToAction("SearchHotel", "LiveHotel");
                                 }
-                                else if(HttpContext.Session.GetString("IsHotel") == "RT")
+                                else if (HttpContext.Session.GetString("IsHotel") == "RT")
                                 {
                                     return RedirectToAction("SearchHotel", "HotelMerge");
                                 }
@@ -254,7 +258,7 @@ namespace LiveHolidayapp.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> OrgayholidayLogin(string usr_token) 
+        public async Task<IActionResult> OrgayholidayLogin(string usr_token)
         {
             try
             {
@@ -266,25 +270,25 @@ namespace LiveHolidayapp.Controllers
                     req.userName = "sadsfsf";
                     R_Login rr = new R_Login();
                     var response = await rr.UserLogin(req);
-                    if (response != null)
+                    if (response.Data != null)
                     {
 
-                        HttpContext.Session.SetString("Authnekot", response.tokenString);
-                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.formNo));
-                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.id));
-                        HttpContext.Session.SetString("KitID", Convert.ToString(response.kitId));
-                        HttpContext.Session.SetString("Name", response.name);
-                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.isRedeem));
-                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.email));
-                        HttpContext.Session.SetString("doj", Convert.ToString(response.doj));
+                        HttpContext.Session.SetString("Authnekot", response.Data.tokenString);
+                        HttpContext.Session.SetString("FormNo", Convert.ToString(response.Data.formNo));
+                        HttpContext.Session.SetString("RegisterId", Convert.ToString(response.Data.id));
+                        HttpContext.Session.SetString("KitID", Convert.ToString(response.Data.kitId));
+                        HttpContext.Session.SetString("Name", response.Data.name);
+                        HttpContext.Session.SetString("isRedeem", Convert.ToString(response.Data.isRedeem));
+                        HttpContext.Session.SetString("EmailID", Convert.ToString(response.Data.email));
+                        HttpContext.Session.SetString("doj", Convert.ToString(response.Data.doj));
                         HttpContext.Session.SetString("Status", "OK");
-                        HttpContext.Session.SetString("MobileNo", response.mobileNo);
-                        HttpContext.Session.SetString("UserName", response.userName);
-                        HttpContext.Session.SetString("registerId", Convert.ToString(response.id));
+                        HttpContext.Session.SetString("MobileNo", response.Data.mobileNo);
+                        HttpContext.Session.SetString("UserName", response.Data.userName);
+                        HttpContext.Session.SetString("registerId", Convert.ToString(response.Data.id));
                         HttpContext.Session.SetString("password", Convert.ToString(usr_token));
-                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.orderId));
-                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.IDWiseDayAfter));
-                        if (response.isRedeem == true)
+                        HttpContext.Session.SetString("OrderId", Convert.ToString(response.Data.orderId));
+                        HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.Data.IDWiseDayAfter));
+                        if (response.Data.isRedeem == true)
                         {
                             return RedirectToAction("Redemption", "Home");
                         }

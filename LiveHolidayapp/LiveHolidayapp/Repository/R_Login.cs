@@ -8,15 +8,17 @@ namespace LiveHolidayapp.Repository
     {
         General general = new General();
         
-        public async Task<Loginresponse> UserLogin(Loginreq loginreq)
+        public async Task<CommonResponse<Loginresponse>> UserLogin(Loginreq loginreq)
         {
-            Loginresponse obj = new Loginresponse();
+            CommonResponse<Loginresponse> obj=new CommonResponse<Loginresponse>();
             try
             {
                 var detail = JsonConvert.SerializeObject(loginreq);
                 var resp = await general.CallPostFunction(detail);
-                var output = JsonConvert.DeserializeObject<CommonResponse<Loginresponse>>(resp);
-                obj = output.Data;
+                obj = JsonConvert.DeserializeObject<CommonResponse<Loginresponse>>(resp);
+                //obj = output.Data;
+                //obj.Message = output.Message;
+                //obj.Code = output.Code;
             }
             catch(Exception ex)
             { 

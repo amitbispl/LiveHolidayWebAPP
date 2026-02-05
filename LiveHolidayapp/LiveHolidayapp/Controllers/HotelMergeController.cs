@@ -3,6 +3,7 @@ using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NuGet.Protocol;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -259,9 +260,9 @@ namespace LiveHolidayapp.Controllers
 
                 var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
 
-                if (Convert.ToInt32(HttpContext.Session.GetString("FormNo"))== 32178)
+                if (Convert.ToInt32(HttpContext.Session.GetString("FormNo")) == 32178)
                 {
-                    PriceRangeEnd=result.hotelsearchResponses.Max(p => p.price);
+                    PriceRangeEnd = result.hotelsearchResponses.Max(p => p.price);
                 }
 
                 var hotelfilter = result.hotelsearchResponses.Where(p => p.price >= PriceRangeStart && p.price <= PriceRangeEnd).ToList();
@@ -503,6 +504,85 @@ namespace LiveHolidayapp.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveHotel([FromForm] M_SaveHotelDetail model)
+        {
+            using var client = new HttpClient();
+
+            var result = HttpContext.Session.GetComplexData<M_Hotel>("hotelsearchResponses");
+            var sortdata = result.hotelsearchResponses.Where(p => p.hotelResults_ID == model.Hotelid).ToList();
+            
+            model.Hotelcodes = sortdata[0].hotelCodes;
+
+            //var request = new HttpRequestMessage(HttpMethod.Post,
+            //    "https://localhost:7164/api/admin/savehoteldetail");
+
+            var request = new HttpRequestMessage(HttpMethod.Post,
+                "http://holidayapi1.bisplindia.in/api/Admin/SaveHotelDetail");
+
+            request.Headers.Add("accept", "*/*");
+            request.Headers.Add("Authorization", "Bearer " + Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+            var content = new MultipartFormDataContent();
+
+            // ===== Simple fields =====
+            content.Add(new StringContent(result.m_SearchHotel.hdnHotelCity ?? ""), "cityid");
+            content.Add(new StringContent(result.m_SearchHotel.City ?? ""), "city");
+            content.Add(new StringContent(model.Hotelid ?? ""), "Hotelid");
+            content.Add(new StringContent(result.m_SearchHotel.Country ?? ""), "country");
+            content.Add(new StringContent(model.Description ?? ""), "Description");
+            content.Add(new StringContent(result.m_SearchHotel.hdnNatinality  ?? ""), "Natinality");
+            content.Add(new StringContent(sortdata[0].hotelName?? ""), "HotelName");
+
+            // ===== Amenities =====
+            if (model.Aminities != null)
+            {
+                for (int i = 0; i < model.Aminities.Count; i++)
+                {
+                    content.Add(new StringContent(model.Aminities[i]),
+                        $"Aminities[{i}]");
+                }
+            }
+
+            // ===== HotelCodes =====
+            if (model.Hotelcodes != null)
+            {
+                for (int i = 0; i < model.Hotelcodes.Count; i++)
+                {
+                    content.Add(new StringContent(model.Hotelcodes[i].IsHotel ?? ""),
+                        $"Hotelcodes[{i}].IsHotel");
+
+                    content.Add(new StringContent(model.Hotelcodes[i].HotelCode ?? ""),
+                        $"Hotelcodes[{i}].HotelCode");
+                }
+            }
+
+            // ===== Images =====
+            if (model.Images != null)
+            {
+                foreach (var file in model.Images)
+                {
+                    if (file.Length > 0)
+                    {
+                        var stream = file.OpenReadStream();
+                        var fileContent = new StreamContent(stream);
+
+                        fileContent.Headers.ContentType =
+                            new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+
+                        content.Add(fileContent, "Images", file.FileName);
+                    }
+                }
+            }
+
+            request.Content = content;
+
+            var response = await client.SendAsync(request);
+
+            var apiresult = await response.Content.ReadAsStringAsync();
+
+            return Ok(apiresult);
         }
     }
 }

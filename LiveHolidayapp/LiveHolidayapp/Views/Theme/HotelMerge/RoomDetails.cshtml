@@ -24,7 +24,7 @@
             <div class="col-md-8">
                 <div class="room_details_content bg-white p-3 rounded-1 border-gray">
                     <div class="room_d_main_text pb-0">
-                        @if (Model.hoteldetailCommonres!=null && Model.hoteldetailCommonres.HoteldetailImages != null)
+                        @if (Model.hoteldetailCommonres != null && Model.hoteldetailCommonres.HoteldetailImages != null)
                         {
                             <div class="room_details_img owl-carousel">
                                 @if (Model.hoteldetailCommonres != null && Model.hoteldetailCommonres.HoteldetailImages != null)
@@ -52,7 +52,7 @@
                                 </h4>
                             }
                         </a>
-                 @*        <div class="room_service_list">
+                        @*        <div class="room_service_list">
                             <h3 class="room_d_title">Details</h3>
                             <div class="row room_service_list_inner">
                                 <div class="col-sm-12 col-md-offset-right-1">
@@ -72,7 +72,7 @@
                                 <div class="col-sm-12 col-md-offset-right-1">
                                     <div class="resot_list list-details">
                                         <div class="row">
-                                            @if (Model.hoteldetailCommonres!=null && Model.hoteldetailCommonres.AmenitiesDictionary != null && Model.hoteldetailCommonres.AmenitiesDictionary.Count() > 0)
+                                            @if (Model.hoteldetailCommonres != null && Model.hoteldetailCommonres.AmenitiesDictionary != null && Model.hoteldetailCommonres.AmenitiesDictionary.Count() > 0)
                                             {
                                                 @foreach (var item in Model.hoteldetailCommonres.AmenitiesDictionary)
                                                 {
@@ -143,6 +143,13 @@
                             <div class="book_table_item">
                                 <a class="book_now_btn" href="~/LiveHotel/BookHotal?id=@ViewBag.Hotelid"> Continue </a>
                             </div>
+                            @if (Convert.ToString(Context.Session.GetString("FormNo")) == "32178")
+                            {
+                                <div class="book_table_item">
+                                    <button class="book_now_btn_black" id="edithotel" data-toggle="modal" data-target="#callback_form">Update</button>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -150,6 +157,51 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="callback_form" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Hotel Detail</h4>
+            </div>
+            <div class="modal-body">
+                <form id="hotelForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input id="Hotelid" value="@ViewBag.Hotelid" type="hidden" placeholder="Hotel Id" />
+                            <textarea id="Description" class="form-control" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h4>Amenities (15)</h4>
+                    <br />
+                    <div class="row">
+                        @for (int i = 1; i <= 15; i++)
+                        {
+                            <div class="col-md-4 mb-3">
+                                <input type="text" class="amenityTxt form-control"  placeholder="Amenity @i" />
+                            </div>
+                        }
+                    </div>
+
+
+                    <hr />
+
+                    <h4>Images</h4>
+                    <br />
+                    <input type="file" id="Images" multiple />
+
+                    <br /><br />
+
+                    <button type="button" class="book_now_btn_black" id="savehotel" onclick="SaveHotel()">Save Hotel</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Room Details End -->
 
 <script type="text/javascript">
@@ -160,3 +212,56 @@
     });
 </script>
 
+<script>
+
+    function SaveHotel() {
+        $(".page").show();
+        var formData = new FormData();
+
+        formData.append("Hotelid", $("#Hotelid").val());
+        formData.append("Description", $("#Description").val());
+
+        // ===== Amenities =====
+        var arr = [];
+
+        $(".amenityTxt").each(function () {
+            var v = $(this).val().trim();
+            if (v !== "" && !arr.includes(v)) {
+                arr.push(v);
+            }
+        });
+
+        for (var i = 0; i < arr.length; i++) {
+            formData.append("Aminities[" + i + "]", arr[i]);
+        }
+
+        // ===== Images =====
+        var files = document.getElementById("Images").files;
+
+        for (var i = 0; i < files.length; i++) {
+            formData.append("Images", files[i]);
+        }
+
+        // ===== Hotel Codes sample =====
+
+        $.ajax({
+            url: "/HotelMerge/SaveHotel",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (res) {
+                debugger;
+                alert("Hotel Saved Successfully");
+                $(".page").hide();
+                window.location.reload();   
+            },
+            error: function (err) {
+                console.log(err);
+                alert("Error");
+                $(".page").hide();
+            }
+        });
+    }
+
+</script>

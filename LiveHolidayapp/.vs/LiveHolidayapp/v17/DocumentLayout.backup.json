@@ -1,0 +1,586 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\repository\\r_hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\repository\\r_hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\controllers\\hotelmergecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\controllers\\hotelmergecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\controllers\\livehotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\controllers\\livehotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\livehotel\\bookhotal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\livehotel\\bookhotal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\undermaintenance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\undermaintenance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\models\\companydetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\models\\companydetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\wwwroot\\css\\vdealcolor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\wwwroot\\css\\vdealcolor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\wwwroot\\css\\8806color.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\wwwroot\\css\\8806color.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\wwwroot\\css\\sollywood.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\wwwroot\\css\\sollywood.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotelmerge\\roomdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotelmerge\\roomdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotelmerge\\roomlistgrid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotelmerge\\roomlistgrid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotelmerge\\_filterhotedatagridpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotelmerge\\_filterhotedatagridpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\destinations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\destinations.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\models\\m_hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\models\\m_hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\redemptiondetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\redemptiondetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\models\\hoteldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\models\\hoteldetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\livehotel\\roomlistgrid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\livehotel\\roomlistgrid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotelmerge\\_filterhotedatapartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotelmerge\\_filterhotedatapartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotelmerge\\roomlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotelmerge\\roomlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\repository\\r_adminhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\repository\\r_adminhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotel\\bookhotal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotel\\bookhotal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\hotel\\hotelsearch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\hotel\\hotelsearch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\home\\termscondition.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\home\\termscondition.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\wwwroot\\css\\change.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\wwwroot\\css\\change.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\views\\theme\\livehotel\\roomlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\views\\theme\\livehotel\\roomlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|d:\\githubwork\\liveholidaywebapp\\liveholidayapp\\liveholidayapp\\models\\commonresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50C5EFC2-8B94-4304-BE02-1F9D754B2CE2}|LiveHolidayapp\\LiveHolidayapp.csproj|solutionrelative:liveholidayapp\\models\\commonresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RoomlistGrid.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomlistGrid.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomlistGrid.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomlistGrid.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomlistGrid.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAQwJAAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-11T08:17:19.028Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HotelController.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HotelController.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Controllers\\HotelController.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HotelController.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Controllers\\HotelController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAQwFUAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T11:35:10.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HotelMergeController.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HotelMergeController.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Controllers\\HotelMergeController.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HotelMergeController.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Controllers\\HotelMergeController.cs",
+              "ViewState": "AgIAAMQBAAAAAAAAAAAkwMoBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T11:35:10.957Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAQwJMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T08:01:51.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookHotal.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\BookHotal.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\BookHotal.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\BookHotal.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\BookHotal.cshtml",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAmwK4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-08T10:35:45.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\appsettings.json",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\appsettings.json",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\appsettings.json",
+              "RelativeToolTip": "LiveHolidayapp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-24T05:00:37.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CompanyDetail.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\CompanyDetail.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Models\\CompanyDetail.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\CompanyDetail.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Models\\CompanyDetail.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAG8AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T09:59:46.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T12:34:52.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "R_Hotel.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Repository\\R_Hotel.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Repository\\R_Hotel.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Repository\\R_Hotel.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Repository\\R_Hotel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T13:09:35.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LiveHotelController.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\LiveHotelController.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Controllers\\LiveHotelController.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\LiveHotelController.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Controllers\\LiveHotelController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowFcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T09:41:57.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Undermaintenance.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Undermaintenance.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Undermaintenance.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Undermaintenance.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Undermaintenance.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-09T08:04:54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAIwDQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-19T12:39:04.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Account\\Login.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Account\\Login.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-27T10:01:47.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "vdealcolor.css",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\vdealcolor.css",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\wwwroot\\css\\vdealcolor.css",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\vdealcolor.css",
+              "RelativeToolTip": "LiveHolidayapp\\wwwroot\\css\\vdealcolor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-29T04:50:32.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "sollywood.css",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\sollywood.css",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\wwwroot\\css\\sollywood.css",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\sollywood.css",
+              "RelativeToolTip": "LiveHolidayapp\\wwwroot\\css\\sollywood.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-29T04:50:42.128Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "8806Color.css",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\8806Color.css",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\wwwroot\\css\\8806Color.css",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\8806Color.css",
+              "RelativeToolTip": "LiveHolidayapp\\wwwroot\\css\\8806Color.css",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-29T04:50:50.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RoomDetails.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomDetails.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomDetails.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomDetails.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\RoomDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T07:04:54.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_FilterHoteDataGridPartial.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataGridPartial.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataGridPartial.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataGridPartial.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataGridPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-11T09:35:48.373Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "M_Hotel.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\M_Hotel.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Models\\M_Hotel.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\M_Hotel.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Models\\M_Hotel.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAmwC8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T08:20:30.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RedemptionDetails.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\RedemptionDetails.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\RedemptionDetails.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\RedemptionDetails.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\RedemptionDetails.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwDsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-01T10:05:40.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Destinations.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Destinations.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\Destinations.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Destinations.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\Destinations.cshtml",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAAAEABAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-05T08:17:58.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\About.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\About.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-01T10:09:21.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Hoteldetails.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\Hoteldetails.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Models\\Hoteldetails.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\Hoteldetails.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Models\\Hoteldetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-30T06:08:27.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\Index.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Index.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-27T09:43:43.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_FilterHoteDataPartial.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataPartial.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataPartial.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataPartial.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\_FilterHoteDataPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T09:58:19.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Roomlist.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\Roomlist.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\Roomlist.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\HotelMerge\\Roomlist.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\HotelMerge\\Roomlist.cshtml",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAQwP0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T09:49:15.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RoomlistGrid.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\RoomlistGrid.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\RoomlistGrid.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\RoomlistGrid.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\RoomlistGrid.cshtml",
+              "ViewState": "AgIAAM8AAAAAAAAAAADwv/QAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T09:58:35.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "R_adminHandler.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Repository\\R_adminHandler.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Repository\\R_adminHandler.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Repository\\R_adminHandler.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Repository\\R_adminHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T06:39:00.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BookHotal.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Hotel\\BookHotal.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Hotel\\BookHotal.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Hotel\\BookHotal.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Hotel\\BookHotal.cshtml",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAwKwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-09T13:18:50.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\Privacy.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAF4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-01-27T09:53:47.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "HotelSearch.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Hotel\\HotelSearch.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Hotel\\HotelSearch.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Hotel\\HotelSearch.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Hotel\\HotelSearch.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAADwvz4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-03T06:08:48.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Termscondition.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Termscondition.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\Home\\Termscondition.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\Home\\Termscondition.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\Home\\Termscondition.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAADwvyQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-21T11:45:25.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "change.css",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\change.css",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\wwwroot\\css\\change.css",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\wwwroot\\css\\change.css",
+              "RelativeToolTip": "LiveHolidayapp\\wwwroot\\css\\change.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMFAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-06T09:50:09.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Roomlist.cshtml",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\Roomlist.cshtml",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\Roomlist.cshtml",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Views\\Theme\\LiveHotel\\Roomlist.cshtml",
+              "RelativeToolTip": "LiveHolidayapp\\Views\\Theme\\LiveHotel\\Roomlist.cshtml",
+              "ViewState": "AgIAAJAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T09:58:37.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CommonResponse.cs",
+              "DocumentMoniker": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\CommonResponse.cs",
+              "RelativeDocumentMoniker": "LiveHolidayapp\\Models\\CommonResponse.cs",
+              "ToolTip": "D:\\GithubWork\\LiveHolidayWebAPP\\LiveHolidayapp\\LiveHolidayapp\\Models\\CommonResponse.cs",
+              "RelativeToolTip": "LiveHolidayapp\\Models\\CommonResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-27T12:45:58.182Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

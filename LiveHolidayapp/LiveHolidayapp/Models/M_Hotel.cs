@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using X.PagedList;
 
 namespace LiveHolidayapp.Models
@@ -34,15 +35,41 @@ namespace LiveHolidayapp.Models
 
     public class M_SearchHotel
     {
+
+        
         public string txtHotelCheckOut { get; set; }
+
+        
         public string txtHotelCheckIn { get; set; }
+
+        
         public string hdnCountry { get; set; }
+
+        
         public string hdnHotelCity { get; set; }
+
+        
         public string hdnNatinality { get; set; }
+
+        
         public string ddlChild { get; set; }
+
+        
         public string ddlAdult { get; set; }
-        public string Country { get; set; }
+
+        
         public string City { get; set; }
+
+        
+        public string? USerName { get; set; }
+
+        
+        public string? Password { get; set; }
+
+        
+        public string? CompanyId { get; set; }
+
+        public string Country { get; set; }
         public string Orderid { get; set; }
         public int IDWiseDayAfter { get; set; }
         public string TotalRoom { get; set; }

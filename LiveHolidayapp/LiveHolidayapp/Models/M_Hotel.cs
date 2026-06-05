@@ -188,6 +188,8 @@ namespace LiveHolidayapp.Models
         public string packageName { get; set; }
         public int Adults { get; set; }
         public int Childs { get; set; }
+        public int Kitid { get; set; }
+        public decimal ReedemAmount { get; set; }
     }
     
     public class HotelCodes

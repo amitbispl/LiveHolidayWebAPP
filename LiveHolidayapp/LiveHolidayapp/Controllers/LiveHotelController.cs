@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing.Printing;
 using System.Globalization;
@@ -607,6 +608,44 @@ namespace LiveHolidayapp.Controllers
                 {
                     return Json(new { Code = 300, msg = "Already redeemed this service", otpid = 0 });
                 }
+
+                if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 24896)
+                {
+                    var reportoutput = _Hotel.GetpackageList(Convert.ToString(HttpContext.Session.GetString("FormNo")), Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                    var packageoutput = JsonConvert.DeserializeObject<CommonResponse<List<M_PackageTypes>>>(reportoutput);
+                    if (packageoutput != null && packageoutput.Code == 200)
+                    {
+                        var PackageTypesList = packageoutput.Data;
+                        var filterdata = PackageTypesList.Where(p => p.Kitid == Convert.ToInt32(HttpContext.Session.GetString("KitID"))).FirstOrDefault();
+                        if (filterdata != null)
+                        {
+                            General gen = new General();
+                            Loginreq balreq = new Loginreq();
+                            balreq.companyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
+                            balreq.userName = Convert.ToString(HttpContext.Session.GetString("UserName"));
+                            balreq.password = Convert.ToString(HttpContext.Session.GetString("password"));
+                            var walletres = _Hotel.Getuserbalance(balreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+                            var walletoutput = JsonConvert.DeserializeObject<CommonResponse<string>>(walletres);
+                            if (walletoutput.Code == 200)
+                            {
+                                DataSet dswallet = new DataSet();
+                                dswallet = gen.convertJsonStringToDataSet(walletoutput.Data);
+                                if (Convert.ToDecimal(dswallet.Tables[0].Rows[0]["couponwallet"]) < filterdata.ReedemAmount)
+                                {
+                                    return Json(new { Code = 300, msg = "Insufficient wallet balance", otpid = 0 });
+                                }
+                            }
+                            else
+                            {
+                                return Json(new { Code = 300, msg = "Insufficient wallet balance", otpid = 0 });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { Code = 300, msg = "No Package found", otpid = 0 });
+                    }
+                }
                 OTPRequest req = new OTPRequest();
                 req.MobileNo = MobileNo;
                 req.FormNo = Convert.ToString(HttpContext.Session.GetString("FormNo"));
@@ -736,7 +775,7 @@ namespace LiveHolidayapp.Controllers
                         err = "0";
                         HttpContext.Session.SetComplexData("BookResponse", output.Data);
                     }
-                    else if(output.Code == 201 && output.Message == "Booking already exists on this checkin and checkout")
+                    else if (output.Code == 201 && output.Message == "Booking already exists on this checkin and checkout")
                     {
                         msg = "Booking already exists on this checkin and checkout";
                         err = "1";

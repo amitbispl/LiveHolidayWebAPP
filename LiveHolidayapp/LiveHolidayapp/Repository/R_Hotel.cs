@@ -263,5 +263,20 @@ namespace LiveHolidayapp.Repository
             }
             return resp;
         }
+
+        public string Getuserbalance(Loginreq req,string Token)
+        {
+            string resp = "";
+            try
+            {
+                var detail = JsonConvert.SerializeObject(req);
+                resp = general.CallPostFunction(detail, Token, "login/GetUserBalance");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return resp;
+        }
     }
 }

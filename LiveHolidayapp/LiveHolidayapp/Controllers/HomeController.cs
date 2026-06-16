@@ -2,6 +2,7 @@ using LiveHolidayapp.Models;
 using LiveHolidayapp.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Data;
 using System.Diagnostics;
 
 namespace LiveHolidayapp.Controllers
@@ -14,6 +15,7 @@ namespace LiveHolidayapp.Controllers
         private readonly string Theme = "";
         M_Company obj = new M_Company();
         R_Hotel _Hotel = new R_Hotel();
+        Balance bal = new Balance();
         public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
         {
 
@@ -42,11 +44,37 @@ namespace LiveHolidayapp.Controllers
             {
                 return View("~/Views/Theme/Home/index.cshtml");
             }
-
         }
         public ActionResult Dreamdays()
         {
             return View("~/Views/Shared/Dreamdaysindex.cshtml");
+        }
+
+        public IActionResult WalletBalance() 
+        {
+             WalletBal walletBal = new WalletBal();
+            try
+            {
+                Loginreq balreq = new Loginreq();
+                balreq.companyId = Convert.ToInt32(HttpContext.Session.GetString("CompanyId"));
+                balreq.userName = Convert.ToString(HttpContext.Session.GetString("UserName"));
+                balreq.password = Convert.ToString(HttpContext.Session.GetString("password"));
+                walletBal = bal.NexaBalace(balreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
+            }
+            catch(Exception ex)
+            {
+
+            }
+            var view = "";
+            if (Theme != null && Theme != "")
+            {
+                view = "~/Views/" + Theme + "/Home/BalancePartial.cshtml";
+            }
+            else
+            {
+                view = "~/Views/Theme/Home/BalancePartial.cshtml";
+            }
+            return Json(walletBal);
         }
 
 

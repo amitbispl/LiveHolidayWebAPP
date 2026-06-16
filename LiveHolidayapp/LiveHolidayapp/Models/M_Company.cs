@@ -32,4 +32,9 @@ namespace LiveHolidayapp.Models
         public string HotelListTheme { get; set; }
 
     }
+
+    public class WalletBal
+    {
+        public string Balance { get; set; }
+    }
 }

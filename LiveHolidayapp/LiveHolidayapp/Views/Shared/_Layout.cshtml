@@ -200,7 +200,7 @@
                                     <b style="font-size: 14px;"> Book Hotel</b>
                                 </a>
                             </li>
-                            @if (Context.Session.GetString("CompanyId") == "8806")
+                            @if (Context.Session.GetString("CompanyId") == "8806" || Context.Session.GetString("CompanyId") == "24896")
                             {
                                 <li><a href="~/Home/RedemptionDetails">Redemption Details</a></li>
                             }

@@ -112,6 +112,9 @@ namespace LiveHolidayapp.Models
                     _httpContextAccessor.HttpContext.Session.SetString("Isundermaintenance", Convert.ToString(ds.Tables[0].Rows[0]["Isundermaintenance"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("IsCouponBalance", Convert.ToString(ds.Tables[0].Rows[0]["IsCouponBalance"])!);
 
+                    _httpContextAccessor.HttpContext.Session.SetString("TelegramLink", Convert.ToString(ds.Tables[0].Rows[0]["TelegramLink"])!);
+                    _httpContextAccessor.HttpContext.Session.SetString("YoutubeLink", Convert.ToString(ds.Tables[0].Rows[0]["YoutubeLink"])!);
+
                 }
             }
             return obj;

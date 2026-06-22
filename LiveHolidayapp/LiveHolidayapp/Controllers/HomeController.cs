@@ -28,7 +28,7 @@ namespace LiveHolidayapp.Controllers
 
         public IActionResult Index()
         {
-            if(Convert.ToString(HttpContext.Session.GetString("Isundermaintenance"))=="Y")
+            if (Convert.ToString(HttpContext.Session.GetString("Isundermaintenance")) == "Y")
             {
                 return Redirect("/Home/Undermaintenance");
             }
@@ -50,9 +50,9 @@ namespace LiveHolidayapp.Controllers
             return View("~/Views/Shared/Dreamdaysindex.cshtml");
         }
 
-        public IActionResult WalletBalance() 
+        public IActionResult WalletBalance()
         {
-             WalletBal walletBal = new WalletBal();
+            WalletBal walletBal = new WalletBal();
             try
             {
                 Loginreq balreq = new Loginreq();
@@ -61,7 +61,7 @@ namespace LiveHolidayapp.Controllers
                 balreq.password = Convert.ToString(HttpContext.Session.GetString("password"));
                 walletBal = bal.NexaBalace(balreq, Convert.ToString(HttpContext.Session.GetString("Authnekot")));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -279,7 +279,7 @@ namespace LiveHolidayapp.Controllers
         }
 
 
-        public async Task<IActionResult> BookingDownloadPdf(int id) 
+        public async Task<IActionResult> BookingDownloadPdf(int id)
         {
 
             try
@@ -300,7 +300,7 @@ namespace LiveHolidayapp.Controllers
 
                     return File(fileBytes, "application/pdf", fileName);
                 }
-              
+
             }
             catch
             {

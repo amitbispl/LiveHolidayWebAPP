@@ -210,7 +210,7 @@ namespace LiveHolidayapp.Controllers
                             HttpContext.Session.SetString("MobileNo", response.Data.mobileNo);
                             HttpContext.Session.SetString("UserName", response.Data.userName);
                             HttpContext.Session.SetString("registerId", Convert.ToString(response.Data.id));
-                            //HttpContext.Session.SetString("OrderId", response.OrderId);
+                            HttpContext.Session.SetString("password", Convert.ToString(password));
                             HttpContext.Session.SetString("OrderId", Convert.ToString(response.Data.orderId));
                             HttpContext.Session.SetString("IDWiseDayAfter", Convert.ToString(response.Data.IDWiseDayAfter));
                             if (Convert.ToInt32(HttpContext.Session.GetString("CompanyId")) == 4306)

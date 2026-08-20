@@ -237,6 +237,10 @@
                             {
                                 <li><a href="~/Home/Contactus">Get In Touch</a></li>
                             }
+                            @if (Context.Session.GetString("CompanyId") == "25594")
+                            {
+                                <li><a href="https://alpinistint.com/">Back to Main</a></li>
+                            }
 
 
                             @if (!string.IsNullOrEmpty(Context.Session.GetString("Authnekot")))

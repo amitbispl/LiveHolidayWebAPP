@@ -114,6 +114,7 @@ namespace LiveHolidayapp.Models
 
                     _httpContextAccessor.HttpContext.Session.SetString("TelegramLink", Convert.ToString(ds.Tables[0].Rows[0]["TelegramLink"])!);
                     _httpContextAccessor.HttpContext.Session.SetString("YoutubeLink", Convert.ToString(ds.Tables[0].Rows[0]["YoutubeLink"])!);
+                    _httpContextAccessor.HttpContext.Session.SetString("Linkedin", Convert.ToString(ds.Tables[0].Rows[0]["Linkedin"])!);
 
                 }
             }

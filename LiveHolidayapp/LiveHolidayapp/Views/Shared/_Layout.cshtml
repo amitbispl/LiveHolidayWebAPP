@@ -62,62 +62,60 @@
     }
 
     <script>
-        $(document).ready(function () {
-            var islogin=$("#islogin").val();
-            if(islogin=="1")
-            {
-                $(".balancediv").show();
-                LoadWalletBalance();
-            }
-            else
-            {
-                $(".balancediv").hide();
-            }
-        });
-
-        function LoadWalletBalance() {
-            $.ajax({
-                url: '/Home/WalletBalance',
-                type: 'GET',
-                success: function (result) {
-                    debugger;
-                    $("#spnBalanceMobile").text(result.balance);
-                    $("#spnBalance").text(result.balance);
-                },
-                error: function () {
-                    //$('#walletBalanceContainer').html('Unable to load balance.');
+            $(document).ready(function() {
+                var islogin = $("#islogin").val();
+                if (islogin == "1") {
+                    $(".balancediv").show();
+                    LoadWalletBalance();
+                }
+                else {
+                    $(".balancediv").hide();
                 }
             });
-        }
+
+            function LoadWalletBalance() {
+                $.ajax({
+                    url: '/Home/WalletBalance',
+                    type: 'GET',
+                    success: function(result) {
+                        debugger;
+                        $("#spnBalanceMobile").text(result.balance);
+                        $("#spnBalance").text(result.balance);
+                    },
+                    error: function() {
+                        //$('#walletBalanceContainer').html('Unable to load balance.');
+                    }
+                });
+            }
     </script>
 
     <style>
-        .social-icons-footer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-            .social-icons-footer a {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 38px;
-                height: 38px;
-                border-radius: 50%;
-                background-color: rgba(255, 255, 255, 0.1);
-                color: #fff;
-                font-size: 16px;
-                text-decoration: none;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                transition: background-color 0.3s ease, color 0.3s ease;
+            .social-icons-footer {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 10px;
             }
 
-                .social-icons-footer a:hover {
-                    background-color: #fff;
-                    color: #333;
+                .social-icons-footer a {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: #fff;
+                    font-size: 16px;
+                    text-decoration: none;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    transition: background-color 0.3s ease, color 0.3s ease;
                 }
+
+                    .social-icons-footer a:hover {
+                        background-color: #fff;
+                        color: #333;
+                    }
     </style>
 </head>
 <body class="notLoaded">
@@ -417,7 +415,7 @@
                             <div class="f_title">
                                 <h3>Follow Us</h3>
                             </div>
-                            
+
                             <div class="social-icons-footer">
                                 <a href="@Context.Session.GetString("FBLink")" target="_blank" title="Facebook">
                                     <i class="fa-brands fa-facebook-f"></i>
@@ -425,19 +423,37 @@
                                 <a href="@Context.Session.GetString("INLink")" target="_blank" title="Instagram">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
-                                <a href="@Context.Session.GetString("YoutubeLink")" title="YouTube" target="_blank">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </a>
-                                <a href="@Context.Session.GetString("TelegramLink")" title="Telegram" target="_blank">
-                                    <i class="fa-brands fa-telegram"></i>
-                                </a>
+                                @if (!string.IsNullOrEmpty(Context.Session.GetString("YoutubeLink")))
+                                {
+                                    <a href="@Context.Session.GetString("YoutubeLink")" title="YouTube" target="_blank">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                }
+
+                                @if (!string.IsNullOrEmpty(Context.Session.GetString("TelegramLink")))
+                                {
+                                    <a href="@Context.Session.GetString("TelegramLink")" title="Telegram" target="_blank">
+                                        <i class="fa-brands fa-telegram"></i>
+                                    </a>
+                                }
                                 @*   <a href="javascript:void(0)" title="Twitter / X">
                                     <i class="fa-brands fa-x-twitter"></i>
                                 </a> *@
-                             @*    <a href="javascript:void(0)" title="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a> *@
-                             @*    <a href="javascript:void(0)" title="WhatsApp">
+                                @if (!string.IsNullOrEmpty(Context.Session.GetString("Linkedin")))
+                                {
+                                    <a href="@Context.Session.GetString("Linkedin")" target="_blank" title="LinkedIn">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                }
+
+                                @if (Context.Session.GetString("CompanyId") == "264")
+                                {
+                                    <a href="@Context.Session.GetString("WALink")" title="WhatsApp">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+                                }
+
+                                @*    <a href="javascript:void(0)" title="WhatsApp">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </a> *@
                             </div>

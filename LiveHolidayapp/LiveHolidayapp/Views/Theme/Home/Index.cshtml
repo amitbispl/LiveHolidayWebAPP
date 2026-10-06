@@ -53,48 +53,55 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
-                <div class="room_details_content bg-white p-2 rounded-1 border-gray">
-                    <div class="room_image">
-                        <a href="javascript:void(0);">
-                            <img src="~/img/destinations/international/bali.jpg" alt="" class="img-responsive w-100">
-                        </a>
-                    </div>
-                    <div class="explor_text text-center mt-1 mmt-2 ellips-1">
-                        <a href="javascript:void(0);">
-                            <h3 class="room_d_title destination-name">bali </h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
-                <div class="room_details_content bg-white p-2 rounded-1 border-gray">
-                    <div class="room_image">
-                        <a href="javascript:void(0);">
-                            <img src="~/img/destinations/international/colombo.jpg" alt="" class="img-responsive w-100">
-                        </a>
-                    </div>
-                    <div class="explor_text text-center mt-1 mmt-2 ellips-1">
-                        <a href="javascript:void(0);">
-                            <h3 class="room_d_title destination-name">colombo </h3>
-                        </a>
+            @if (Context.Session.GetString("CompanyId") != "264")
+            {
+                //hide international destination 
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/international/bali.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">bali </h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
-                <div class="room_details_content bg-white p-2 rounded-1 border-gray">
-                    <div class="room_image">
-                        <a href="javascript:void(0);">
-                            <img src="~/img/destinations/international/dubai.jpg" alt="" class="img-responsive w-100">
-                        </a>
-                    </div>
-                    <div class="explor_text text-center mt-1 mmt-2 ellips-1">
-                        <a href="javascript:void(0);">
-                            <h3 class="room_d_title destination-name">dubai </h3>
-                        </a>
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/international/colombo.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">colombo </h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/international/dubai.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">dubai </h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+           
+          
+          
             <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
                 <div class="room_details_content bg-white p-2 rounded-1 border-gray">
                     <div class="room_image">
@@ -151,6 +158,52 @@
                     </div>
                 </div>
             </div>
+
+            @if (Context.Session.GetString("CompanyId") == "264")
+            {
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/domestics/digha.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">digha</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/domestics/dharamsala.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">dharamsala</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-xs-6 gapping">
+                    <div class="room_details_content bg-white p-2 rounded-1 border-gray">
+                        <div class="room_image">
+                            <a href="javascript:void(0);">
+                                <img src="~/img/destinations/domestics/darjeeling.jpg" alt="" class="img-responsive w-100">
+                            </a>
+                        </div>
+                        <div class="explor_text text-center mt-1 mmt-2 ellips-1">
+                            <a href="javascript:void(0);">
+                                <h3 class="room_d_title destination-name">darjeeling</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
 
     </div>
